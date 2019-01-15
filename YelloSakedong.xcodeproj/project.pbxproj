@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		192973AA21EE2F8F0021B05E /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192973A921EE2F8F0021B05E /* Splash.storyboard */; };
+		192973AE21EE2FD20021B05E /* MainEmoticonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973AD21EE2FD20021B05E /* MainEmoticonView.swift */; };
+		192973B121EE300C0021B05E /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973B021EE300C0021B05E /* NSObject+.swift */; };
+		192973B321EE30170021B05E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973B221EE30170021B05E /* UIAlertController+.swift */; };
+		192973B521EE30200021B05E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973B421EE30200021B05E /* UIViewController+.swift */; };
+		192973B721EE30290021B05E /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973B621EE30290021B05E /* UIView+.swift */; };
+		192973B921EE33F10021B05E /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973B821EE33F10021B05E /* MainSearchViewController.swift */; };
+		192973C221EE38DE0021B05E /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192973C121EE38DE0021B05E /* Popup.storyboard */; };
+		192973C421EE38EC0021B05E /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973C321EE38EC0021B05E /* PopupViewController.swift */; };
+		192973CA21EE3A440021B05E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 192973C921EE3A440021B05E /* .swiftlint.yml */; };
+		193D655C21E32F5200FAB1DE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D655B21E32F5200FAB1DE /* SplashViewController.swift */; };
 		195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195B99A321E0E8A300367456 /* AppDelegate.swift */; };
 		195B99A921E0E8A300367456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 195B99A721E0E8A300367456 /* Main.storyboard */; };
 		195B99AB21E0E8A400367456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 195B99AA21E0E8A400367456 /* Assets.xcassets */; };
@@ -15,6 +26,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		192973A921EE2F8F0021B05E /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		192973AD21EE2FD20021B05E /* MainEmoticonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEmoticonView.swift; sourceTree = "<group>"; };
+		192973B021EE300C0021B05E /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
+		192973B221EE30170021B05E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
+		192973B421EE30200021B05E /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		192973B621EE30290021B05E /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		192973B821EE33F10021B05E /* MainSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
+		192973C121EE38DE0021B05E /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
+		192973C321EE38EC0021B05E /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		192973C921EE3A440021B05E /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		193D655B21E32F5200FAB1DE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		195B99A021E0E8A300367456 /* YelloSakedong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelloSakedong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		195B99A321E0E8A300367456 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		195B99A821E0E8A300367456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,9 +60,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		192973A721EE2F780021B05E /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				192973A921EE2F8F0021B05E /* Splash.storyboard */,
+				193D655B21E32F5200FAB1DE /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		192973A821EE2F810021B05E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				195B99A721E0E8A300367456 /* Main.storyboard */,
+				192973BA21EE33F50021B05E /* View */,
+				192973B821EE33F10021B05E /* MainSearchViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		192973AF21EE2FD60021B05E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				192973B021EE300C0021B05E /* NSObject+.swift */,
+				192973B221EE30170021B05E /* UIAlertController+.swift */,
+				192973B421EE30200021B05E /* UIViewController+.swift */,
+				192973B621EE30290021B05E /* UIView+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		192973BA21EE33F50021B05E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				192973AD21EE2FD20021B05E /* MainEmoticonView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		192973BC21EE386E0021B05E /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				192973C121EE38DE0021B05E /* Popup.storyboard */,
+				192973C321EE38EC0021B05E /* PopupViewController.swift */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		192973C521EE393E0021B05E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		192973C621EE39440021B05E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		195B999721E0E8A300367456 = {
 			isa = PBXGroup;
 			children = (
+				192973C921EE3A440021B05E /* .swiftlint.yml */,
 				195B99A221E0E8A300367456 /* YelloSakedong */,
 				195B99A121E0E8A300367456 /* Products */,
 				C20D6934ADC806EBE6D70F5E /* Pods */,
@@ -60,8 +144,13 @@
 			isa = PBXGroup;
 			children = (
 				195B99AC21E0E8A400367456 /* LaunchScreen.storyboard */,
-				195B99A721E0E8A300367456 /* Main.storyboard */,
+				192973C621EE39440021B05E /* Network */,
+				192973C521EE393E0021B05E /* Model */,
+				192973A721EE2F780021B05E /* Splash */,
+				192973A821EE2F810021B05E /* Main */,
+				192973BC21EE386E0021B05E /* Popup */,
 				195B99B521E0E96100367456 /* Supporting Files */,
+				192973AF21EE2FD60021B05E /* Extension */,
 			);
 			path = YelloSakedong;
 			sourceTree = "<group>";
@@ -105,6 +194,7 @@
 				195B999D21E0E8A300367456 /* Frameworks */,
 				195B999E21E0E8A300367456 /* Resources */,
 				195B99B621E0E97F00367456 /* ShellScript */,
+				2D07300F9672F8275030A458 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,9 +243,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192973CA21EE3A440021B05E /* .swiftlint.yml in Resources */,
 				195B99AE21E0E8A400367456 /* LaunchScreen.storyboard in Resources */,
 				195B99AB21E0E8A400367456 /* Assets.xcassets in Resources */,
 				195B99A921E0E8A300367456 /* Main.storyboard in Resources */,
+				192973AA21EE2F8F0021B05E /* Splash.storyboard in Resources */,
+				192973C221EE38DE0021B05E /* Popup.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +294,34 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		2D07300F9672F8275030A458 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -209,6 +330,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */,
+				192973B121EE300C0021B05E /* NSObject+.swift in Sources */,
+				192973B721EE30290021B05E /* UIView+.swift in Sources */,
+				192973B921EE33F10021B05E /* MainSearchViewController.swift in Sources */,
+				192973B521EE30200021B05E /* UIViewController+.swift in Sources */,
+				192973C421EE38EC0021B05E /* PopupViewController.swift in Sources */,
+				193D655C21E32F5200FAB1DE /* SplashViewController.swift in Sources */,
+				192973AE21EE2FD20021B05E /* MainEmoticonView.swift in Sources */,
+				192973B321EE30170021B05E /* UIAlertController+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

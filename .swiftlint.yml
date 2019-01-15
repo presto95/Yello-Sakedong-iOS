@@ -1,7 +1,9 @@
 disabled_rules:
 - leading_whitespace
 - trailing_whitespace
-- line_length
 
 excluded:
 - Pods/
+- YelloSakedong/Extension/
+- YelloSakedong/Supporting Files/
+

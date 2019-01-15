@@ -6,5 +6,9 @@ target 'YelloSakedong' do
   use_frameworks!
 
   # Pods for YelloSakedong
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'SnapKit'
+  pod 'ObjectMapper'
 
 end
