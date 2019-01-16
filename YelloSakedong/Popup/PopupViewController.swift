@@ -41,14 +41,12 @@ class PopupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hero.isEnabled = true
-        hero.modalAnimationType = .zoom
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         textView.becomeFirstResponder()
     }
     
@@ -65,6 +63,7 @@ class PopupViewController: UIViewController {
     }
     
     @objc private func touchUpCancelButton(_ sender: UIButton) {
+        textView.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
 }

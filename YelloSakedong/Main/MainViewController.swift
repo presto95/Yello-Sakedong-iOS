@@ -31,9 +31,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hero.isEnabled = true
-        navigationItem.rightBarButtonItem = addTasteButton
         navigationController?.hero.isEnabled = true
         navigationController?.hero.navigationAnimationType = .fade
+        navigationItem.rightBarButtonItem = addTasteButton
         let backButton = UIBarButtonItem()
         backButton.image = UIImage(named: "ic_back")
         navigationItem.backBarButtonItem = backButton
