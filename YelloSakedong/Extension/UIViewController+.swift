@@ -19,4 +19,8 @@ public extension UIViewController {
         modalTransitionStyle = style
         viewController.present(self, animated: animated, completion: completion)
     }
+    
+    func push(at navigationController: UINavigationController?, animated: Bool = true) {
+        navigationController?.pushViewController(self, animated: animated)
+    }
 }

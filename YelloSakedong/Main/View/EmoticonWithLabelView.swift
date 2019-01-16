@@ -52,6 +52,13 @@ class EmoticonWithLabelView: UIView {
         setup()
     }
     
+    convenience init(frame: CGRect, emoticonImage: UIImage?, name: String?, color: UIColor?) {
+        self.init(frame: frame)
+        self.emoticonImage = emoticonImage
+        self.name = name
+        self.color = color
+    }
+    
     private func setup() {
         emoticonImageView = .init(frame: .zero)
         nameLabel = .init(frame: .zero)

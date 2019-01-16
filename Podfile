@@ -10,5 +10,6 @@ target 'YelloSakedong' do
   pod 'SwiftyJSON'
   pod 'SnapKit'
   pod 'ObjectMapper'
+  pod 'Hero'
 
 end

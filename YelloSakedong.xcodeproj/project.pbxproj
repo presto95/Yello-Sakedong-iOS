@@ -27,6 +27,7 @@
 		192973E021EECADE0021B05E /* ResultInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 192973DE21EECADE0021B05E /* ResultInfoCell.xib */; };
 		192973E321EECBA90021B05E /* ResultTranslationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973E121EECBA90021B05E /* ResultTranslationCell.swift */; };
 		192973E421EECBA90021B05E /* ResultTranslationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 192973E221EECBA90021B05E /* ResultTranslationCell.xib */; };
+		192973E621EEEA8F0021B05E /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973E521EEEA8F0021B05E /* CGFloat+.swift */; };
 		193D655C21E32F5200FAB1DE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D655B21E32F5200FAB1DE /* SplashViewController.swift */; };
 		195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195B99A321E0E8A300367456 /* AppDelegate.swift */; };
 		195B99A921E0E8A300367456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 195B99A721E0E8A300367456 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		192973DE21EECADE0021B05E /* ResultInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultInfoCell.xib; sourceTree = "<group>"; };
 		192973E121EECBA90021B05E /* ResultTranslationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTranslationCell.swift; sourceTree = "<group>"; };
 		192973E221EECBA90021B05E /* ResultTranslationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTranslationCell.xib; sourceTree = "<group>"; };
+		192973E521EEEA8F0021B05E /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
 		193D655B21E32F5200FAB1DE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		195B99A021E0E8A300367456 /* YelloSakedong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelloSakedong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		195B99A321E0E8A300367456 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				192973B621EE30290021B05E /* UIView+.swift */,
 				192973CB21EEC6870021B05E /* CALayer+.swift */,
 				192973CD21EEC8BF0021B05E /* UIColor+.swift */,
+				192973E521EEEA8F0021B05E /* CGFloat+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -371,6 +375,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -391,6 +396,7 @@
 				192973E321EECBA90021B05E /* ResultTranslationCell.swift in Sources */,
 				195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */,
 				192973B121EE300C0021B05E /* NSObject+.swift in Sources */,
+				192973E621EEEA8F0021B05E /* CGFloat+.swift in Sources */,
 				192973B721EE30290021B05E /* UIView+.swift in Sources */,
 				192973CC21EEC6870021B05E /* CALayer+.swift in Sources */,
 				192973CE21EEC8BF0021B05E /* UIColor+.swift in Sources */,
