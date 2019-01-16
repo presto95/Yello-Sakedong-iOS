@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Hero
 
 class MainViewController: UIViewController {
     
@@ -32,9 +31,12 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hero.isEnabled = true
-        navigationItem.setRightBarButton(addTasteButton, animated: false)
+        navigationItem.rightBarButtonItem = addTasteButton
         navigationController?.hero.isEnabled = true
         navigationController?.hero.navigationAnimationType = .fade
+        let backButton = UIBarButtonItem()
+        backButton.image = UIImage(named: "ic_back")
+        navigationItem.backBarButtonItem = backButton
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,7 +79,7 @@ private extension MainViewController {
         let shadowLayer = CAShapeLayer()
         shadowLayer.path = path.cgPath
         shadowLayer.fillColor = UIColor.white.cgColor
-        shadowLayer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: -4, blur: 16, spread: 0)
+        shadowLayer.applySketchShadow(color: .black, alpha: 0.1, x: 0, y: 16, blur: 32, spread: 0)
         upperShadowView.layer.addSublayer(shadowLayer)
     }
 }

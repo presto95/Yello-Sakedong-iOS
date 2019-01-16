@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Hero
 
 class ResultViewController: UIViewController {
 
@@ -25,6 +24,10 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hero.isEnabled = true
+        navigationItem.rightBarButtonItem = addTasteButton
+        let backButton = UIBarButtonItem()
+        backButton.image = UIImage(named: "ic_back")
+        navigationItem.backBarButtonItem = backButton
     }
 }
 
@@ -69,4 +72,20 @@ extension ResultViewController: UITableViewDataSource {
 
 extension ResultViewController: UITableViewDelegate {
 
+}
+
+extension ResultViewController: AddTasteButtonEnable {
+    var tasteButtonTarget: AddTasteButtonEnable {
+        return self
+    }
+    
+    var tasteButtonAction: Selector {
+        return #selector(touchUpTasteButton(_:))
+    }
+    
+    @objc func touchUpTasteButton(_ sender: UIBarButtonItem) {
+        UIViewController
+            .create(fromStoryboard: "Popup", identifier: "PopupViewController")
+            .present(to: self, transitionStyle: .crossDissolve, animated: true, completion: nil)
+    }
 }

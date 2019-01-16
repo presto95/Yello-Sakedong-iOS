@@ -7,12 +7,15 @@
 //
 
 import UIKit
-import Hero
 import DZNEmptyDataSet
 
 class SearchViewController: UIViewController {
     
     private var keyboardFrame: CGRect!
+    
+    private var keyboardDuration: Double!
+    
+    private var keyboardAnimation: UIView.AnimationOptions!
     
     private var emoticonButton: UIButton! {
         didSet {
@@ -54,9 +57,13 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hero.isEnabled = true
-        navigationItem.setRightBarButton(addTasteButton, animated: false)
+        navigationItem.rightBarButtonItem = addTasteButton
         emoticonButton = UIButton(type: .system)
+        let backButton = UIBarButtonItem()
+        backButton.image = UIImage(named: "ic_back")
+        navigationItem.backBarButtonItem = backButton
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,9 +74,13 @@ class SearchViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         searchTextField.resignFirstResponder()
-        tableViewBottomConstraint.constant -= keyboardFrame.height
+        UIView.animate(withDuration: keyboardDuration, delay: 0, options: keyboardAnimation, animations: { [weak self] in
+            guard let `self` = self else { return }
+            self.tableViewBottomConstraint.constant -= self.keyboardFrame.height
+        }, completion: nil)
+        view.layoutIfNeeded()
     }
-    
+
     @objc private func touchUpEmoticonButton(_ sender: UIButton) {
         UIViewController
             .create(fromStoryboard: "Result", identifier: "ResultViewController")
@@ -83,9 +94,19 @@ class SearchViewController: UIViewController {
         let duration = durationInfo.doubleValue
         let curve = UIView.AnimationOptions(rawValue: UInt(truncating: curveInfo))
         self.keyboardFrame = keyboardFrame
+        self.keyboardDuration = duration
+        self.keyboardAnimation = curve
         UIView.animate(withDuration: duration, delay: 0, options: curve, animations: {
             self.tableViewBottomConstraint.constant += keyboardFrame.height
         }, completion: nil)
+        view.layoutIfNeeded()
+    }
+    
+    @objc private func keyboardWillHide(_ notificaton: Notification) {
+        UIView.animate(withDuration: keyboardDuration, delay: 0, options: keyboardAnimation, animations: { [weak self] in
+            guard let `self` = self else { return }
+            self.tableViewBottomConstraint.constant -= self.keyboardFrame.height
+            }, completion: nil)
         view.layoutIfNeeded()
     }
     
@@ -120,6 +141,10 @@ extension SearchViewController: UITextFieldDelegate {
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+
     }
 }
 
