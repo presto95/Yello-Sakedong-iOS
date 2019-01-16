@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Hero
 
 class ResultViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
+            tableView.hero.modifiers = [.cascade]
             tableView.register(UINib(nibName: "ResultInfoCell", bundle: nil), forCellReuseIdentifier: "infoCell")
             tableView.register(UINib(nibName: "TranslationCell", bundle: nil), forCellReuseIdentifier: "translationCell")
             tableView.rowHeight = UITableView.automaticDimension
@@ -22,7 +24,7 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        hero.isEnabled = true
     }
 }
 
@@ -31,6 +33,7 @@ extension ResultViewController: UITableViewDataSource {
         let section = indexPath.section
         if section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath)
+            cell.hero.modifiers = [.fade]
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "translationCell", for: indexPath)
@@ -39,6 +42,7 @@ extension ResultViewController: UITableViewDataSource {
             } else if section == 2 {
                 cell.backgroundColor = UIColor(red: 248, green: 249, blue: 251)
             }
+            cell.hero.modifiers = [.fade, .scale(0.5)]
             return cell
         }
     }

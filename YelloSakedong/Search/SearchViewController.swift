@@ -12,19 +12,18 @@ import DZNEmptyDataSet
 
 class SearchViewController: UIViewController {
     
-    var numberOfRows: Int = 0 {
-        didSet {
-            if numberOfRows == 0 {
-                dismissEmoticon()
-            } else {
-                revealEmoticonToKeyboard()
-            }
-        }
-    }
-    
     private var keyboardFrame: CGRect!
     
-    private lazy var emoticonButton = UIButton(type: .system)
+    private var emoticonButton: UIButton! {
+        didSet {
+            emoticonButton.alpha = 0
+            emoticonButton.setImage(UIImage(named: "sample"), for: [])
+            emoticonButton.imageView?.contentMode = .scaleAspectFit
+            emoticonButton.sizeToFit()
+            emoticonButton.hero.id = "emoticonButton"
+            emoticonButton.addTarget(self, action: #selector(touchUpEmoticonButton(_:)), for: .touchUpInside)
+        }
+    }
     
     @IBOutlet private weak var upperView: UIView! {
         didSet {
@@ -56,9 +55,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         hero.isEnabled = true
         navigationItem.setRightBarButton(addTasteButton, animated: false)
-        emoticonButton.alpha = 0
-        emoticonButton.imageView?.contentMode = .scaleAspectFit
-        emoticonButton.setImage(UIImage(named: "sample"), for: [])
+        emoticonButton = UIButton(type: .system)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
@@ -70,6 +67,7 @@ class SearchViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         searchTextField.resignFirstResponder()
+        tableViewBottomConstraint.constant -= keyboardFrame.height
     }
     
     @objc private func touchUpEmoticonButton(_ sender: UIButton) {
@@ -94,6 +92,7 @@ class SearchViewController: UIViewController {
     private func revealEmoticonToKeyboard() {
         let centerPoint = CGPoint(x: view.bounds.width / 2, y: keyboardFrame.origin.y)
         emoticonButton.center = .init(x: centerPoint.x, y: centerPoint.y - 20)
+        print(emoticonButton.frame)
         view.addSubview(emoticonButton)
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
             self.emoticonButton.alpha = 1
@@ -115,16 +114,11 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let currentText = textField.text ?? ""
-        let replacementText = string
-        numberOfRows = 3
-        tableView.reloadData()
+        revealEmoticonToKeyboard()
         return true
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        numberOfRows = 0
-        tableView.reloadData()
         return true
     }
 }
@@ -137,7 +131,7 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfRows
+        return 0
     }
 }
 

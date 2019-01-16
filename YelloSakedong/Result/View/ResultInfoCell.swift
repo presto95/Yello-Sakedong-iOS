@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import Hero
 
 class ResultInfoCell: UITableViewCell {
 
-    @IBOutlet private weak var emoticonImageView: UIImageView!
+    @IBOutlet private weak var emoticonImageView: UIImageView! {
+        didSet {
+            emoticonImageView.hero.id = "emoticonButton"
+        }
+    }
     
     @IBOutlet private weak var percentLabel: UILabel!
     
@@ -22,5 +27,6 @@ class ResultInfoCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        hero.isEnabled = true
     }
 }

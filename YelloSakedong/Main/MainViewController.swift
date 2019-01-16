@@ -11,7 +11,12 @@ import Hero
 
 class MainViewController: UIViewController {
     
-    @IBOutlet private weak var upperShadowView: UIView!
+    @IBOutlet private weak var upperShadowView: UIView! {
+        didSet {
+            upperShadowView.hero.id = "upperView"
+            upperShadowView.hero.modifiers = [.arc]
+        }
+    }
     
     @IBOutlet private weak var upperView: UIView! {
         didSet {
