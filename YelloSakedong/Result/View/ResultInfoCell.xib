@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="246.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oVm-AF-6yS">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="oVm-AF-6yS">
                         <rect key="frame" x="24" y="26" width="64" height="64"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="64" id="Rgi-tv-hsw"/>
@@ -79,4 +79,7 @@
             <point key="canvasLocation" x="136" y="204.64767616191907"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="sample" width="114" height="114"/>
+    </resources>
 </document>

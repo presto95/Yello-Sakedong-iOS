@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190DA1F021EF056A00B8CF97 /* AddTasteButtonEnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190DA1EF21EF056A00B8CF97 /* AddTasteButtonEnable.swift */; };
 		192973AA21EE2F8F0021B05E /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192973A921EE2F8F0021B05E /* Splash.storyboard */; };
 		192973AE21EE2FD20021B05E /* EmoticonWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973AD21EE2FD20021B05E /* EmoticonWithLabelView.swift */; };
 		192973B121EE300C0021B05E /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973B021EE300C0021B05E /* NSObject+.swift */; };
@@ -25,8 +26,8 @@
 		192973DA21EECA3F0021B05E /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192973D921EECA3F0021B05E /* Result.storyboard */; };
 		192973DF21EECADE0021B05E /* ResultInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973DD21EECADE0021B05E /* ResultInfoCell.swift */; };
 		192973E021EECADE0021B05E /* ResultInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 192973DE21EECADE0021B05E /* ResultInfoCell.xib */; };
-		192973E321EECBA90021B05E /* ResultTranslationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973E121EECBA90021B05E /* ResultTranslationCell.swift */; };
-		192973E421EECBA90021B05E /* ResultTranslationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 192973E221EECBA90021B05E /* ResultTranslationCell.xib */; };
+		192973E321EECBA90021B05E /* TranslationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973E121EECBA90021B05E /* TranslationCell.swift */; };
+		192973E421EECBA90021B05E /* TranslationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 192973E221EECBA90021B05E /* TranslationCell.xib */; };
 		192973E621EEEA8F0021B05E /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973E521EEEA8F0021B05E /* CGFloat+.swift */; };
 		193D655C21E32F5200FAB1DE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D655B21E32F5200FAB1DE /* SplashViewController.swift */; };
 		195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195B99A321E0E8A300367456 /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190DA1EF21EF056A00B8CF97 /* AddTasteButtonEnable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTasteButtonEnable.swift; sourceTree = "<group>"; };
 		192973A921EE2F8F0021B05E /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		192973AD21EE2FD20021B05E /* EmoticonWithLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonWithLabelView.swift; sourceTree = "<group>"; };
 		192973B021EE300C0021B05E /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
@@ -55,8 +57,8 @@
 		192973D921EECA3F0021B05E /* Result.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
 		192973DD21EECADE0021B05E /* ResultInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultInfoCell.swift; sourceTree = "<group>"; };
 		192973DE21EECADE0021B05E /* ResultInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultInfoCell.xib; sourceTree = "<group>"; };
-		192973E121EECBA90021B05E /* ResultTranslationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTranslationCell.swift; sourceTree = "<group>"; };
-		192973E221EECBA90021B05E /* ResultTranslationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTranslationCell.xib; sourceTree = "<group>"; };
+		192973E121EECBA90021B05E /* TranslationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationCell.swift; sourceTree = "<group>"; };
+		192973E221EECBA90021B05E /* TranslationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranslationCell.xib; sourceTree = "<group>"; };
 		192973E521EEEA8F0021B05E /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
 		193D655B21E32F5200FAB1DE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		195B99A021E0E8A300367456 /* YelloSakedong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelloSakedong.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +84,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190DA1F121EF163E00B8CF97 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				190DA1EF21EF056A00B8CF97 /* AddTasteButtonEnable.swift */,
+				192973E221EECBA90021B05E /* TranslationCell.xib */,
+				192973E121EECBA90021B05E /* TranslationCell.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		192973A721EE2F780021B05E /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,8 +182,6 @@
 			children = (
 				192973DE21EECADE0021B05E /* ResultInfoCell.xib */,
 				192973DD21EECADE0021B05E /* ResultInfoCell.swift */,
-				192973E221EECBA90021B05E /* ResultTranslationCell.xib */,
-				192973E121EECBA90021B05E /* ResultTranslationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,6 +211,7 @@
 				195B99AC21E0E8A400367456 /* LaunchScreen.storyboard */,
 				192973C621EE39440021B05E /* Network */,
 				192973C521EE393E0021B05E /* Model */,
+				190DA1F121EF163E00B8CF97 /* Common */,
 				192973A721EE2F780021B05E /* Splash */,
 				192973A821EE2F810021B05E /* Main */,
 				192973D521EECA120021B05E /* Search */,
@@ -306,7 +317,7 @@
 				195B99AB21E0E8A400367456 /* Assets.xcassets in Resources */,
 				195B99A921E0E8A300367456 /* Main.storyboard in Resources */,
 				192973D821EECA300021B05E /* Search.storyboard in Resources */,
-				192973E421EECBA90021B05E /* ResultTranslationCell.xib in Resources */,
+				192973E421EECBA90021B05E /* TranslationCell.xib in Resources */,
 				192973AA21EE2F8F0021B05E /* Splash.storyboard in Resources */,
 				192973C221EE38DE0021B05E /* Popup.storyboard in Resources */,
 				192973DA21EECA3F0021B05E /* Result.storyboard in Resources */,
@@ -365,6 +376,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -375,6 +387,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -393,7 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				192973D421EEC9E70021B05E /* ResultViewController.swift in Sources */,
-				192973E321EECBA90021B05E /* ResultTranslationCell.swift in Sources */,
+				192973E321EECBA90021B05E /* TranslationCell.swift in Sources */,
 				195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */,
 				192973B121EE300C0021B05E /* NSObject+.swift in Sources */,
 				192973E621EEEA8F0021B05E /* CGFloat+.swift in Sources */,
@@ -404,6 +417,7 @@
 				192973D221EEC9DA0021B05E /* SearchViewController.swift in Sources */,
 				192973B521EE30200021B05E /* UIViewController+.swift in Sources */,
 				192973C421EE38EC0021B05E /* PopupViewController.swift in Sources */,
+				190DA1F021EF056A00B8CF97 /* AddTasteButtonEnable.swift in Sources */,
 				192973DF21EECADE0021B05E /* ResultInfoCell.swift in Sources */,
 				193D655C21E32F5200FAB1DE /* SplashViewController.swift in Sources */,
 				192973AE21EE2FD20021B05E /* EmoticonWithLabelView.swift in Sources */,

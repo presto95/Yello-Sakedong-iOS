@@ -10,11 +10,12 @@ import UIKit
 import Hero
 
 class MainViewController: UIViewController {
-
+    
+    @IBOutlet private weak var upperShadowView: UIView!
+    
     @IBOutlet private weak var upperView: UIView! {
         didSet {
             upperView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchUpUpperView(_:))))
-            upperView.layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 4, blur: 32, spread: 0)
             upperView.hero.id = "upperView"
             upperView.hero.modifiers = [.arc]
             addArc()
@@ -22,32 +23,42 @@ class MainViewController: UIViewController {
     }
     
     @IBOutlet private weak var lowerView: UIView!
-
-    @IBOutlet private weak var addTasteButton: UIButton! {
-        didSet {
-            addTasteButton.addTarget(self, action: #selector(touchUpAddTasteButton(_:)), for: .touchUpInside)
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hero.isEnabled = true
-        hero.modalAnimationType = .none
+        navigationItem.setRightBarButton(addTasteButton, animated: false)
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .fade
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        addArc()
+        if isBeingPresented || isMovingToParent {
+            addArc()
+        }
     }
     
     @objc private func touchUpUpperView(_ recognizer: UITapGestureRecognizer) {
         UIViewController
             .create(fromStoryboard: "Search", identifier: "SearchViewController")
-            .present(to: self, transitionStyle: .crossDissolve, animated: true, completion: nil)
+            .push(at: navigationController)
+    }
+}
+
+extension MainViewController: AddTasteButtonEnable {
+    var tasteButtonTarget: AddTasteButtonEnable {
+        return self
     }
     
-    @objc private func touchUpAddTasteButton(_ sender: UIButton) {
-        
+    var tasteButtonAction: Selector {
+        return #selector(touchUpTasteButton(_:))
+    }
+
+    @objc func touchUpTasteButton(_ sender: UIBarButtonItem) {
+        UIViewController
+            .create(fromStoryboard: "Popup", identifier: "PopupViewController")
+            .present(to: self, transitionStyle: .crossDissolve, animated: true, completion: nil)
     }
 }
 
@@ -56,6 +67,12 @@ private extension MainViewController {
         let path = UIBezierPath(arcCenter: .init(x: upperView.bounds.width / 2, y: 0), radius: upperView.bounds.height, startAngle: 0, endAngle: .pi, clockwise: true)
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
+        shapeLayer.fillColor = UIColor.white.cgColor
         upperView.layer.mask = shapeLayer
+        let shadowLayer = CAShapeLayer()
+        shadowLayer.path = path.cgPath
+        shadowLayer.fillColor = UIColor.white.cgColor
+        shadowLayer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: -4, blur: 16, spread: 0)
+        upperShadowView.layer.addSublayer(shadowLayer)
     }
 }

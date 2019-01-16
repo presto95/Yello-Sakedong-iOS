@@ -13,7 +13,7 @@ class ResultViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(UINib(nibName: "ResultInfoCell", bundle: nil), forCellReuseIdentifier: "infoCell")
-            tableView.register(UINib(nibName: "ResultTranslationCell", bundle: nil), forCellReuseIdentifier: "translationCell")
+            tableView.register(UINib(nibName: "TranslationCell", bundle: nil), forCellReuseIdentifier: "translationCell")
             tableView.rowHeight = UITableView.automaticDimension
             tableView.delegate = self
             tableView.dataSource = self

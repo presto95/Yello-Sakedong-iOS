@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResultTranslationCell: UITableViewCell {
+class TranslationCell: UITableViewCell {
 
     @IBOutlet private weak var colorLabel: UILabel! {
         didSet {
