@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Yx-ew-4je">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,20 +10,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Search View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="z9l-IB-hXf">
             <objects>
-                <viewController storyboardIdentifier="MainSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6HK-PD-hO1" customClass="MainSearchViewController" customModule="YelloSakedong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6HK-PD-hO1" customClass="MainViewController" customModule="YelloSakedong" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZAF-Kr-a8E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="L4R-Yw-J4H"/>
                     </view>
+                    <navigationItem key="navigationItem" id="qmS-0A-g4A">
+                        <barButtonItem key="rightBarButtonItem" title="맛추가" id="LLa-s5-ruS"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EB-pK-b2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-129" y="31"/>
+            <point key="canvasLocation" x="808.79999999999995" y="30.134932533733135"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Uez-5J-JAh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Yx-ew-4je" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aYZ-rl-F4Y">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6HK-PD-hO1" kind="relationship" relationship="rootViewController" id="7SX-60-3jp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hzO-Bj-gAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-130.40000000000001" y="30.134932533733135"/>
         </scene>
     </scenes>
 </document>

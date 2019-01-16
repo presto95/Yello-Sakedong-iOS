@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class MainEmoticonView: UIView {
+class EmoticonWithLabelView: UIView {
 
     private var emoticonImageView: UIImageView!
     
