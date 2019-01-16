@@ -27,7 +27,7 @@
                                             <constraint firstAttribute="height" constant="24" id="ZtG-1d-iwU"/>
                                             <constraint firstAttribute="width" constant="24" id="pmW-fR-gaU"/>
                                         </constraints>
-                                        <state key="normal" image="iconXBk"/>
+                                        <state key="normal" image="ic_x"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qns-u6-9J1">
                                         <rect key="frame" x="0.0" y="215" width="299" height="30"/>
@@ -76,6 +76,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iconXBk" width="16" height="14"/>
+        <image name="ic_x" width="16" height="14"/>
     </resources>
 </document>
