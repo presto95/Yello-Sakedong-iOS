@@ -14,7 +14,7 @@ extension UIColor {
     }
     
     convenience init(rgb: CGFloat) {
-        self.init(red: rgb / 255, green: rgb / 255, blue: rgb / 255)
+        self.init(red: rgb, green: rgb, blue: rgb)
     }
     
     static let rgb215 = UIColor(rgb: 215)

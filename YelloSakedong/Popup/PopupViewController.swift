@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import FSPagerView
 
 class PopupViewController: UIViewController {
 
     @IBOutlet private weak var backgroundView: UIView! {
         didSet {
             backgroundView.layer.applySketchShadow(color: .rgb215, alpha: 0.5, x: 4, y: 3, blur: 12, spread: 0)
+            backgroundView.clipsToBounds = true
+            backgroundView.layer.cornerRadius = 6
         }
     }
     
@@ -22,12 +25,46 @@ class PopupViewController: UIViewController {
         }
     }
     
+    @IBOutlet private weak var cancelButton: UIButton! {
+        didSet {
+            cancelButton.addTarget(self, action: #selector(touchUpCancelButton(_:)), for: .touchUpInside)
+        }
+    }
+    
+    @IBOutlet private weak var textView: UITextView!
+    
+    @IBOutlet private weak var pagerView: FSPagerView!
+    
+    @IBOutlet private weak var pageControl: FSPageControl!
+    
+    @IBOutlet private weak var backgroundViewCenterYConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        hero.isEnabled = true
+        hero.modalAnimationType = .zoom
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        textView.becomeFirstResponder()
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        
     }
     
     @objc private func touchUpRegisterButton(_ sender: UIButton) {
         
+    }
+    
+    @objc private func touchUpCancelButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 }
