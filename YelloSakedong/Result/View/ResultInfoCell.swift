@@ -8,6 +8,7 @@
 
 import UIKit
 import Hero
+import EFCountingLabel
 
 class ResultInfoCell: UITableViewCell {
 
@@ -17,7 +18,12 @@ class ResultInfoCell: UITableViewCell {
         }
     }
     
-    @IBOutlet private weak var percentLabel: UILabel!
+    @IBOutlet private weak var percentLabel: EFCountingLabel! {
+        didSet {
+            percentLabel.format = "%d%%"
+            percentLabel.countFromZeroTo(65, withDuration: 0.7)
+        }
+    }
     
     @IBOutlet private weak var koreanLabel: UILabel!
     

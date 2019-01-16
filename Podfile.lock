@@ -1,6 +1,8 @@
 PODS:
   - Alamofire (4.8.0)
   - DZNEmptyDataSet (1.8.1)
+  - EFCountingLabel (4.1.0)
+  - FSPagerView (0.8.2)
   - Hero (1.4.0)
   - ObjectMapper (3.4.2)
   - SnapKit (4.2.0)
@@ -9,6 +11,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - DZNEmptyDataSet
+  - EFCountingLabel
+  - FSPagerView
   - Hero
   - ObjectMapper
   - SnapKit
@@ -18,6 +22,8 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - DZNEmptyDataSet
+    - EFCountingLabel
+    - FSPagerView
     - Hero
     - ObjectMapper
     - SnapKit
@@ -26,11 +32,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  EFCountingLabel: d3da80ee35b212f3b434ed9a3431653504b9f982
+  FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 0d27e6dd298a3dc24364364a95cbe06d22879dbf
+PODFILE CHECKSUM: 25f39a3a8c01265d893b551cf110a610f67693fb
 
 COCOAPODS: 1.6.0.beta.2

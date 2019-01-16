@@ -26,8 +26,8 @@
                             <constraint firstAttribute="width" constant="64" id="dn5-No-awu"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="65%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mS-0s-mlm">
-                        <rect key="frame" x="104" y="51.5" width="70" height="38.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mS-0s-mlm" customClass="EFCountingLabel" customModule="EFCountingLabel">
+                        <rect key="frame" x="104" y="51" width="50" height="39"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                         <color key="textColor" red="1" green="0.79607843137254897" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
