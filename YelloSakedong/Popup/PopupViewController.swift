@@ -50,6 +50,10 @@ class PopupViewController: UIViewController {
         textView.becomeFirstResponder()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc private func keyboardWillShow(_ notification: Notification) {
         
     }

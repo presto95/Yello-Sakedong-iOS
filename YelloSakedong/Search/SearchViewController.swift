@@ -9,13 +9,18 @@
 import UIKit
 import DZNEmptyDataSet
 
+struct KeyboardInfo {
+    
+    let frame: CGRect
+    
+    let duration: Double
+    
+    let animation: UIView.AnimationOptions
+}
+
 class SearchViewController: UIViewController {
     
-    private var keyboardFrame: CGRect!
-    
-    private var keyboardDuration: Double!
-    
-    private var keyboardAnimation: UIView.AnimationOptions!
+    private var keyboardInfo: KeyboardInfo!
     
     private var emoticonButton: UIButton! {
         didSet {
@@ -23,6 +28,8 @@ class SearchViewController: UIViewController {
             emoticonButton.setImage(UIImage(named: "sample"), for: [])
             emoticonButton.imageView?.contentMode = .scaleAspectFit
             emoticonButton.sizeToFit()
+            let size = emoticonButton.bounds.size
+            emoticonButton.bounds.size = .init(width: size.width - 20, height: size.height - 20)
             emoticonButton.hero.id = "emoticonButton"
             emoticonButton.addTarget(self, action: #selector(touchUpEmoticonButton(_:)), for: .touchUpInside)
         }
@@ -74,11 +81,6 @@ class SearchViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         searchTextField.resignFirstResponder()
-        UIView.animate(withDuration: keyboardDuration, delay: 0, options: keyboardAnimation, animations: { [weak self] in
-            guard let `self` = self else { return }
-            self.tableViewBottomConstraint.constant -= self.keyboardFrame.height
-        }, completion: nil)
-        view.layoutIfNeeded()
     }
 
     @objc private func touchUpEmoticonButton(_ sender: UIButton) {
@@ -88,32 +90,42 @@ class SearchViewController: UIViewController {
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
-        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
-        guard let durationInfo = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else { return }
-        guard let curveInfo = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber else { return }
+        setKeyboardInfo(notification)
+        adjustTableViewBottomConstraintIfKeyboardWillShow()
+    }
+    
+    @objc private func keyboardWillHide(_ notificaton: Notification) {
+        adjustTableViewBottomConstraintIfKeyboardWillHide()
+    }
+    
+    private func setKeyboardInfo(_ notification: Notification) {
+        let userInfo = notification.userInfo
+        guard let frameInfo = userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+        guard let durationInfo = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else { return }
+        guard let animationInfo = userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber else { return }
         let duration = durationInfo.doubleValue
-        let curve = UIView.AnimationOptions(rawValue: UInt(truncating: curveInfo))
-        self.keyboardFrame = keyboardFrame
-        self.keyboardDuration = duration
-        self.keyboardAnimation = curve
-        UIView.animate(withDuration: duration, delay: 0, options: curve, animations: {
-            self.tableViewBottomConstraint.constant += keyboardFrame.height
+        let animation = UIView.AnimationOptions(rawValue: UInt(truncating: animationInfo))
+        keyboardInfo = KeyboardInfo(frame: frameInfo, duration: duration, animation: animation)
+    }
+    
+    private func adjustTableViewBottomConstraintIfKeyboardWillShow() {
+        UIView.animate(withDuration: keyboardInfo.duration, delay: 0, options: keyboardInfo.animation, animations: {
+            self.tableViewBottomConstraint.constant += self.keyboardInfo.frame.height
         }, completion: nil)
         view.layoutIfNeeded()
     }
     
-    @objc private func keyboardWillHide(_ notificaton: Notification) {
-        UIView.animate(withDuration: keyboardDuration, delay: 0, options: keyboardAnimation, animations: { [weak self] in
+    private func adjustTableViewBottomConstraintIfKeyboardWillHide() {
+        UIView.animate(withDuration: keyboardInfo.duration, delay: 0, options: keyboardInfo.animation, animations: { [weak self] in
             guard let `self` = self else { return }
-            self.tableViewBottomConstraint.constant -= self.keyboardFrame.height
+            self.tableViewBottomConstraint.constant -= self.keyboardInfo.frame.height
             }, completion: nil)
         view.layoutIfNeeded()
     }
     
-    private func revealEmoticonToKeyboard() {
-        let centerPoint = CGPoint(x: view.bounds.width / 2, y: keyboardFrame.origin.y)
+    private func revealEmoticonBehindKeyboard() {
+        let centerPoint = CGPoint(x: view.bounds.width / 2, y: keyboardInfo.frame.origin.y)
         emoticonButton.center = .init(x: centerPoint.x, y: centerPoint.y - 20)
-        print(emoticonButton.frame)
         view.addSubview(emoticonButton)
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
             self.emoticonButton.alpha = 1
@@ -135,7 +147,7 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        revealEmoticonToKeyboard()
+        revealEmoticonBehindKeyboard()
         return true
     }
     
