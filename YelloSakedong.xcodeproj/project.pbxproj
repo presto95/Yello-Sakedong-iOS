@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		190DA1F021EF056A00B8CF97 /* AddTasteButtonEnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190DA1EF21EF056A00B8CF97 /* AddTasteButtonEnable.swift */; };
+		191C1EF621F23D9400F31ED8 /* PopupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF521F23D9400F31ED8 /* PopupCell.swift */; };
+		191C1EFA21F23E6700F31ED8 /* PopupSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF921F23E6700F31ED8 /* PopupSelectView.swift */; };
 		192973AA21EE2F8F0021B05E /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192973A921EE2F8F0021B05E /* Splash.storyboard */; };
 		192973AE21EE2FD20021B05E /* EmoticonWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973AD21EE2FD20021B05E /* EmoticonWithLabelView.swift */; };
 		192973B121EE300C0021B05E /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973B021EE300C0021B05E /* NSObject+.swift */; };
@@ -38,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		190DA1EF21EF056A00B8CF97 /* AddTasteButtonEnable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTasteButtonEnable.swift; sourceTree = "<group>"; };
+		191C1EF521F23D9400F31ED8 /* PopupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupCell.swift; sourceTree = "<group>"; };
+		191C1EF921F23E6700F31ED8 /* PopupSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupSelectView.swift; sourceTree = "<group>"; };
 		192973A921EE2F8F0021B05E /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		192973AD21EE2FD20021B05E /* EmoticonWithLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonWithLabelView.swift; sourceTree = "<group>"; };
 		192973B021EE300C0021B05E /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
@@ -92,6 +96,15 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		191C1EF421F23D7600F31ED8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				191C1EF921F23E6700F31ED8 /* PopupSelectView.swift */,
+				191C1EF521F23D9400F31ED8 /* PopupCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		192973A721EE2F780021B05E /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				192973C121EE38DE0021B05E /* Popup.storyboard */,
+				191C1EF421F23D7600F31ED8 /* View */,
 				192973C321EE38EC0021B05E /* PopupViewController.swift */,
 			);
 			path = Popup;
@@ -411,6 +425,7 @@
 				195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */,
 				192973B121EE300C0021B05E /* NSObject+.swift in Sources */,
 				192973B721EE30290021B05E /* UIView+.swift in Sources */,
+				191C1EFA21F23E6700F31ED8 /* PopupSelectView.swift in Sources */,
 				192973CC21EEC6870021B05E /* CALayer+.swift in Sources */,
 				192973CE21EEC8BF0021B05E /* UIColor+.swift in Sources */,
 				192973B921EE33F10021B05E /* MainViewController.swift in Sources */,
@@ -419,6 +434,7 @@
 				192973C421EE38EC0021B05E /* PopupViewController.swift in Sources */,
 				190DA1F021EF056A00B8CF97 /* AddTasteButtonEnable.swift in Sources */,
 				192973DF21EECADE0021B05E /* ResultInfoCell.swift in Sources */,
+				191C1EF621F23D9400F31ED8 /* PopupCell.swift in Sources */,
 				193D655C21E32F5200FAB1DE /* SplashViewController.swift in Sources */,
 				192973AE21EE2FD20021B05E /* EmoticonWithLabelView.swift in Sources */,
 				192973B321EE30170021B05E /* UIAlertController+.swift in Sources */,

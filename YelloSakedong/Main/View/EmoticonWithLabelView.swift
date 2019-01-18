@@ -65,16 +65,18 @@ class EmoticonWithLabelView: UIView {
         addSubview(emoticonImageView)
         addSubview(nameLabel)
         emoticonImageView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview()
-            $0.height.equalTo(emoticonImageView.snp.width)
+            $0.edges.equalToSuperview()
+            //$0.top.equalToSuperview()
+            //$0.leading.equalToSuperview()
+            //$0.trailing.equalToSuperview()
+            //$0.height.equalTo(emoticonImageView.snp.width)
         }
         nameLabel.snp.makeConstraints {
-            $0.top.equalTo(emoticonImageView.snp.bottom)
+            //$0.top.equalTo(emoticonImageView.snp.bottom)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
+            $0.height.equalToSuperview().multipliedBy(0.3)
         }
         emoticonImageView.clipsToBounds = true
         emoticonImageView.layer.cornerRadius = emoticonImageView.bounds.height / 2

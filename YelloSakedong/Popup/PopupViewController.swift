@@ -33,7 +33,7 @@ class PopupViewController: UIViewController {
     
     @IBOutlet private weak var textView: UITextView!
     
-    @IBOutlet private weak var pagerView: FSPagerView!
+    @IBOutlet private weak var pagerView: PopupSelectView!
     
     @IBOutlet private weak var pageControl: FSPageControl!
     
