@@ -6,4 +6,13 @@
 //  Copyright © 2019 nexters. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct KeyboardInfo {
+    
+    let frame: CGRect
+    
+    let duration: Double
+    
+    let animation: UIView.AnimationOptions
+}

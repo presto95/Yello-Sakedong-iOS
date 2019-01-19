@@ -74,6 +74,7 @@
             <connections>
                 <outlet property="authorLabel" destination="1gJ-hz-riT" id="o19-Tw-wIc"/>
                 <outlet property="colorLabel" destination="2U4-cj-m8a" id="j8f-mH-b7o"/>
+                <outlet property="colorLabelWidthContraint" destination="6C8-PV-G6H" id="2lo-S1-abq"/>
                 <outlet property="descriptionLabel" destination="bu6-gR-0a3" id="p12-I6-bX4"/>
                 <outlet property="likeCountLabel" destination="aVr-zR-sEz" id="r7r-bp-nR6"/>
                 <outlet property="likeImageView" destination="HKb-9H-w2Y" id="cqa-xW-lzb"/>

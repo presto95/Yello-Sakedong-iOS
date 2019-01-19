@@ -17,6 +17,8 @@ class TranslationCell: UITableViewCell {
         }
     }
     
+    @IBOutlet private weak var colorLabelWidthContraint: NSLayoutConstraint!
+    
     @IBOutlet private weak var likeImageView: UIImageView!
     
     @IBOutlet private weak var likeCountLabel: UILabel!
@@ -27,5 +29,9 @@ class TranslationCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    func setColorLabelWidth(_ value: CGFloat) {
+        colorLabelWidthContraint.constant = value
     }
 }

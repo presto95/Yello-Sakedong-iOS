@@ -15,6 +15,12 @@ public extension UIViewController {
         return controller
     }
     
+    @discardableResult
+    func deliver(_ closure: (UIViewController) -> Void) -> UIViewController {
+        closure(self)
+        return self
+    }
+    
     func present(to viewController: UIViewController, transitionStyle style: UIModalTransitionStyle = .coverVertical, animated: Bool = true, completion: (() -> Void)? = nil) {
         modalTransitionStyle = style
         viewController.present(self, animated: animated, completion: completion)
