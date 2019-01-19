@@ -25,9 +25,7 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         hero.isEnabled = true
         navigationItem.rightBarButtonItem = addTasteButton
-        let backButton = UIBarButtonItem()
-        backButton.image = UIImage(named: "ic_back")
-        navigationItem.backBarButtonItem = backButton
+        navigationItem.backBarButtonItem = UIBarButtonItem()
     }
 }
 
@@ -44,6 +42,13 @@ extension ResultViewController: UITableViewDataSource {
                 cell.backgroundColor = UIColor(red: 255, green: 203, blue: 0)
             } else if section == 2 {
                 cell.backgroundColor = UIColor(red: 248, green: 249, blue: 251)
+            }
+            if let translationCell = cell as? TranslationCell {
+                if section == 2 {
+                    translationCell.setColorLabelWidth(10)
+                } else {
+                    translationCell.setColorLabelWidth(0)
+                }
             }
             cell.hero.modifiers = [.fade, .scale(0.5)]
             return cell

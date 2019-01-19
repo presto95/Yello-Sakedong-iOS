@@ -9,15 +9,6 @@
 import UIKit
 import DZNEmptyDataSet
 
-struct KeyboardInfo {
-    
-    let frame: CGRect
-    
-    let duration: Double
-    
-    let animation: UIView.AnimationOptions
-}
-
 class SearchViewController: UIViewController {
     
     private var keyboardInfo: KeyboardInfo!
@@ -66,9 +57,7 @@ class SearchViewController: UIViewController {
         hero.isEnabled = true
         navigationItem.rightBarButtonItem = addTasteButton
         emoticonButton = UIButton(type: .system)
-        let backButton = UIBarButtonItem()
-        backButton.image = UIImage(named: "ic_back")
-        navigationItem.backBarButtonItem = backButton
+        navigationItem.backBarButtonItem = UIBarButtonItem()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -109,7 +98,8 @@ class SearchViewController: UIViewController {
     }
     
     private func adjustTableViewBottomConstraintIfKeyboardWillShow() {
-        UIView.animate(withDuration: keyboardInfo.duration, delay: 0, options: keyboardInfo.animation, animations: {
+        UIView.animate(withDuration: keyboardInfo.duration, delay: 0, options: keyboardInfo.animation, animations: { [weak self] in
+            guard let `self` = self else { return }
             self.tableViewBottomConstraint.constant += self.keyboardInfo.frame.height
         }, completion: nil)
         view.layoutIfNeeded()
