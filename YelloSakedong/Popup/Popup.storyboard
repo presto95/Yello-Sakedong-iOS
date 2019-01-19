@@ -64,7 +64,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8E-i5-jgU" customClass="PopupSelectView" customModule="YelloSakedong" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="142" width="300" height="65"/>
+                                        <rect key="frame" x="20" y="142" width="260" height="65"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="HD2-56-xdM"/>
@@ -74,7 +74,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="L8E-i5-jgU" firstAttribute="top" secondItem="yQE-Uf-mi2" secondAttribute="bottom" constant="8" id="1hC-y9-eFZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="L8E-i5-jgU" secondAttribute="trailing" id="5Qs-wy-B6u"/>
+                                    <constraint firstAttribute="trailing" secondItem="L8E-i5-jgU" secondAttribute="trailing" constant="20" id="5Qs-wy-B6u"/>
                                     <constraint firstItem="WKa-bP-ozp" firstAttribute="top" secondItem="YiD-li-mEg" secondAttribute="top" constant="12" id="GGo-AX-9eP"/>
                                     <constraint firstAttribute="bottom" secondItem="Qns-u6-9J1" secondAttribute="bottom" id="HPO-DC-io3"/>
                                     <constraint firstItem="3XZ-wa-nBy" firstAttribute="top" secondItem="L8E-i5-jgU" secondAttribute="bottom" id="KjX-P5-r7D"/>
@@ -82,7 +82,7 @@
                                     <constraint firstItem="yQE-Uf-mi2" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" constant="18" id="R6u-Nn-3zi"/>
                                     <constraint firstItem="fAT-Cu-L3m" firstAttribute="top" secondItem="YiD-li-mEg" secondAttribute="top" constant="30" id="Whf-dX-Drh"/>
                                     <constraint firstItem="Qns-u6-9J1" firstAttribute="top" secondItem="3XZ-wa-nBy" secondAttribute="bottom" id="b8p-xw-Ff4"/>
-                                    <constraint firstItem="L8E-i5-jgU" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" id="dGE-4D-mS4"/>
+                                    <constraint firstItem="L8E-i5-jgU" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" constant="20" id="dGE-4D-mS4"/>
                                     <constraint firstItem="fAT-Cu-L3m" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" constant="18" id="kcS-Ts-k6e"/>
                                     <constraint firstAttribute="trailing" secondItem="3XZ-wa-nBy" secondAttribute="trailing" id="qKI-Oo-5Im"/>
                                     <constraint firstItem="3XZ-wa-nBy" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" id="shF-r4-VaR"/>

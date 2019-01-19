@@ -14,10 +14,10 @@ class PopupCell: FSPagerViewCell {
     private lazy var buttons: [UIButton] = {
         var buttons = [UIButton]()
         for index in 0..<5 {
-            let button = UIButton()
-            button.imageView?.contentMode = .scaleAspectFit
+            let button = UIButton(type: .system)
             button.setImage(UIImage(named: "sample"), for: [])
-            buttons.append(UIButton(type: .system))
+            button.imageView?.contentMode = .scaleAspectFit
+            buttons.append(button)
         }
         return buttons
     }()
@@ -39,7 +39,10 @@ class PopupCell: FSPagerViewCell {
     private func setup() {
         let stackView = UIStackView(arrangedSubviews: buttons)
         stackView.axis = .horizontal
-        stackView.distribution = .equalCentering
+        stackView.distribution = .fillEqually
         stackView.alignment = .fill
+        stackView.spacing = 8
+        addSubview(stackView)
+        stackView.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
 }
