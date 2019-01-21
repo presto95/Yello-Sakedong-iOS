@@ -10,25 +10,28 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window?.tintColor = UIColor(rgb: 17)
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().backgroundColor = .clear
-        UINavigationBar.appearance().isTranslucent = true
-        return true
-    }
-
-    func applicationWillResignActive(_ application: UIApplication) { }
-
-    func applicationDidEnterBackground(_ application: UIApplication) { }
-
-    func applicationWillEnterForeground(_ application: UIApplication) { }
-
-    func applicationDidBecomeActive(_ application: UIApplication) { }
-
-    func applicationWillTerminate(_ application: UIApplication) { }
+  
+  var window: UIWindow?
+  
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+    window?.tintColor = UIColor(rgb: 17)
+    UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+    UINavigationBar.appearance().shadowImage = UIImage()
+    UINavigationBar.appearance().backgroundColor = .clear
+    UINavigationBar.appearance().isTranslucent = true
+    return true
+  }
+  
+  func applicationWillResignActive(_ application: UIApplication) { }
+  
+  func applicationDidEnterBackground(_ application: UIApplication) { }
+  
+  func applicationWillEnterForeground(_ application: UIApplication) { }
+  
+  func applicationDidBecomeActive(_ application: UIApplication) { }
+  
+  func applicationWillTerminate(_ application: UIApplication) { }
 }

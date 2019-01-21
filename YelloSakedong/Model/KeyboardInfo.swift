@@ -9,10 +9,10 @@
 import UIKit
 
 struct KeyboardInfo {
-    
-    let frame: CGRect
-    
-    let duration: Double
-    
-    let animation: UIView.AnimationOptions
+  
+  let frame: CGRect
+  
+  let duration: Double
+  
+  let animation: UIView.AnimationOptions
 }

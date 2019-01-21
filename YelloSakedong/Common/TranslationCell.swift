@@ -9,29 +9,29 @@
 import UIKit
 
 class TranslationCell: UITableViewCell {
-
-    @IBOutlet private weak var colorLabel: UILabel! {
-        didSet {
-            colorLabel.clipsToBounds = true
-            colorLabel.layer.cornerRadius = colorLabel.bounds.height / 2
-        }
+  
+  @IBOutlet private weak var colorLabel: UILabel! {
+    didSet {
+      colorLabel.clipsToBounds = true
+      colorLabel.layer.cornerRadius = colorLabel.bounds.height / 2
     }
-    
-    @IBOutlet private weak var colorLabelWidthContraint: NSLayoutConstraint!
-    
-    @IBOutlet private weak var likeImageView: UIImageView!
-    
-    @IBOutlet private weak var likeCountLabel: UILabel!
-    
-    @IBOutlet private weak var authorLabel: UILabel!
-    
-    @IBOutlet private weak var descriptionLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    func setColorLabelWidth(_ value: CGFloat) {
-        colorLabelWidthContraint.constant = value
-    }
+  }
+  
+  @IBOutlet private weak var colorLabelWidthContraint: NSLayoutConstraint!
+  
+  @IBOutlet private weak var likeImageView: UIImageView!
+  
+  @IBOutlet private weak var likeCountLabel: UILabel!
+  
+  @IBOutlet private weak var authorLabel: UILabel!
+  
+  @IBOutlet private weak var descriptionLabel: UILabel!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+  }
+  
+  func setColorLabelWidth(_ value: CGFloat) {
+    colorLabelWidthContraint.constant = value
+  }
 }
