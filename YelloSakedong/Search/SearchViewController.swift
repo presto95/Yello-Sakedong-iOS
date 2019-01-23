@@ -39,7 +39,11 @@ class SearchViewController: UIViewController {
   
   @IBOutlet private weak var searchTextField: UITextField! {
     didSet {
-      searchTextField.delegate = self
+      searchTextField.addTarget(
+        self,
+        action: #selector(searchTextFieldDidChange),
+        for: .editingChanged
+      )
     }
   }
   
@@ -87,6 +91,12 @@ class SearchViewController: UIViewController {
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     searchTextField.resignFirstResponder()
+  }
+  
+  @objc private func searchTextFieldDidChange(_ sender: UITextField) {
+    let text = sender.text ?? ""
+    print(text)
+    revealEmoticonBehindKeyboard()
   }
   
   @objc private func touchUpEmoticonButton(_ sender: UIButton) {
@@ -177,25 +187,6 @@ class SearchViewController: UIViewController {
   
   deinit {
     NotificationCenter.default.removeObserver(self)
-  }
-}
-
-extension SearchViewController: UITextFieldDelegate {
-  func textField(
-    _ textField: UITextField,
-    shouldChangeCharactersIn range: NSRange,
-    replacementString string: String
-  ) -> Bool {
-    revealEmoticonBehindKeyboard()
-    return true
-  }
-  
-  func textFieldShouldClear(_ textField: UITextField) -> Bool {
-    return true
-  }
-  
-  func textFieldDidEndEditing(_ textField: UITextField) {
-    
   }
 }
 
