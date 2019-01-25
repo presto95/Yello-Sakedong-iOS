@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190734B621FB986600E3988D /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 190734B521FB986600E3988D /* swiftgen.yml */; };
+		190734BA21FB999D00E3988D /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190734B821FB999C00E3988D /* Storyboard.swift */; };
+		190734BB21FB999D00E3988D /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190734B921FB999C00E3988D /* Assets.swift */; };
 		190DA1F021EF056A00B8CF97 /* AddTasteButtonEnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190DA1EF21EF056A00B8CF97 /* AddTasteButtonEnable.swift */; };
 		191C1EF621F23D9400F31ED8 /* PopupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF521F23D9400F31ED8 /* PopupCell.swift */; };
 		191C1EFA21F23E6700F31ED8 /* PopupSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF921F23E6700F31ED8 /* PopupSelectView.swift */; };
@@ -40,6 +43,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190734B521FB986600E3988D /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = swiftgen.yml; sourceTree = "<group>"; };
+		190734B821FB999C00E3988D /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		190734B921FB999C00E3988D /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		190DA1EF21EF056A00B8CF97 /* AddTasteButtonEnable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTasteButtonEnable.swift; sourceTree = "<group>"; };
 		191C1EF521F23D9400F31ED8 /* PopupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupCell.swift; sourceTree = "<group>"; };
 		191C1EF921F23E6700F31ED8 /* PopupSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupSelectView.swift; sourceTree = "<group>"; };
@@ -88,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190734B721FB995300E3988D /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				190734B921FB999C00E3988D /* Assets.swift */,
+				190734B821FB999C00E3988D /* Storyboard.swift */,
+			);
+			path = SwiftGen;
+			sourceTree = "<group>";
+		};
 		190DA1F121EF163E00B8CF97 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +218,7 @@
 		195B999721E0E8A300367456 = {
 			isa = PBXGroup;
 			children = (
+				190734B521FB986600E3988D /* swiftgen.yml */,
 				192973C921EE3A440021B05E /* .swiftlint.yml */,
 				195B99A221E0E8A300367456 /* YelloSakedong */,
 				195B99A121E0E8A300367456 /* Products */,
@@ -233,6 +249,7 @@
 				192973BC21EE386E0021B05E /* Popup */,
 				195B99B521E0E96100367456 /* Supporting Files */,
 				192973AF21EE2FD60021B05E /* Extension */,
+				190734B721FB995300E3988D /* SwiftGen */,
 			);
 			path = YelloSakedong;
 			sourceTree = "<group>";
@@ -333,6 +350,7 @@
 				192973D821EECA300021B05E /* Search.storyboard in Resources */,
 				192973E421EECBA90021B05E /* TranslationCell.xib in Resources */,
 				192973AA21EE2F8F0021B05E /* Splash.storyboard in Resources */,
+				190734B621FB986600E3988D /* swiftgen.yml in Resources */,
 				192973C221EE38DE0021B05E /* Popup.storyboard in Resources */,
 				192973DA21EECA3F0021B05E /* Result.storyboard in Resources */,
 			);
@@ -431,6 +449,7 @@
 				192973B721EE30290021B05E /* UIView+.swift in Sources */,
 				191C1EFA21F23E6700F31ED8 /* PopupSelectView.swift in Sources */,
 				192973CC21EEC6870021B05E /* CALayer+.swift in Sources */,
+				190734BB21FB999D00E3988D /* Assets.swift in Sources */,
 				192973CE21EEC8BF0021B05E /* UIColor+.swift in Sources */,
 				192973B921EE33F10021B05E /* MainViewController.swift in Sources */,
 				192973D221EEC9DA0021B05E /* SearchViewController.swift in Sources */,
@@ -439,6 +458,7 @@
 				190DA1F021EF056A00B8CF97 /* AddTasteButtonEnable.swift in Sources */,
 				192973DF21EECADE0021B05E /* ResultInfoCell.swift in Sources */,
 				191C1EF621F23D9400F31ED8 /* PopupCell.swift in Sources */,
+				190734BA21FB999D00E3988D /* Storyboard.swift in Sources */,
 				193D655C21E32F5200FAB1DE /* SplashViewController.swift in Sources */,
 				192973AE21EE2FD20021B05E /* EmoticonWithLabelView.swift in Sources */,
 				192973B321EE30170021B05E /* UIAlertController+.swift in Sources */,
