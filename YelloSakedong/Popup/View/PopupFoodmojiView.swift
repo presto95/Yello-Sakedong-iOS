@@ -7,9 +7,10 @@
 //
 
 import UIKit
+
 import FSPagerView
 
-class PopupSelectView: FSPagerView {
+final class PopupFoodmojiView: FSPagerView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
