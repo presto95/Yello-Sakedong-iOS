@@ -7,28 +7,34 @@
 //
 
 import UIKit
-import Hero
-import EFCountingLabel
 
-class ResultInfoCell: UITableViewCell {
+import Hero
+
+/// 결과 화면에서 정보를 표시하는 테이블 뷰 셀.
+final class ResultInfoCell: UITableViewCell {
   
-  @IBOutlet private weak var emoticonImageView: UIImageView! {
+  /// 음식 이미지 뷰.
+  @IBOutlet private weak var foodImageView: UIImageView! {
     didSet {
-      emoticonImageView.hero.id = "emoticonButton"
+      foodImageView.clipsToBounds = true
+      foodImageView.layer.cornerRadius = foodImageView.bounds.height / 2
     }
   }
   
-  @IBOutlet private weak var percentLabel: EFCountingLabel! {
+  /// 이모티콘 이미지 뷰.
+  @IBOutlet private weak var foodmojiImageView: UIImageView! {
     didSet {
-      percentLabel.format = "%d%%"
-      percentLabel.countFromZeroTo(65, withDuration: 0.7)
+      foodmojiImageView.hero.id = "emoticonButton"
     }
   }
-  
+
+  /// 한국어 음식명 레이블.
   @IBOutlet private weak var koreanLabel: UILabel!
   
+  /// 현지어 음식명 레이블.
   @IBOutlet private weak var nativeLabel: UILabel!
   
+  /// 영어 음식명 레이블.
   @IBOutlet private weak var englishLabel: UILabel!
   
   override func awakeFromNib() {

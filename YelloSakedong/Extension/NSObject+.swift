@@ -13,7 +13,7 @@ public extension NSObject {
     return NSStringFromClass(type(of: self))
   }
   
-  static var description: String {
-    return description().components(separatedBy: ".").last ?? ""
+  static var classNameToString: String {
+    return NSStringFromClass(self).components(separatedBy: ".").last ?? ""
   }
 }

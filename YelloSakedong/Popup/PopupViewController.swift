@@ -59,7 +59,7 @@ class PopupViewController: UIViewController {
   
   @IBOutlet private weak var textView: UITextView!
   
-  @IBOutlet private weak var pagerView: PopupSelectView! {
+  @IBOutlet private weak var pagerView: PopupFoodmojiView! {
     didSet {
       pagerView.delegate = self
       pagerView.dataSource = self

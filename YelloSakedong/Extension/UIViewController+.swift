@@ -9,12 +9,7 @@
 import UIKit
 
 public extension UIViewController {
-  static func create(fromStoryboard storyboard: String, identifier: String) -> UIViewController {
-    let storyboard = UIStoryboard(name: storyboard, bundle: nil)
-    let controller = storyboard.instantiateViewController(withIdentifier: identifier)
-    return controller
-  }
-  
+
   @discardableResult
   func deliver(_ closure: (UIViewController) -> Void) -> UIViewController {
     closure(self)
@@ -23,7 +18,7 @@ public extension UIViewController {
   
   func present(
     to viewController: UIViewController,
-    transitionStyle style: UIModalTransitionStyle = .coverVertical,
+    transitionStyle style: UIModalTransitionStyle = .crossDissolve,
     animated: Bool = true,
     completion: (() -> Void)? = nil
   ) {

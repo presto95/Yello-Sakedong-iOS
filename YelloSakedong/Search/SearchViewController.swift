@@ -7,67 +7,49 @@
 //
 
 import UIKit
-import DZNEmptyDataSet
 
-class SearchViewController: UIViewController {
+import Hero
+
+/// 검색 뷰 컨트롤러.
+final class SearchViewController: UIViewController {
   
+  /// 셀 식별자 상수 정리.
+  enum CellIdentifier {
+    
+    static let translationCell = "translationCell"
+  }
+  
+  /// 키보드 관련 정보.
   private var keyboardInfo: KeyboardInfo!
   
-  private var emoticonButton: UIButton! {
+  /// 이모티콘 버튼.
+  private var foodmojiButton: UIButton! {
     didSet {
-      emoticonButton.alpha = 0
-      emoticonButton.setImage(UIImage(named: "sample"), for: [])
-      emoticonButton.imageView?.contentMode = .scaleAspectFit
-      emoticonButton.sizeToFit()
-      let size = emoticonButton.bounds.size
-      emoticonButton.bounds.size = .init(width: size.width - 20, height: size.height - 20)
-      emoticonButton.hero.id = "emoticonButton"
-      emoticonButton.addTarget(
+      foodmojiButton.alpha = 0
+      // 샘플 이미지
+      foodmojiButton.setImage(Foodmoji.Medium.first.image, for: [])
+      foodmojiButton.imageView?.contentMode = .scaleAspectFit
+      foodmojiButton.sizeToFit()
+      let size = foodmojiButton.bounds.size
+      foodmojiButton.bounds.size = .init(width: size.width - 20, height: size.height - 20)
+      foodmojiButton.hero.id = "emoticonButton"
+      foodmojiButton.addTarget(
         self,
-        action: #selector(touchUpEmoticonButton(_:)),
+        action: #selector(foodmojiButtonDidTap(_:)),
         for: .touchUpInside
       )
     }
   }
   
-  @IBOutlet private weak var upperView: UIView! {
-    didSet {
-      upperView.hero.id = "upperView"
-      upperView.hero.modifiers = [.arc]
-    }
-  }
+  @IBOutlet private weak var upperShadowView: UIView!
   
-  @IBOutlet private weak var searchTextField: UITextField! {
-    didSet {
-      searchTextField.addTarget(
-        self,
-        action: #selector(searchTextFieldDidChange),
-        for: .editingChanged
-      )
-    }
-  }
-  
-  @IBOutlet private weak var tableView: UITableView! {
-    didSet {
-      tableView.delegate = self
-      tableView.dataSource = self
-      tableView.emptyDataSetSource = self
-      tableView.separatorStyle = .none
-      tableView.allowsSelection = false
-      tableView.register(
-        UINib(nibName: "TranslationCell", bundle: nil),
-        forCellReuseIdentifier: "translationCell"
-      )
-    }
-  }
-  
-  @IBOutlet private weak var tableViewBottomConstraint: NSLayoutConstraint!
+  @IBOutlet private weak var upperView: UIView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     hero.isEnabled = true
     navigationItem.rightBarButtonItem = addTasteButton
-    emoticonButton = UIButton(type: .system)
+    foodmojiButton = UIButton(type: .system)
     navigationItem.backBarButtonItem = UIBarButtonItem()
     NotificationCenter.default.addObserver(
       self,
@@ -85,23 +67,23 @@ class SearchViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    searchTextField.becomeFirstResponder()
+    //searchTextField.becomeFirstResponder()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-    searchTextField.resignFirstResponder()
+    //searchTextField.resignFirstResponder()
   }
   
   @objc private func searchTextFieldDidChange(_ sender: UITextField) {
     let text = sender.text ?? ""
     print(text)
-    revealEmoticonBehindKeyboard()
+    revealFoodmojiBehindKeyboard()
   }
   
-  @objc private func touchUpEmoticonButton(_ sender: UIButton) {
-    UIViewController
-      .create(fromStoryboard: "Result", identifier: "ResultViewController")
+  @objc private func foodmojiButtonDidTap(_ sender: UIButton) {
+    StoryboardScene.Result.resultViewController
+      .instantiate()
       .push(at: navigationController)
   }
   
@@ -134,7 +116,6 @@ class SearchViewController: UIViewController {
       options: keyboardInfo.animation,
       animations: { [weak self] in
         guard let `self` = self else { return }
-        self.tableViewBottomConstraint.constant += self.keyboardInfo.frame.height
       },
       completion: nil
     )
@@ -149,36 +130,35 @@ class SearchViewController: UIViewController {
       keyboardInfo.animation,
       animations: { [weak self] in
         guard let `self` = self else { return }
-        self.tableViewBottomConstraint.constant -= self.keyboardInfo.frame.height
       },
       completion: nil
     )
     view.layoutIfNeeded()
   }
   
-  private func revealEmoticonBehindKeyboard() {
+  private func revealFoodmojiBehindKeyboard() {
     let centerPoint = CGPoint(x: view.bounds.width / 2, y: keyboardInfo.frame.origin.y)
-    emoticonButton.center = .init(x: centerPoint.x, y: centerPoint.y - 20)
-    view.addSubview(emoticonButton)
+    foodmojiButton.center = .init(x: centerPoint.x, y: centerPoint.y - 20)
+    view.addSubview(foodmojiButton)
     UIView.animate(
       withDuration: 0.5,
       delay: 0,
       options: .curveEaseInOut,
       animations: {
-        self.emoticonButton.alpha = 1
+        self.foodmojiButton.alpha = 1
       },
       completion: nil
     )
     view.layoutIfNeeded()
   }
   
-  private func dismissEmoticon() {
+  private func dismissFoodmoji() {
     UIView.animate(
       withDuration: 0.5,
       delay: 0,
       options: .curveEaseInOut,
       animations: {
-        self.emoticonButton.alpha = 0
+        self.foodmojiButton.alpha = 0
       },
       completion: nil
     )
@@ -190,43 +170,46 @@ class SearchViewController: UIViewController {
   }
 }
 
-extension SearchViewController: UITableViewDataSource {
-  func tableView(
-    _ tableView: UITableView,
-    cellForRowAt indexPath: IndexPath
-  ) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "translationCell", for: indexPath)
-    cell.backgroundColor = UIColor(red: 248, green: 249, blue: 251)
-    return cell
-  }
-  
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 0
-  }
-}
+// MARK: - AddTasteButtonProtocol 구현
 
-extension SearchViewController: UITableViewDelegate {
-  
-}
-
-extension SearchViewController: AddTasteButtonEnable {
-  var tasteButtonTarget: AddTasteButtonEnable {
+extension SearchViewController: AddTasteButtonProtocol {
+  var addTasteButtonTarget: AddTasteButtonProtocol {
     return self
   }
   
-  var tasteButtonAction: Selector {
-    return #selector(touchUpTasteButton(_:))
+  var addTasteButtonAction: Selector {
+    return #selector(addTasteButtonDidTap(_:))
   }
   
-  @objc func touchUpTasteButton(_ sender: UIBarButtonItem) {
-    UIViewController
-      .create(fromStoryboard: "Popup", identifier: "PopupViewController")
-      .present(to: self, transitionStyle: .crossDissolve, animated: true, completion: nil)
+  @objc func addTasteButtonDidTap(_ sender: UIBarButtonItem) {
+    StoryboardScene.Popup.popupViewController
+      .instantiate()
+      .present(to: self)
   }
 }
 
-extension SearchViewController: DZNEmptyDataSetSource {
-  func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-    return UIImage(named: "sample")
+private extension SearchViewController {
+  
+  /// arc 추가하기
+  func addArc() {
+    /// arc 베지어 곡선 만들기
+    let path = UIBezierPath(
+      arcCenter: .init(x: upperView.bounds.width / 2, y: 0),
+      radius: upperView.bounds.height,
+      startAngle: 0,
+      endAngle: .pi,
+      clockwise: true
+    )
+    // Shape Layer 만들고 상단 컨테이너 뷰의 마스크로 설정
+    let shapeLayer = CAShapeLayer()
+    shapeLayer.path = path.cgPath
+    shapeLayer.fillColor = UIColor.white.cgColor
+    upperView.layer.mask = shapeLayer
+    /// Shape Layer 만들고 그림자 효과 축하여 상단 그림자를 위한 뷰의 서브레이어에 추가
+    let shadowLayer = CAShapeLayer()
+    shadowLayer.path = path.cgPath
+    shadowLayer.fillColor = UIColor.white.cgColor
+    shadowLayer.applySketchShadow(color: .black, alpha: 0.1, x: 0, y: 16, blur: 32, spread: 0)
+    upperShadowView.layer.addSublayer(shadowLayer)
   }
 }
