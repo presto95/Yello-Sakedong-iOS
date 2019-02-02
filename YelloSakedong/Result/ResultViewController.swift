@@ -13,7 +13,11 @@ final class ResultViewController: UIViewController {
   
   /// 셀 식별자 상수 정리.
   enum CellIdentifier {
+    
+    /// 0번 섹션 음식 정보 셀.
     static let infoCell = "infoCell"
+    
+    /// 나머지 섹션 번역 정보 셀.
     static let translationCell = "translationCell"
   }
   
@@ -31,7 +35,6 @@ final class ResultViewController: UIViewController {
         UINib(nibName: ResultTranslationCell.classNameToString, bundle: nil),
         forCellReuseIdentifier: CellIdentifier.translationCell
       )
-      tableView.rowHeight = UITableView.automaticDimension
       tableView.dataSource = self
     }
   }

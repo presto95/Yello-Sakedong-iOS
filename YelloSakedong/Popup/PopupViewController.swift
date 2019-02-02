@@ -7,11 +7,14 @@
 //
 
 import UIKit
+
 import FSPagerView
 
-class PopupViewController: UIViewController {
-  
-  var currentIndex: Int {
+/// 팝업 뷰 컨트롤러.
+final class PopupViewController: UIViewController {
+
+  /// 페이지 컨트롤의 현재 인덱스.
+  var currentPageControlIndex: Int {
     get {
       return pageControl.currentPage
     }
@@ -20,8 +23,18 @@ class PopupViewController: UIViewController {
     }
   }
   
+  /// 페이저 뷰 요소가 선택되어 있는 상태인가.
+  private var pagerViewHasSelected: Bool = false
+  
+  /// 페이저 뷰의 선택된 인덱스.
+  private var selectedIndexOfPagerView: Int = 0
+  
+  /// 키보드 관련 정보.
   private var keyboardInfo: KeyboardInfo!
   
+  // MARK: - IBOutlet
+  
+  /// 팝업 배경 컨테이너 뷰.
   @IBOutlet private weak var backgroundView: UIView! {
     didSet {
       backgroundView.layer.applySketchShadow(
@@ -37,28 +50,28 @@ class PopupViewController: UIViewController {
     }
   }
   
+  /// 맛 등록 버튼.
   @IBOutlet private weak var registerButton: UIButton! {
     didSet {
-      registerButton.addTarget(
-        self,
-        action: #selector(touchUpRegisterButton(_:)),
-        for: .touchUpInside
-      )
+      registerButton.addTarget(self,
+                               action: #selector(registerButtonDidTap(_:)),
+                               for: .touchUpInside)
     }
   }
   
+  /// 취소 버튼.
   @IBOutlet private weak var cancelButton: UIButton! {
     didSet {
-      cancelButton.addTarget(
-        self,
-        action: #selector(touchUpCancelButton(_:)),
-        for: .touchUpInside
-      )
+      cancelButton.addTarget(self,
+                             action: #selector(cancelButtonDidTap(_:)),
+                             for: .touchUpInside)
     }
   }
   
+  /// 맛 디스크립션 입력받는 텍스트 뷰.
   @IBOutlet private weak var textView: UITextView!
   
+  /// 푸드모지 페이저 뷰.
   @IBOutlet private weak var pagerView: PopupFoodmojiView! {
     didSet {
       pagerView.delegate = self
@@ -66,18 +79,22 @@ class PopupViewController: UIViewController {
     }
   }
   
+  /// 푸드모지 페이지 컨트롤.
   @IBOutlet private weak var pageControl: FSPageControl! {
     didSet {
       pageControl.currentPage = 0
-      pageControl.numberOfPages = 3
+      pageControl.numberOfPages = Foodmoji.Small.Pure.allCases.count / 2
       pageControl.itemSpacing = 7
-      pageControl.setFillColor(UIColor(rgb: 119), for: .selected)
       pageControl.setFillColor(UIColor(rgb: 216), for: .normal)
+      pageControl.setFillColor(UIColor(rgb: 119), for: .selected)
       pageControl.setStrokeColor(nil, for: [])
     }
   }
   
+  /// 배경 컨테이너 뷰 센터 Y 제약.
   @IBOutlet private weak var backgroundViewCenterYConstraint: NSLayoutConstraint!
+  
+  // MARK: - Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -104,6 +121,8 @@ class PopupViewController: UIViewController {
     NotificationCenter.default.removeObserver(self)
   }
   
+  // MARK: - @objc Method
+  
   @objc private func keyboardWillShow(_ notification: Notification) {
     setKeyboardInfo(notification)
     adjustPopupViewIfKeyboardWillShow()
@@ -113,12 +132,12 @@ class PopupViewController: UIViewController {
     adjustPopupViewIfKeyboardWillHide()
   }
   
-  @objc private func touchUpRegisterButton(_ sender: UIButton) {
+  @objc private func registerButtonDidTap(_ sender: UIButton) {
     // 맛 추가
     dismiss(animated: true, completion: nil)
   }
   
-  @objc private func touchUpCancelButton(_ sender: UIButton) {
+  @objc private func cancelButtonDidTap(_ sender: UIButton) {
     textView.resignFirstResponder()
     dismiss(animated: true, completion: nil)
   }
@@ -165,26 +184,47 @@ class PopupViewController: UIViewController {
   }
 }
 
+// MARK: - FSPagerViewDataSource 구현
+
 extension PopupViewController: FSPagerViewDataSource {
   func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
     let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-    if let popupCell = cell as? PopupCell {
-      
+    if let popupCell = cell as? PopupFoodmojiCell {
+      if pagerViewHasSelected {
+        if index == selectedIndexOfPagerView {
+          
+        } else {
+          
+        }
+        
+      } else {
+        
+      }
     }
     return cell
   }
   
   func numberOfItems(in pagerView: FSPagerView) -> Int {
-    return 3
+    return Foodmoji.Small.Pure.allCases.count / 5
   }
 }
 
+// MARK: - FSPagerViewDelegate 구현
+
 extension PopupViewController: FSPagerViewDelegate {
   func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-    
+    selectedIndexOfPagerView = index
+    if !pagerViewHasSelected {
+      pagerViewHasSelected = true
+      
+      //
+    } else {
+      
+    }
+    pagerView.reloadData()
   }
   
   func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
-    currentIndex = targetIndex
+    currentPageControlIndex = targetIndex
   }
 }

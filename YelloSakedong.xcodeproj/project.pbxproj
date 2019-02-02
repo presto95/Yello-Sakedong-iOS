@@ -10,7 +10,7 @@
 		190734BA21FB999D00E3988D /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190734B821FB999C00E3988D /* Storyboard.swift */; };
 		190734BB21FB999D00E3988D /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190734B921FB999C00E3988D /* Assets.swift */; };
 		190DA1F021EF056A00B8CF97 /* AddTasteButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */; };
-		191C1EF621F23D9400F31ED8 /* PopupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF521F23D9400F31ED8 /* PopupCell.swift */; };
+		191C1EF621F23D9400F31ED8 /* PopupFoodmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF521F23D9400F31ED8 /* PopupFoodmojiCell.swift */; };
 		191C1EFA21F23E6700F31ED8 /* PopupFoodmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF921F23E6700F31ED8 /* PopupFoodmojiView.swift */; };
 		191C1EFE21F2E33600F31ED8 /* KeyboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EFD21F2E33600F31ED8 /* KeyboardInfo.swift */; };
 		192973AA21EE2F8F0021B05E /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192973A921EE2F8F0021B05E /* Splash.storyboard */; };
@@ -64,7 +64,7 @@
 		190734B821FB999C00E3988D /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		190734B921FB999C00E3988D /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTasteButtonProtocol.swift; sourceTree = "<group>"; };
-		191C1EF521F23D9400F31ED8 /* PopupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupCell.swift; sourceTree = "<group>"; };
+		191C1EF521F23D9400F31ED8 /* PopupFoodmojiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiCell.swift; sourceTree = "<group>"; };
 		191C1EF921F23E6700F31ED8 /* PopupFoodmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiView.swift; sourceTree = "<group>"; };
 		191C1EFD21F2E33600F31ED8 /* KeyboardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardInfo.swift; sourceTree = "<group>"; };
 		192973A921EE2F8F0021B05E /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -147,15 +147,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		191C1EF421F23D7600F31ED8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				191C1EF921F23E6700F31ED8 /* PopupFoodmojiView.swift */,
-				191C1EF521F23D9400F31ED8 /* PopupCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		192973A721EE2F780021B05E /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,7 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				195B99A721E0E8A300367456 /* Main.storyboard */,
-				192973BA21EE33F50021B05E /* View */,
+				19800EEF22049AD1005D5EEA /* FoodmojiWithLabelView.xib */,
+				192973AD21EE2FD20021B05E /* FoodmojiWithLabelView.swift */,
 				192973B821EE33F10021B05E /* MainViewController.swift */,
 				19800EF32204A18F005D5EEA /* NotFoundViewController.swift */,
 				19800EFA2204B033005D5EEA /* ProgressViewController.swift */,
@@ -191,20 +183,12 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		192973BA21EE33F50021B05E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				19800EEF22049AD1005D5EEA /* FoodmojiWithLabelView.xib */,
-				192973AD21EE2FD20021B05E /* FoodmojiWithLabelView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		192973BC21EE386E0021B05E /* Popup */ = {
 			isa = PBXGroup;
 			children = (
 				192973C121EE38DE0021B05E /* Popup.storyboard */,
-				191C1EF421F23D7600F31ED8 /* View */,
+				191C1EF921F23E6700F31ED8 /* PopupFoodmojiView.swift */,
+				191C1EF521F23D9400F31ED8 /* PopupFoodmojiCell.swift */,
 				192973C321EE38EC0021B05E /* PopupViewController.swift */,
 			);
 			path = Popup;
@@ -239,21 +223,13 @@
 			isa = PBXGroup;
 			children = (
 				192973D921EECA3F0021B05E /* Result.storyboard */,
-				192973DC21EECABD0021B05E /* View */,
-				192973D321EEC9E70021B05E /* ResultViewController.swift */,
-			);
-			path = Result;
-			sourceTree = "<group>";
-		};
-		192973DC21EECABD0021B05E /* View */ = {
-			isa = PBXGroup;
-			children = (
 				192973DE21EECADE0021B05E /* ResultInfoCell.xib */,
 				192973DD21EECADE0021B05E /* ResultInfoCell.swift */,
 				192973E221EECBA90021B05E /* ResultTranslationCell.xib */,
 				192973E121EECBA90021B05E /* ResultTranslationCell.swift */,
+				192973D321EEC9E70021B05E /* ResultViewController.swift */,
 			);
-			path = View;
+			path = Result;
 			sourceTree = "<group>";
 		};
 		195B999721E0E8A300367456 = {
@@ -282,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				19800EF52204A4EC005D5EEA /* Protocol */,
-				195B99AC21E0E8A400367456 /* LaunchScreen.storyboard */,
 				192973C621EE39440021B05E /* Network */,
 				192973C521EE393E0021B05E /* Model */,
 				190DA1F121EF163E00B8CF97 /* Common */,
@@ -303,6 +278,7 @@
 			children = (
 				195B99AF21E0E8A400367456 /* Info.plist */,
 				195B99A321E0E8A300367456 /* AppDelegate.swift */,
+				195B99AC21E0E8A400367456 /* LaunchScreen.storyboard */,
 				195B99AA21E0E8A400367456 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
@@ -551,7 +527,7 @@
 				192973C421EE38EC0021B05E /* PopupViewController.swift in Sources */,
 				190DA1F021EF056A00B8CF97 /* AddTasteButtonProtocol.swift in Sources */,
 				192973DF21EECADE0021B05E /* ResultInfoCell.swift in Sources */,
-				191C1EF621F23D9400F31ED8 /* PopupCell.swift in Sources */,
+				191C1EF621F23D9400F31ED8 /* PopupFoodmojiCell.swift in Sources */,
 				190734BA21FB999D00E3988D /* Storyboard.swift in Sources */,
 				193D655C21E32F5200FAB1DE /* SplashViewController.swift in Sources */,
 				19800EFD2204B236005D5EEA /* Foodmoji.swift in Sources */,

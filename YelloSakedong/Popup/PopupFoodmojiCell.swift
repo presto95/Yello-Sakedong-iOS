@@ -7,15 +7,36 @@
 //
 
 import UIKit
+
 import FSPagerView
 
-class PopupCell: FSPagerViewCell {
+/// 팝업 뷰 컨트롤러의 푸드모지 페이저 셀.
+final class PopupFoodmojiCell: FSPagerViewCell {
   
+  /// 현재 셀 인덱스.
+  var currentCellIndex: Int!
+  
+  /// 선택된 버튼의 스택 뷰 내 인덱스.
+  var selectedButtonIndex: Int?
+  
+  /// 페이저 뷰 요소가 선택된 상태인가.
+  var pagerViewHasSelected: Bool = false
+  
+  /// 스택 뷰에 들어가는 푸드모지 버튼들.
   private lazy var buttons: [UIButton] = {
     var buttons = [UIButton]()
-    for index in 0..<5 {
+    let startIndex = currentCellIndex * 5
+    for index in startIndex..<startIndex + 5 {
       let button = UIButton(type: .system)
-      button.setImage(UIImage(named: "sample"), for: [])
+      if pagerViewHasSelected {
+        if let selectedButtonIndex = selectedButtonIndex {
+          button.setImage(Foodmoji.Small.Pure.image(at: selectedButtonIndex), for: [])
+        } else {
+          button.setImage(Foodmoji.Small.Gray.image(at: index), for: [])
+        }
+      } else {
+        button.setImage(Foodmoji.Small.Pure.image(at: index), for: [])
+      }
       button.imageView?.contentMode = .scaleAspectFit
       buttons.append(button)
     }
@@ -28,12 +49,10 @@ class PopupCell: FSPagerViewCell {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    setup()
   }
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    setup()
   }
   
   private func setup() {

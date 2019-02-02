@@ -11,8 +11,10 @@ import UIKit
 /// 첫 화면 뷰 컨트롤러.
 final class MainViewController: UIViewController {
   
+  /// 키보드 정보 관련 구조체.
   private var keyboardInfo: KeyboardInfo!
   
+  /// 푸드모지 버튼.
   private var foodmojiButton: UIButton!
   
   // MARK: IBOutlet
@@ -54,6 +56,7 @@ final class MainViewController: UIViewController {
     navigationController?.hero.navigationAnimationType = .fade
     navigationItem.rightBarButtonItem = addTasteButton
     navigationItem.backBarButtonItem = UIBarButtonItem()
+    initializeFoodmojiButton()
     NotificationCenter.default.addObserver(self,
                                            selector: #selector(keyboardWillShow(_:)),
                                            name: UIResponder.keyboardWillShowNotification,
@@ -70,9 +73,9 @@ final class MainViewController: UIViewController {
     if isBeingPresented || isMovingToParent {
       addArc()
     }
-    StoryboardScene.Main.progressViewController
-      .instantiate()
-      .present(to: self)
+//    StoryboardScene.Main.progressViewController
+//      .instantiate()
+//      .present(to: self)
   }
   
   /// 상단 뷰를 탭했을 때의 동작.
@@ -85,14 +88,62 @@ final class MainViewController: UIViewController {
     
   }
   
+  /// 푸드모지 버튼 클릭시 동작.
+  @objc private func foodmojiButtonDidTap(_ sender: UIButton) {
+    StoryboardScene.Main.progressViewController
+      .instantiate()
+      .present(to: self)
+  }
+  
   /// 키보드가 나타나려 할 때의 동작.
   @objc private func keyboardWillShow(_ notification: Notification) {
-    
+    setKeyboardInfo(notification)
+    revealFoodmojiButton()
   }
   
   /// 키보드가 내려가려 할 때의 동작.
   @objc private func keyboardWillHide(_ notification: Notification) {
-    
+    dismissFoodmojiButton()
+  }
+  
+  /// 푸드모지 버튼 초기화.
+  private func initializeFoodmojiButton() {
+    foodmojiButton = UIButton(type: .system)
+    foodmojiButton.alpha = 0
+    foodmojiButton.setImage(Foodmoji.Large.tenth.image, for: [])
+    foodmojiButton.imageView?.contentMode = .scaleAspectFit
+    foodmojiButton.sizeToFit()
+    foodmojiButton.addTarget(self,
+                             action: #selector(foodmojiButtonDidTap(_:)),
+                             for: .touchUpInside)
+  }
+  
+  /// 키보드 관련 정보 설정.
+  private func setKeyboardInfo(_ notification: Notification) {
+    let userInfo = notification.userInfo
+    let frameUserInfo = userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
+    let durationUserInfo = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey]
+    let animationUserInfo = userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey]
+    guard let frameInfo = frameUserInfo as? CGRect else { return }
+    guard let durationInfo = durationUserInfo as? NSNumber else { return }
+    guard let animationInfo = animationUserInfo as? NSNumber else { return }
+    let duration = durationInfo.doubleValue
+    let animation = UIView.AnimationOptions(rawValue: UInt(truncating: animationInfo))
+    keyboardInfo = KeyboardInfo(frame: frameInfo, duration: duration, animation: animation)
+  }
+  
+  /// 푸드모지 버튼 드러내기.
+  private func revealFoodmojiButton() {
+    let center = CGPoint(x: view.bounds.width / 2, y: keyboardInfo.frame.origin.y)
+    foodmojiButton.center = .init(x: center.x, y: center.y - 20)
+    foodmojiButton.alpha = 1
+    view.addSubview(foodmojiButton)
+  }
+  
+  /// 푸드모지 버튼 숨기기.
+  private func dismissFoodmojiButton() {
+    foodmojiButton.alpha = 0
+    foodmojiButton.removeFromSuperview()
   }
 }
 
@@ -125,6 +176,12 @@ extension MainViewController: UITextFieldDelegate {
   func textFieldDidEndEditing(_ textField: UITextField) {
     // 초기 상태로 돌아가기
     textField.text = nil
+    //textField.resignFirstResponder()
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
   }
 }
 
