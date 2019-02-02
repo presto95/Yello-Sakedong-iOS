@@ -8,8 +8,32 @@
 
 import UIKit
 
+/// ResultTranslationCell의 델리게이트 프로토콜.
+protocol ResultTranslationCellDelegate: class {
+  
+  /// 삭제 버튼을 탭했을 때의 동작.
+  func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
+                             didTapDeleteButton button: UIButton)
+  
+}
+
 /// 맛번역 테이블뷰 셀.
 final class ResultTranslationCell: UITableViewCell {
+  
+  /// Delegate.
+  weak var delegate: ResultTranslationCellDelegate?
+  
+  /// 상위 랭크에 있는 정보인지.
+  /// 설정하는 경우 플래그 값에 따라 요소 색상을 변화시킴
+  var isRanked: Bool {
+    get {
+      return _isRanked
+    }
+    set {
+      _isRanked = newValue
+      setColor(of: [likeImageView, likeCountLabel], isRanked: isRanked)
+    }
+  }
   
   /// 컬러칩 뷰가 숨겨져 있는지.
   /// `constraint`를 계산하여 구함.
@@ -19,13 +43,14 @@ final class ResultTranslationCell: UITableViewCell {
         && authorLabelLeadingConstraint.constant == .leastNonzeroMagnitude
     }
     set {
-      if hidesColorChipView {
+      if newValue {
         colorChipViewWidthConstraint.constant = .leastNonzeroMagnitude
         authorLabelLeadingConstraint.constant = .leastNonzeroMagnitude
       } else {
         colorChipViewWidthConstraint.constant = 10.0
         authorLabelLeadingConstraint.constant = 6.0
       }
+      layoutIfNeeded()
     }
   }
   
@@ -38,6 +63,9 @@ final class ResultTranslationCell: UITableViewCell {
       deleteButton.isHidden = newValue
     }
   }
+  
+  /// 순위권에 있는지에 대한 플래그 값을 저장.
+  private var _isRanked: Bool = false
   
   /// 컬러칩 뷰.
   @IBOutlet weak var colorChipView: UIView! {
@@ -60,11 +88,27 @@ final class ResultTranslationCell: UITableViewCell {
   @IBOutlet private weak var likeCountLabel: UILabel!
   
   /// 내가 올린 정보 삭제 버튼.
-  @IBOutlet weak var deleteButton: UIButton!
+  @IBOutlet weak var deleteButton: UIButton! {
+    didSet {
+      deleteButton.addTarget(self, action: #selector(deleteButtonDidTap(_:)), for: .touchUpInside)
+    }
+  }
   
   /// 작성자 레이블.
   @IBOutlet private weak var authorLabel: UILabel!
   
   /// 설명 레이블.
   @IBOutlet private weak var descriptionLabel: UILabel!
+  
+  @objc private func deleteButtonDidTap(_ sender: UIButton) {
+    delegate?.resultTranslationCell(self, didTapDeleteButton: sender)
+  }
+  
+  private func setColor(of views: [UIView], isRanked: Bool) {
+    if isRanked {
+      views.forEach { $0.tintColor = .rankedTintColor }
+    } else {
+      views.forEach { $0.tintColor = .unrankedTintColor }
+    }
+  }
 }
