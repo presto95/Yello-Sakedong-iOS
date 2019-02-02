@@ -83,7 +83,7 @@ final class PopupViewController: UIViewController {
   @IBOutlet private weak var pageControl: FSPageControl! {
     didSet {
       pageControl.currentPage = 0
-      pageControl.numberOfPages = Foodmoji.Small.Pure.allCases.count / 2
+      pageControl.numberOfPages = Foodmoji.Small.Pure.allCases.count / 5
       pageControl.itemSpacing = 7
       pageControl.setFillColor(UIColor(rgb: 216), for: .normal)
       pageControl.setFillColor(UIColor(rgb: 119), for: .selected)
