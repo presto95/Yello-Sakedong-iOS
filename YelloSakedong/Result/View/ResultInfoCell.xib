@@ -19,14 +19,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="182.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="oVm-AF-6yS">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oVm-AF-6yS">
                         <rect key="frame" x="79" y="74.5" width="85" height="85"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="85" id="1lG-aE-IBm"/>
                             <constraint firstAttribute="height" constant="85" id="jWh-OE-dNp"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MZ7-lG-NdE">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sampleFood" translatesAutoresizingMaskIntoConstraints="NO" id="MZ7-lG-NdE">
                         <rect key="frame" x="16" y="11" width="119" height="119"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="119" id="2WK-Yf-Hja"/>
@@ -85,6 +85,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="sample" width="114" height="114"/>
+        <image name="sampleFood" width="119" height="119"/>
     </resources>
 </document>

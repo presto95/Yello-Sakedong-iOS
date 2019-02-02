@@ -75,18 +75,22 @@ final class MainViewController: UIViewController {
       .present(to: self)
   }
   
+  /// 상단 뷰를 탭했을 때의 동작.
   @objc private func upperViewDidTap(_ recognizer: UITapGestureRecognizer) {
     foodTextField.becomeFirstResponder()
   }
   
+  /// 텍스트 필드 입력이 바뀌었을 때의 동작.
   @objc private func foodTextFieldTextDidChange(_ textField: UITextField) {
     
   }
   
+  /// 키보드가 나타나려 할 때의 동작.
   @objc private func keyboardWillShow(_ notification: Notification) {
     
   }
   
+  /// 키보드가 내려가려 할 때의 동작.
   @objc private func keyboardWillHide(_ notification: Notification) {
     
   }
@@ -110,6 +114,8 @@ extension MainViewController: AddTasteButtonProtocol {
   }
 }
 
+// MARK: - UITextFieldDelegate 구현
+
 extension MainViewController: UITextFieldDelegate {
   func textFieldDidBeginEditing(_ textField: UITextField) {
     // 상단 뷰 약간 위로 올라가며 입력 받을 준비
@@ -121,6 +127,8 @@ extension MainViewController: UITextFieldDelegate {
     textField.text = nil
   }
 }
+
+// MARK: - Private Extension
 
 private extension MainViewController {
   

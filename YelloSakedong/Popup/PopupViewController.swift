@@ -25,7 +25,7 @@ class PopupViewController: UIViewController {
   @IBOutlet private weak var backgroundView: UIView! {
     didSet {
       backgroundView.layer.applySketchShadow(
-        color: .rgb215,
+        color: .shadow,
         alpha: 0.5,
         x: 4,
         y: 3,

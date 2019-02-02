@@ -17,5 +17,11 @@ extension UIColor {
     self.init(red: rgb, green: rgb, blue: rgb)
   }
   
-  static let rgb215 = UIColor(rgb: 215)
+  static let shadow = UIColor(rgb: 215)
+  
+  static let ranked = UIColor(red: 255, green: 98, blue: 30)
+  
+  static let unranked = UIColor(rgb: 119)
+  
+  static let highlighted = UIColor(red: 255, green: 203, blue: 0)
 }

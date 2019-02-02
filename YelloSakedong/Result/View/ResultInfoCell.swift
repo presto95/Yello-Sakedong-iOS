@@ -24,6 +24,7 @@ final class ResultInfoCell: UITableViewCell {
   /// 이모티콘 이미지 뷰.
   @IBOutlet private weak var foodmojiImageView: UIImageView! {
     didSet {
+      foodmojiImageView.image = Foodmoji.Medium.image(at: Int.random(in: 0..<10))
       foodmojiImageView.hero.id = "emoticonButton"
     }
   }

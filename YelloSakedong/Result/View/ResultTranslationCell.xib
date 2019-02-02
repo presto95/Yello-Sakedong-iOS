@@ -52,6 +52,11 @@
                             <constraint firstAttribute="width" constant="10" id="hZx-MY-Jt5"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljf-ce-qrc">
+                        <rect key="frame" x="238" y="23.5" width="13" height="18"/>
+                        <color key="tintColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                        <state key="normal" image="icnDelete"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="1gJ-hz-riT" firstAttribute="leading" secondItem="Uvt-Fs-zue" secondAttribute="trailing" constant="6" id="9xo-tk-94t"/>
@@ -62,9 +67,11 @@
                     <constraint firstItem="Uvt-Fs-zue" firstAttribute="centerY" secondItem="1gJ-hz-riT" secondAttribute="centerY" id="bTS-Tx-4eX"/>
                     <constraint firstItem="1gJ-hz-riT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="cQ8-xi-cFb"/>
                     <constraint firstItem="bu6-gR-0a3" firstAttribute="top" secondItem="1gJ-hz-riT" secondAttribute="bottom" constant="10" id="cpX-EZ-4SV"/>
+                    <constraint firstItem="Ljf-ce-qrc" firstAttribute="centerY" secondItem="1gJ-hz-riT" secondAttribute="centerY" id="ivy-2d-Xtj"/>
                     <constraint firstItem="aVr-zR-sEz" firstAttribute="trailing" secondItem="bu6-gR-0a3" secondAttribute="trailing" id="oXw-Vy-vy3"/>
                     <constraint firstItem="bu6-gR-0a3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="oao-nT-zmi"/>
                     <constraint firstItem="aVr-zR-sEz" firstAttribute="centerY" secondItem="1gJ-hz-riT" secondAttribute="centerY" id="pJW-PZ-dGd"/>
+                    <constraint firstItem="HKb-9H-w2Y" firstAttribute="leading" secondItem="Ljf-ce-qrc" secondAttribute="trailing" constant="11" id="qrg-7L-z6M"/>
                     <constraint firstItem="aVr-zR-sEz" firstAttribute="leading" secondItem="HKb-9H-w2Y" secondAttribute="trailing" constant="2" id="sGt-ls-j0F"/>
                 </constraints>
             </tableViewCellContentView>
@@ -74,6 +81,7 @@
                 <outlet property="authorLabelLeadingConstraint" destination="9xo-tk-94t" id="G3K-ge-rCz"/>
                 <outlet property="colorChipView" destination="Uvt-Fs-zue" id="WfM-rs-wIr"/>
                 <outlet property="colorChipViewWidthConstraint" destination="hZx-MY-Jt5" id="4hd-Jz-Wu7"/>
+                <outlet property="deleteButton" destination="Ljf-ce-qrc" id="y5x-7f-50z"/>
                 <outlet property="descriptionLabel" destination="bu6-gR-0a3" id="p12-I6-bX4"/>
                 <outlet property="likeCountLabel" destination="aVr-zR-sEz" id="r7r-bp-nR6"/>
                 <outlet property="likeImageView" destination="HKb-9H-w2Y" id="cqa-xW-lzb"/>
@@ -83,6 +91,7 @@
     </objects>
     <resources>
         <image name="ic_like" width="15" height="15"/>
+        <image name="icnDelete" width="13" height="15"/>
         <namedColor name="yellow">
             <color red="1" green="0.79607843137254897" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -29,6 +29,16 @@ final class ResultTranslationCell: UITableViewCell {
     }
   }
   
+  /// 삭제 버튼이 숨겨져 있는지.
+  var hidesDeleteButton: Bool {
+    get {
+      return deleteButton.isHidden
+    }
+    set {
+      deleteButton.isHidden = newValue
+    }
+  }
+  
   /// 컬러칩 뷰.
   @IBOutlet weak var colorChipView: UIView! {
     didSet {
@@ -48,6 +58,9 @@ final class ResultTranslationCell: UITableViewCell {
   
   /// 좋아요 카운트 레이블.
   @IBOutlet private weak var likeCountLabel: UILabel!
+  
+  /// 내가 올린 정보 삭제 버튼.
+  @IBOutlet weak var deleteButton: UIButton!
   
   /// 작성자 레이블.
   @IBOutlet private weak var authorLabel: UILabel!
