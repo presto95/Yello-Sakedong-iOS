@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Hero
+
 /// 첫 화면 뷰 컨트롤러.
 final class MainViewController: UIViewController {
   
@@ -15,7 +17,12 @@ final class MainViewController: UIViewController {
   private var keyboardInfo: KeyboardInfo!
   
   /// 푸드모지 버튼.
-  private var foodmojiButton: UIButton!
+  private var foodmojiButton: UIButton! {
+    didSet {
+      foodmojiButton.hero.id = "foodmoji"
+      foodmojiButton.hero.modifiers = [.arc]
+    }
+  }
   
   // MARK: IBOutlet
   
@@ -52,6 +59,7 @@ final class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     hero.isEnabled = true
+    hero.modalAnimationType = .fade
     navigationController?.hero.isEnabled = true
     navigationController?.hero.navigationAnimationType = .fade
     navigationItem.rightBarButtonItem = addTasteButton
@@ -73,9 +81,10 @@ final class MainViewController: UIViewController {
     if isBeingPresented || isMovingToParent {
       addArc()
     }
-//    StoryboardScene.Main.progressViewController
-//      .instantiate()
-//      .present(to: self)
+  }
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self)
   }
   
   /// 상단 뷰를 탭했을 때의 동작.
@@ -113,6 +122,9 @@ final class MainViewController: UIViewController {
     foodmojiButton.setImage(Foodmoji.Large.tenth.image, for: [])
     foodmojiButton.imageView?.contentMode = .scaleAspectFit
     foodmojiButton.sizeToFit()
+    let center = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height)
+    foodmojiButton.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+    foodmojiButton.center = center
     foodmojiButton.addTarget(self,
                              action: #selector(foodmojiButtonDidTap(_:)),
                              for: .touchUpInside)
@@ -136,14 +148,19 @@ final class MainViewController: UIViewController {
   private func revealFoodmojiButton() {
     let center = CGPoint(x: view.bounds.width / 2, y: keyboardInfo.frame.origin.y)
     foodmojiButton.center = .init(x: center.x, y: center.y - 20)
-    foodmojiButton.alpha = 1
+    UIView.animate(withDuration: 0.5) { [weak self] in
+      self?.foodmojiButton.transform = .identity
+      self?.foodmojiButton.alpha = 1
+    }
     view.addSubview(foodmojiButton)
   }
   
   /// 푸드모지 버튼 숨기기.
   private func dismissFoodmojiButton() {
-    foodmojiButton.alpha = 0
-    foodmojiButton.removeFromSuperview()
+    UIView.animate(withDuration: 0.5) { [weak self] in
+      self?.foodmojiButton.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+      self?.foodmojiButton.alpha = 0
+    }
   }
 }
 

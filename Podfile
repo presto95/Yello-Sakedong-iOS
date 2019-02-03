@@ -12,5 +12,6 @@ target 'YelloSakedong' do
   pod 'ObjectMapper'
   pod 'Hero'
   pod 'FSPagerView'
+  pod 'EFCountingLabel'
 
 end

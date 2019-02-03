@@ -8,6 +8,6 @@
 
 import Foundation
 
-final class NetworkManager: NeteworkManagerProtocol {
+final class NetworkManager: NetworkManagerType {
   
 }

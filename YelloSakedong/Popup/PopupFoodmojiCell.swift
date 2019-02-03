@@ -30,12 +30,12 @@ final class PopupFoodmojiCell: FSPagerViewCell {
       let button = UIButton(type: .system)
       if pagerViewHasSelected {
         if let selectedButtonIndex = selectedButtonIndex {
-          button.setImage(Foodmoji.Small.Pure.image(at: selectedButtonIndex), for: [])
+          button.setImage(Foodmoji.Small.Colored.image(at: selectedButtonIndex), for: [])
         } else {
-          button.setImage(Foodmoji.Small.Gray.image(at: index), for: [])
+          button.setImage(Foodmoji.Small.Uncolored.image(at: index), for: [])
         }
       } else {
-        button.setImage(Foodmoji.Small.Pure.image(at: index), for: [])
+        button.setImage(Foodmoji.Small.Colored.image(at: index), for: [])
       }
       button.imageView?.contentMode = .scaleAspectFit
       buttons.append(button)

@@ -31,20 +31,6 @@
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVr-zR-sEz">
-                        <rect key="frame" x="279" y="24.5" width="17" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="1" green="0.38431372549019605" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_like" translatesAutoresizingMaskIntoConstraints="NO" id="HKb-9H-w2Y">
-                        <rect key="frame" x="261" y="25" width="15" height="15"/>
-                        <color key="tintColor" name="red"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="15" id="41H-qG-kIx"/>
-                            <constraint firstAttribute="height" constant="15" id="Zht-MU-Kqg"/>
-                        </constraints>
-                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvt-Fs-zue">
                         <rect key="frame" x="24" y="27.5" width="10" height="10"/>
                         <color key="backgroundColor" name="yellow"/>
@@ -53,27 +39,44 @@
                             <constraint firstAttribute="width" constant="10" id="hZx-MY-Jt5"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljf-ce-qrc">
-                        <rect key="frame" x="237" y="23.5" width="13" height="18"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljf-ce-qrc">
+                        <rect key="frame" x="216.5" y="10.5" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="Sxy-D7-Yhx"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="ZHl-Gk-5Sd"/>
+                        </constraints>
                         <color key="tintColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5.5" maxY="0.0"/>
                         <state key="normal" image="icnDelete"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEA-Xt-mfG">
+                        <rect key="frame" x="260.5" y="10.5" width="43.5" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="p38-1P-Fm3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="tintColor" name="red"/>
+                        <inset key="contentEdgeInsets" minX="5.5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="-3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="130" image="ic_like">
+                            <color key="titleColor" name="red"/>
+                        </state>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="1gJ-hz-riT" firstAttribute="leading" secondItem="Uvt-Fs-zue" secondAttribute="trailing" constant="6" id="9xo-tk-94t"/>
                     <constraint firstAttribute="trailing" secondItem="bu6-gR-0a3" secondAttribute="trailing" constant="24" id="BE2-LL-Oe2"/>
-                    <constraint firstItem="HKb-9H-w2Y" firstAttribute="centerY" secondItem="1gJ-hz-riT" secondAttribute="centerY" id="DQ9-co-ZpR"/>
                     <constraint firstAttribute="bottom" secondItem="bu6-gR-0a3" secondAttribute="bottom" constant="24" id="EFu-ac-Thc"/>
+                    <constraint firstItem="rEA-Xt-mfG" firstAttribute="centerY" secondItem="1gJ-hz-riT" secondAttribute="centerY" id="Gov-Yd-0Rs"/>
+                    <constraint firstAttribute="trailing" secondItem="rEA-Xt-mfG" secondAttribute="trailing" constant="16" id="NY3-7n-HGc"/>
                     <constraint firstItem="Uvt-Fs-zue" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="OVj-8a-rDq"/>
                     <constraint firstItem="Uvt-Fs-zue" firstAttribute="centerY" secondItem="1gJ-hz-riT" secondAttribute="centerY" id="bTS-Tx-4eX"/>
                     <constraint firstItem="1gJ-hz-riT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="cQ8-xi-cFb"/>
                     <constraint firstItem="bu6-gR-0a3" firstAttribute="top" secondItem="1gJ-hz-riT" secondAttribute="bottom" constant="10" id="cpX-EZ-4SV"/>
                     <constraint firstItem="Ljf-ce-qrc" firstAttribute="centerY" secondItem="1gJ-hz-riT" secondAttribute="centerY" id="ivy-2d-Xtj"/>
-                    <constraint firstItem="aVr-zR-sEz" firstAttribute="trailing" secondItem="bu6-gR-0a3" secondAttribute="trailing" id="oXw-Vy-vy3"/>
+                    <constraint firstItem="rEA-Xt-mfG" firstAttribute="leading" secondItem="Ljf-ce-qrc" secondAttribute="trailing" id="lr9-w0-FcG"/>
                     <constraint firstItem="bu6-gR-0a3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="oao-nT-zmi"/>
-                    <constraint firstItem="aVr-zR-sEz" firstAttribute="centerY" secondItem="1gJ-hz-riT" secondAttribute="centerY" id="pJW-PZ-dGd"/>
-                    <constraint firstItem="HKb-9H-w2Y" firstAttribute="leading" secondItem="Ljf-ce-qrc" secondAttribute="trailing" constant="11" id="qrg-7L-z6M"/>
-                    <constraint firstItem="aVr-zR-sEz" firstAttribute="leading" secondItem="HKb-9H-w2Y" secondAttribute="trailing" constant="3" id="sGt-ls-j0F"/>
+                    <constraint firstItem="Ljf-ce-qrc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1gJ-hz-riT" secondAttribute="trailing" constant="8" id="u5c-Yd-n1Z"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -84,8 +87,7 @@
                 <outlet property="colorChipViewWidthConstraint" destination="hZx-MY-Jt5" id="4hd-Jz-Wu7"/>
                 <outlet property="deleteButton" destination="Ljf-ce-qrc" id="y5x-7f-50z"/>
                 <outlet property="descriptionLabel" destination="bu6-gR-0a3" id="p12-I6-bX4"/>
-                <outlet property="likeCountLabel" destination="aVr-zR-sEz" id="r7r-bp-nR6"/>
-                <outlet property="likeImageView" destination="HKb-9H-w2Y" id="cqa-xW-lzb"/>
+                <outlet property="likeButton" destination="rEA-Xt-mfG" id="ge1-4V-nwt"/>
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="127.28635682158921"/>
         </tableViewCell>

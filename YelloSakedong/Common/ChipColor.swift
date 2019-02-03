@@ -12,12 +12,19 @@ import Foundation
 enum ChipColor: Int, CaseIterable {
   
   case black
+  
   case blue
+  
   case green
+  
   case orange
+  
   case pink
+  
   case purple
+  
   case red
+  
   case yellow
   
   /// 케이스에 따른 색상 뽑아내기.

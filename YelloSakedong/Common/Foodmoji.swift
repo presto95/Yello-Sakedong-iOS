@@ -13,14 +13,23 @@ enum Foodmoji: CaseIterable {
   enum Large: Int, CaseIterable {
     
     case first
+    
     case second
+    
     case third
+    
     case fourth
+    
     case fifth
+    
     case sixth
+    
     case seventh
+    
     case eighth
+    
     case ninth
+    
     case tenth
     
     var image: AssetImageTypeAlias? {
@@ -56,14 +65,23 @@ enum Foodmoji: CaseIterable {
   enum Medium: Int, CaseIterable {
     
     case first
+    
     case second
+    
     case third
+    
     case fourth
+    
     case fifth
+    
     case sixth
+    
     case seventh
+    
     case eighth
+    
     case ninth
+    
     case tenth
     
     var image: AssetImageTypeAlias? {
@@ -98,16 +116,26 @@ enum Foodmoji: CaseIterable {
   
   enum Small: CaseIterable {
     
-    enum Pure: Int, CaseIterable {
+    enum Colored: Int, CaseIterable {
+      
       case first
+      
       case second
+      
       case third
+      
       case fourth
+      
       case fifth
+      
       case sixth
+      
       case seventh
+      
       case eighth
+      
       case ninth
+      
       case tenth
       
       var image: AssetImageTypeAlias? {
@@ -136,21 +164,30 @@ enum Foodmoji: CaseIterable {
       }
       
       static func image(at index: Int) -> AssetImageTypeAlias? {
-        return Foodmoji.Small.Pure(rawValue: index)?.image
+        return Foodmoji.Small.Colored(rawValue: index)?.image
       }
     }
     
-    enum Gray: Int, CaseIterable {
+    enum Uncolored: Int, CaseIterable {
       
       case first
+      
       case second
+      
       case third
+      
       case fourth
+      
       case fifth
+      
       case sixth
+      
       case seventh
+      
       case eighth
+      
       case ninth
+      
       case tenth
       
       var image: AssetImageTypeAlias? {
@@ -179,7 +216,7 @@ enum Foodmoji: CaseIterable {
       }
       
       static func image(at index: Int) -> AssetImageTypeAlias? {
-        return Foodmoji.Small.Pure(rawValue: index)?.image
+        return Foodmoji.Small.Colored(rawValue: index)?.image
       }
     }
   }

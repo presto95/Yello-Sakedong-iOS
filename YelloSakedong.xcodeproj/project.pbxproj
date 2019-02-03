@@ -39,7 +39,7 @@
 		195B99AB21E0E8A400367456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 195B99AA21E0E8A400367456 /* Assets.xcassets */; };
 		195B99AE21E0E8A400367456 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 195B99AC21E0E8A400367456 /* LaunchScreen.storyboard */; };
 		19800EEC22049165005D5EEA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EEB22049165005D5EEA /* NetworkManager.swift */; };
-		19800EEE2204916D005D5EEA /* NeteworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EED2204916D005D5EEA /* NeteworkManagerProtocol.swift */; };
+		19800EEE2204916D005D5EEA /* NetworkManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EED2204916D005D5EEA /* NetworkManagerType.swift */; };
 		19800EF022049AD1005D5EEA /* FoodmojiWithLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19800EEF22049AD1005D5EEA /* FoodmojiWithLabelView.xib */; };
 		19800EF42204A18F005D5EEA /* NotFoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EF32204A18F005D5EEA /* NotFoundViewController.swift */; };
 		19800EF72204AD44005D5EEA /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 19800EF62204AD43005D5EEA /* swiftgen.yml */; };
@@ -47,6 +47,8 @@
 		19800EFB2204B033005D5EEA /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EFA2204B033005D5EEA /* ProgressViewController.swift */; };
 		19800EFD2204B236005D5EEA /* Foodmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EFC2204B236005D5EEA /* Foodmoji.swift */; };
 		1995740622056B0A005903EF /* ChipColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995740522056B0A005903EF /* ChipColor.swift */; };
+		19A976BD2206F40B00534088 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A976BC2206F40B00534088 /* KeyboardObserving.swift */; };
+		19A976BF2206F42600534088 /* Notification+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A976BE2206F42600534088 /* Notification+.swift */; };
 		53858AEE8F97CE1227F5569D /* Pods_YelloSakedong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40609488D999FFB5247FC345 /* Pods_YelloSakedong.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,7 +99,7 @@
 		19800EDF22049110005D5EEA /* YelloSakedongTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YelloSakedongTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19800EE322049111005D5EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19800EEB22049165005D5EEA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		19800EED2204916D005D5EEA /* NeteworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeteworkManagerProtocol.swift; sourceTree = "<group>"; };
+		19800EED2204916D005D5EEA /* NetworkManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerType.swift; sourceTree = "<group>"; };
 		19800EEF22049AD1005D5EEA /* FoodmojiWithLabelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodmojiWithLabelView.xib; sourceTree = "<group>"; };
 		19800EF32204A18F005D5EEA /* NotFoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundViewController.swift; sourceTree = "<group>"; };
 		19800EF62204AD43005D5EEA /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -105,6 +107,8 @@
 		19800EFA2204B033005D5EEA /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		19800EFC2204B236005D5EEA /* Foodmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foodmoji.swift; sourceTree = "<group>"; };
 		1995740522056B0A005903EF /* ChipColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipColor.swift; sourceTree = "<group>"; };
+		19A976BC2206F40B00534088 /* KeyboardObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
+		19A976BE2206F42600534088 /* Notification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+.swift"; sourceTree = "<group>"; };
 		40609488D999FFB5247FC345 /* Pods_YelloSakedong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YelloSakedong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6609C43A3087759D7CB35B3B /* Pods-YelloSakedong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.debug.xcconfig"; path = "Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.debug.xcconfig"; sourceTree = "<group>"; };
 		ED3E33EA866D68DDFD092837 /* Pods-YelloSakedong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.release.xcconfig"; path = "Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				192973CB21EEC6870021B05E /* CALayer+.swift */,
 				192973CD21EEC8BF0021B05E /* UIColor+.swift */,
 				19800EF82204AE28005D5EEA /* NSLayoutConstraint+.swift */,
+				19A976BE2206F42600534088 /* Notification+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -295,8 +300,9 @@
 		19800EF52204A4EC005D5EEA /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				19800EED2204916D005D5EEA /* NeteworkManagerProtocol.swift */,
+				19800EED2204916D005D5EEA /* NetworkManagerType.swift */,
 				190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */,
+				19A976BC2206F40B00534088 /* KeyboardObserving.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -476,6 +482,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EFCountingLabel/EFCountingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -487,6 +494,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFCountingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -508,10 +516,12 @@
 				192973D421EEC9E70021B05E /* ResultViewController.swift in Sources */,
 				191C1EFE21F2E33600F31ED8 /* KeyboardInfo.swift in Sources */,
 				192973E321EECBA90021B05E /* ResultTranslationCell.swift in Sources */,
-				19800EEE2204916D005D5EEA /* NeteworkManagerProtocol.swift in Sources */,
+				19800EEE2204916D005D5EEA /* NetworkManagerType.swift in Sources */,
 				195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */,
 				1995740622056B0A005903EF /* ChipColor.swift in Sources */,
+				19A976BD2206F40B00534088 /* KeyboardObserving.swift in Sources */,
 				19800EEC22049165005D5EEA /* NetworkManager.swift in Sources */,
+				19A976BF2206F42600534088 /* Notification+.swift in Sources */,
 				192973B121EE300C0021B05E /* NSObject+.swift in Sources */,
 				192973B721EE30290021B05E /* UIView+.swift in Sources */,
 				191C1EFA21F23E6700F31ED8 /* PopupFoodmojiView.swift in Sources */,

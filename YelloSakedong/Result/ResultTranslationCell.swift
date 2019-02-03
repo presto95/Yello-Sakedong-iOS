@@ -31,7 +31,13 @@ final class ResultTranslationCell: UITableViewCell {
     }
     set {
       _isRanked = newValue
-      setColor(of: [likeImageView, likeCountLabel], isRanked: isRanked)
+      if newValue {
+        likeButton.setTitleColor(.rankedTintColor, for: [])
+        likeButton.tintColor = .rankedTintColor
+      } else {
+        likeButton.setTitleColor(.unrankedTintColor, for: [])
+        likeButton.tintColor = .unrankedTintColor
+      }
     }
   }
   
@@ -81,11 +87,8 @@ final class ResultTranslationCell: UITableViewCell {
   /// 작성자 레이블 리딩 제약.
   @IBOutlet private weak var authorLabelLeadingConstraint: NSLayoutConstraint!
   
-  /// 좋아요 이미지 뷰.
-  @IBOutlet private weak var likeImageView: UIImageView!
-  
-  /// 좋아요 카운트 레이블.
-  @IBOutlet private weak var likeCountLabel: UILabel!
+  /// 좋아요 버튼 및 좋아요 수.
+  @IBOutlet private weak var likeButton: UIButton!
   
   /// 내가 올린 정보 삭제 버튼.
   @IBOutlet weak var deleteButton: UIButton! {
@@ -102,13 +105,5 @@ final class ResultTranslationCell: UITableViewCell {
   
   @objc private func deleteButtonDidTap(_ sender: UIButton) {
     delegate?.resultTranslationCell(self, didTapDeleteButton: sender)
-  }
-  
-  private func setColor(of views: [UIView], isRanked: Bool) {
-    if isRanked {
-      views.forEach { $0.tintColor = .rankedTintColor }
-    } else {
-      views.forEach { $0.tintColor = .unrankedTintColor }
-    }
   }
 }

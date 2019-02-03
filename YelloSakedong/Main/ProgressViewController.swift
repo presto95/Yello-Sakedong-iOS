@@ -8,13 +8,20 @@
 
 import UIKit
 
+import Hero
+
 /// 프로그레스 뜨는 뷰 컨트롤러.
 final class ProgressViewController: UIViewController {
   
   // MARK: IBOutlet
   
   /// 푸드모지 이미지 뷰
-  @IBOutlet private weak var foodmojiImageView: UIImageView!
+  @IBOutlet private weak var foodmojiImageView: UIImageView! {
+    didSet {
+      foodmojiImageView.hero.id = "foodmoji"
+      foodmojiImageView.hero.modifiers = [.arc]
+    }
+  }
   
   /// 프로그레스 뜨는 스택 뷰.
   @IBOutlet private weak var progressStackView: UIStackView! {
@@ -30,6 +37,7 @@ final class ProgressViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    hero.isEnabled = true
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +54,7 @@ final class ProgressViewController: UIViewController {
         if let parent = self.presentingViewController as? UINavigationController {
           // 결과를 찾으면 ResultViewController로
           // 그렇지 않으면 NotFoundViewController로 이동
-          self.dismiss(animated: true) {
+          self.hero.dismissViewController {
             StoryboardScene.Result.resultViewController
               .instantiate()
               .push(at: parent)
@@ -66,6 +74,6 @@ final class ProgressViewController: UIViewController {
   
   /// 푸드모지 이미지 뷰 돌아가는 느낌 주기
   private func setFoodmojiImageView(at index: Int) {
-    foodmojiImageView.image = Foodmoji.Medium.allCases[index].image
+    foodmojiImageView.image = Foodmoji.Large.allCases[index].image
   }
 }

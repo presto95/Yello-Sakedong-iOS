@@ -9,6 +9,7 @@
 import UIKit
 
 import FSPagerView
+import Hero
 
 /// 팝업 뷰 컨트롤러.
 final class PopupViewController: UIViewController {
@@ -50,6 +51,16 @@ final class PopupViewController: UIViewController {
     }
   }
   
+  /// 이미지 추가 버튼.
+  @IBOutlet private weak var addImageButton: UIButton! {
+    didSet {
+      addImageButton.imageView?.contentMode = .scaleAspectFit
+      addImageButton.clipsToBounds = true
+      addImageButton.layer.cornerRadius = addImageButton.bounds.height / 2
+      addImageButton.addTarget(self, action: #selector(addButtonDidTap(_:)), for: .touchUpInside)
+    }
+  }
+  
   /// 맛 등록 버튼.
   @IBOutlet private weak var registerButton: UIButton! {
     didSet {
@@ -83,7 +94,7 @@ final class PopupViewController: UIViewController {
   @IBOutlet private weak var pageControl: FSPageControl! {
     didSet {
       pageControl.currentPage = 0
-      pageControl.numberOfPages = Foodmoji.Small.Pure.allCases.count / 2
+      pageControl.numberOfPages = Foodmoji.Small.Colored.allCases.count / 5
       pageControl.itemSpacing = 7
       pageControl.setFillColor(UIColor(rgb: 216), for: .normal)
       pageControl.setFillColor(UIColor(rgb: 119), for: .selected)
@@ -132,14 +143,24 @@ final class PopupViewController: UIViewController {
     adjustPopupViewIfKeyboardWillHide()
   }
   
+  @objc private func addButtonDidTap(_ sender: UIButton) {
+    if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+      let imagePicker = UIImagePickerController()
+      imagePicker.delegate = self
+      imagePicker.sourceType = .photoLibrary
+      imagePicker.allowsEditing = true
+      present(imagePicker, animated: true, completion: nil)
+    }
+  }
+  
   @objc private func registerButtonDidTap(_ sender: UIButton) {
     // 맛 추가
-    dismiss(animated: true, completion: nil)
+    hero.dismissViewController()
   }
   
   @objc private func cancelButtonDidTap(_ sender: UIButton) {
     textView.resignFirstResponder()
-    dismiss(animated: true, completion: nil)
+    hero.dismissViewController()
   }
   
   private func setKeyboardInfo(_ notification: Notification) {
@@ -161,8 +182,10 @@ final class PopupViewController: UIViewController {
       delay: 0,
       options: keyboardInfo.animation,
       animations: { [weak self] in
-        guard let `self` = self else { return }
-        self.backgroundViewCenterYConstraint.constant -= self.keyboardInfo.frame.height / 3
+        guard let self = self else { return }
+        print("키보드 보여짐")
+        print(self.keyboardInfo.frame)
+        self.backgroundViewCenterYConstraint.constant -= self.keyboardInfo.frame.height / 2.5
       },
       completion: nil
     )
@@ -175,8 +198,10 @@ final class PopupViewController: UIViewController {
       delay: 0,
       options: keyboardInfo.animation,
       animations: { [weak self] in
-        guard let `self` = self else { return }
-        self.backgroundViewCenterYConstraint.constant += self.keyboardInfo.frame.height / 3
+        guard let self = self else { return }
+        print("키보드 사라짐")
+        print(self.keyboardInfo.frame)
+        self.backgroundViewCenterYConstraint.constant += self.keyboardInfo.frame.height / 5
       },
       completion: nil
     )
@@ -205,7 +230,7 @@ extension PopupViewController: FSPagerViewDataSource {
   }
   
   func numberOfItems(in pagerView: FSPagerView) -> Int {
-    return Foodmoji.Small.Pure.allCases.count / 5
+    return Foodmoji.Small.Colored.allCases.count / 5
   }
 }
 
@@ -226,5 +251,24 @@ extension PopupViewController: FSPagerViewDelegate {
   
   func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
     currentPageControlIndex = targetIndex
+  }
+}
+
+// MARK: - UIImagePickerControllerDelegate 구현
+
+extension PopupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  func imagePickerController(
+    _ picker: UIImagePickerController,
+    didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    if let image = info[.editedImage] as? UIImage {
+      
+      addImageButton.setTitle(nil, for: [])
+      addImageButton.setImage(image, for: [])
+    }
+    picker.dismiss(animated: true, completion: nil)
+  }
+  
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    picker.dismiss(animated: true, completion: nil)
   }
 }
