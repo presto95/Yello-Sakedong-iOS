@@ -13,17 +13,8 @@ import Hero
 /// 첫 화면 뷰 컨트롤러.
 final class MainViewController: UIViewController {
   
-  /// 키보드 정보 관련 구조체.
-  private var keyboardInfo: KeyboardInfo!
-  
   /// 푸드모지 버튼.
-  private var foodmojiButton: UIButton! {
-    didSet {
-      foodmojiButton.hero.id = "foodmoji"
-      foodmojiButton.hero.modifiers = [.arc]
-    }
-  }
-  
+  private var foodmojiButton: UIButton!
   // MARK: IBOutlet
   
   /// 상단 그림자를 넣기 위한 뷰.
@@ -106,61 +97,67 @@ final class MainViewController: UIViewController {
   
   /// 키보드가 나타나려 할 때의 동작.
   @objc private func keyboardWillShow(_ notification: Notification) {
-    setKeyboardInfo(notification)
-    revealFoodmojiButton()
+    print("보여짐")
+    revealFoodmojiButton(notification)
   }
   
   /// 키보드가 내려가려 할 때의 동작.
   @objc private func keyboardWillHide(_ notification: Notification) {
+    print("사라짐")
     dismissFoodmojiButton()
   }
   
   /// 푸드모지 버튼 초기화.
   private func initializeFoodmojiButton() {
     foodmojiButton = UIButton(type: .system)
+    foodmojiButton.hero.id = "foodmoji"
+    foodmojiButton.hero.modifiers = [.arc]
     foodmojiButton.alpha = 0
     foodmojiButton.setImage(Foodmoji.Large.tenth.image, for: [])
     foodmojiButton.imageView?.contentMode = .scaleAspectFit
     foodmojiButton.sizeToFit()
     let center = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height)
-    foodmojiButton.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
     foodmojiButton.center = center
     foodmojiButton.addTarget(self,
                              action: #selector(foodmojiButtonDidTap(_:)),
                              for: .touchUpInside)
   }
   
-  /// 키보드 관련 정보 설정.
-  private func setKeyboardInfo(_ notification: Notification) {
-    let userInfo = notification.userInfo
-    let frameUserInfo = userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
-    let durationUserInfo = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey]
-    let animationUserInfo = userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey]
-    guard let frameInfo = frameUserInfo as? CGRect else { return }
-    guard let durationInfo = durationUserInfo as? NSNumber else { return }
-    guard let animationInfo = animationUserInfo as? NSNumber else { return }
-    let duration = durationInfo.doubleValue
-    let animation = UIView.AnimationOptions(rawValue: UInt(truncating: animationInfo))
-    keyboardInfo = KeyboardInfo(frame: frameInfo, duration: duration, animation: animation)
-  }
-  
   /// 푸드모지 버튼 드러내기.
-  private func revealFoodmojiButton() {
-    let center = CGPoint(x: view.bounds.width / 2, y: keyboardInfo.frame.origin.y)
+  private func revealFoodmojiButton(_ notification: Notification) {
+    foodmojiButton.transform = .init(scaleX: 0.1, y: 0.1)
+    let center = CGPoint(x: view.bounds.width / 2, y: notification.keyboardFrame.origin.y)
     foodmojiButton.center = .init(x: center.x, y: center.y - 20)
-    UIView.animate(withDuration: 0.5) { [weak self] in
-      self?.foodmojiButton.transform = .identity
-      self?.foodmojiButton.alpha = 1
-    }
+    UIView.animate(
+      withDuration: 0.5,
+      delay: 0,
+      usingSpringWithDamping: 0.6,
+      initialSpringVelocity: 0.5,
+      options: .curveEaseInOut,
+      animations: { [weak self] in
+        self?.foodmojiButton.transform = .identity
+        self?.foodmojiButton.alpha = 1
+      },
+      completion: nil
+    )
     view.addSubview(foodmojiButton)
   }
   
   /// 푸드모지 버튼 숨기기.
   private func dismissFoodmojiButton() {
-    UIView.animate(withDuration: 0.5) { [weak self] in
-      self?.foodmojiButton.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-      self?.foodmojiButton.alpha = 0
-    }
+    foodmojiButton.transform = .identity
+    UIView.animate(
+      withDuration: 0.5,
+      delay: 0,
+      usingSpringWithDamping: 0.6,
+      initialSpringVelocity: 0.5,
+      options: .curveEaseInOut,
+      animations: { [weak self] in
+        self?.foodmojiButton.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        self?.foodmojiButton.alpha = 0
+      },
+      completion: nil
+    )
   }
 }
 
@@ -187,7 +184,7 @@ extension MainViewController: AddTasteButtonProtocol {
 extension MainViewController: UITextFieldDelegate {
   func textFieldDidBeginEditing(_ textField: UITextField) {
     // 상단 뷰 약간 위로 올라가며 입력 받을 준비
-   
+    
   }
   
   func textFieldDidEndEditing(_ textField: UITextField) {

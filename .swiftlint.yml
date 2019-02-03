@@ -9,6 +9,6 @@ excluded:
 - YelloSakedong/Supporting Files/
 
 line_length:
-  warning: 98
-  error: 99
+  warning: 99
+  error: 120
 

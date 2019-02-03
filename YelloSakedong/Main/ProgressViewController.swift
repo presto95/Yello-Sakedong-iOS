@@ -20,6 +20,12 @@ final class ProgressViewController: UIViewController {
     didSet {
       foodmojiImageView.hero.id = "foodmoji"
       foodmojiImageView.hero.modifiers = [.arc]
+      foodmojiImageView.layer.applySketchShadow(color: .white,
+                                                alpha: 1,
+                                                x: 0,
+                                                y: 0,
+                                                blur: 16,
+                                                spread: 0)
     }
   }
   

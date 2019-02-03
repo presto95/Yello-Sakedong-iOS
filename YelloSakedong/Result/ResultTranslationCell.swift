@@ -11,6 +11,10 @@ import UIKit
 /// ResultTranslationCell의 델리게이트 프로토콜.
 protocol ResultTranslationCellDelegate: class {
   
+  /// 좋아요 버튼을 탭했을 때의 동작.
+  func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
+                             didTapLikeButton button: UIButton)
+  
   /// 삭제 버튼을 탭했을 때의 동작.
   func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
                              didTapDeleteButton button: UIButton)
@@ -56,7 +60,6 @@ final class ResultTranslationCell: UITableViewCell {
         colorChipViewWidthConstraint.constant = 10.0
         authorLabelLeadingConstraint.constant = 6.0
       }
-      layoutIfNeeded()
     }
   }
   
@@ -88,7 +91,11 @@ final class ResultTranslationCell: UITableViewCell {
   @IBOutlet private weak var authorLabelLeadingConstraint: NSLayoutConstraint!
   
   /// 좋아요 버튼 및 좋아요 수.
-  @IBOutlet private weak var likeButton: UIButton!
+  @IBOutlet private weak var likeButton: UIButton! {
+    didSet {
+      likeButton.addTarget(self, action: #selector(likeButtonDidTap(_:)), for: .touchUpInside)
+    }
+  }
   
   /// 내가 올린 정보 삭제 버튼.
   @IBOutlet weak var deleteButton: UIButton! {
@@ -102,6 +109,10 @@ final class ResultTranslationCell: UITableViewCell {
   
   /// 설명 레이블.
   @IBOutlet private weak var descriptionLabel: UILabel!
+
+  @objc private func likeButtonDidTap(_ sender: UIButton) {
+    delegate?.resultTranslationCell(self, didTapLikeButton: sender)
+  }
   
   @objc private func deleteButtonDidTap(_ sender: UIButton) {
     delegate?.resultTranslationCell(self, didTapDeleteButton: sender)

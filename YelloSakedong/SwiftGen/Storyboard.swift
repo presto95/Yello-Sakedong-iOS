@@ -42,15 +42,6 @@ internal enum StoryboardScene {
 
     internal static let resultViewController = SceneType<ResultViewController>(storyboard: Result.self, identifier: "ResultViewController")
   }
-  internal enum Search: StoryboardType {
-    internal static let storyboardName = "Search"
-
-    internal static let initialScene = InitialSceneType<SearchViewController>(storyboard: Search.self)
-
-    internal static let notFoundViewController = SceneType<NotFoundViewController>(storyboard: Search.self, identifier: "NotFoundViewController")
-
-    internal static let searchViewController = SceneType<SearchViewController>(storyboard: Search.self, identifier: "SearchViewController")
-  }
   internal enum Splash: StoryboardType {
     internal static let storyboardName = "Splash"
 

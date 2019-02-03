@@ -12,7 +12,6 @@
 		190DA1F021EF056A00B8CF97 /* AddTasteButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */; };
 		191C1EF621F23D9400F31ED8 /* PopupFoodmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF521F23D9400F31ED8 /* PopupFoodmojiCell.swift */; };
 		191C1EFA21F23E6700F31ED8 /* PopupFoodmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF921F23E6700F31ED8 /* PopupFoodmojiView.swift */; };
-		191C1EFE21F2E33600F31ED8 /* KeyboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EFD21F2E33600F31ED8 /* KeyboardInfo.swift */; };
 		192973AA21EE2F8F0021B05E /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192973A921EE2F8F0021B05E /* Splash.storyboard */; };
 		192973AE21EE2FD20021B05E /* FoodmojiWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973AD21EE2FD20021B05E /* FoodmojiWithLabelView.swift */; };
 		192973B121EE300C0021B05E /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973B021EE300C0021B05E /* NSObject+.swift */; };
@@ -25,9 +24,7 @@
 		192973CA21EE3A440021B05E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 192973C921EE3A440021B05E /* .swiftlint.yml */; };
 		192973CC21EEC6870021B05E /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973CB21EEC6870021B05E /* CALayer+.swift */; };
 		192973CE21EEC8BF0021B05E /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973CD21EEC8BF0021B05E /* UIColor+.swift */; };
-		192973D221EEC9DA0021B05E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973D121EEC9DA0021B05E /* SearchViewController.swift */; };
 		192973D421EEC9E70021B05E /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973D321EEC9E70021B05E /* ResultViewController.swift */; };
-		192973D821EECA300021B05E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192973D721EECA300021B05E /* Search.storyboard */; };
 		192973DA21EECA3F0021B05E /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192973D921EECA3F0021B05E /* Result.storyboard */; };
 		192973DF21EECADE0021B05E /* ResultInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973DD21EECADE0021B05E /* ResultInfoCell.swift */; };
 		192973E021EECADE0021B05E /* ResultInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 192973DE21EECADE0021B05E /* ResultInfoCell.xib */; };
@@ -47,7 +44,6 @@
 		19800EFB2204B033005D5EEA /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EFA2204B033005D5EEA /* ProgressViewController.swift */; };
 		19800EFD2204B236005D5EEA /* Foodmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EFC2204B236005D5EEA /* Foodmoji.swift */; };
 		1995740622056B0A005903EF /* ChipColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995740522056B0A005903EF /* ChipColor.swift */; };
-		19A976BD2206F40B00534088 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A976BC2206F40B00534088 /* KeyboardObserving.swift */; };
 		19A976BF2206F42600534088 /* Notification+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A976BE2206F42600534088 /* Notification+.swift */; };
 		53858AEE8F97CE1227F5569D /* Pods_YelloSakedong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40609488D999FFB5247FC345 /* Pods_YelloSakedong.framework */; };
 /* End PBXBuildFile section */
@@ -68,7 +64,6 @@
 		190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTasteButtonProtocol.swift; sourceTree = "<group>"; };
 		191C1EF521F23D9400F31ED8 /* PopupFoodmojiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiCell.swift; sourceTree = "<group>"; };
 		191C1EF921F23E6700F31ED8 /* PopupFoodmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiView.swift; sourceTree = "<group>"; };
-		191C1EFD21F2E33600F31ED8 /* KeyboardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardInfo.swift; sourceTree = "<group>"; };
 		192973A921EE2F8F0021B05E /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		192973AD21EE2FD20021B05E /* FoodmojiWithLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodmojiWithLabelView.swift; sourceTree = "<group>"; };
 		192973B021EE300C0021B05E /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
@@ -81,9 +76,7 @@
 		192973C921EE3A440021B05E /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		192973CB21EEC6870021B05E /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		192973CD21EEC8BF0021B05E /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		192973D121EEC9DA0021B05E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		192973D321EEC9E70021B05E /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		192973D721EECA300021B05E /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		192973D921EECA3F0021B05E /* Result.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
 		192973DD21EECADE0021B05E /* ResultInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultInfoCell.swift; sourceTree = "<group>"; };
 		192973DE21EECADE0021B05E /* ResultInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultInfoCell.xib; sourceTree = "<group>"; };
@@ -107,7 +100,6 @@
 		19800EFA2204B033005D5EEA /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		19800EFC2204B236005D5EEA /* Foodmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foodmoji.swift; sourceTree = "<group>"; };
 		1995740522056B0A005903EF /* ChipColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipColor.swift; sourceTree = "<group>"; };
-		19A976BC2206F40B00534088 /* KeyboardObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
 		19A976BE2206F42600534088 /* Notification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+.swift"; sourceTree = "<group>"; };
 		40609488D999FFB5247FC345 /* Pods_YelloSakedong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YelloSakedong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6609C43A3087759D7CB35B3B /* Pods-YelloSakedong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.debug.xcconfig"; path = "Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.debug.xcconfig"; sourceTree = "<group>"; };
@@ -202,7 +194,6 @@
 		192973C521EE393E0021B05E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				191C1EFD21F2E33600F31ED8 /* KeyboardInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,15 +204,6 @@
 				19800EEB22049165005D5EEA /* NetworkManager.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		192973D521EECA120021B05E /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				192973D721EECA300021B05E /* Search.storyboard */,
-				192973D121EEC9DA0021B05E /* SearchViewController.swift */,
-			);
-			path = Search;
 			sourceTree = "<group>";
 		};
 		192973D621EECA170021B05E /* Result */ = {
@@ -268,7 +250,6 @@
 				190DA1F121EF163E00B8CF97 /* Common */,
 				192973A721EE2F780021B05E /* Splash */,
 				192973A821EE2F810021B05E /* Main */,
-				192973D521EECA120021B05E /* Search */,
 				192973D621EECA170021B05E /* Result */,
 				192973BC21EE386E0021B05E /* Popup */,
 				195B99B521E0E96100367456 /* Supporting Files */,
@@ -302,7 +283,6 @@
 			children = (
 				19800EED2204916D005D5EEA /* NetworkManagerType.swift */,
 				190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */,
-				19A976BC2206F40B00534088 /* KeyboardObserving.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -413,7 +393,6 @@
 				192973E021EECADE0021B05E /* ResultInfoCell.xib in Resources */,
 				195B99AB21E0E8A400367456 /* Assets.xcassets in Resources */,
 				195B99A921E0E8A300367456 /* Main.storyboard in Resources */,
-				192973D821EECA300021B05E /* Search.storyboard in Resources */,
 				192973E421EECBA90021B05E /* ResultTranslationCell.xib in Resources */,
 				192973AA21EE2F8F0021B05E /* Splash.storyboard in Resources */,
 				192973C221EE38DE0021B05E /* Popup.storyboard in Resources */,
@@ -514,12 +493,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				192973D421EEC9E70021B05E /* ResultViewController.swift in Sources */,
-				191C1EFE21F2E33600F31ED8 /* KeyboardInfo.swift in Sources */,
 				192973E321EECBA90021B05E /* ResultTranslationCell.swift in Sources */,
 				19800EEE2204916D005D5EEA /* NetworkManagerType.swift in Sources */,
 				195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */,
 				1995740622056B0A005903EF /* ChipColor.swift in Sources */,
-				19A976BD2206F40B00534088 /* KeyboardObserving.swift in Sources */,
 				19800EEC22049165005D5EEA /* NetworkManager.swift in Sources */,
 				19A976BF2206F42600534088 /* Notification+.swift in Sources */,
 				192973B121EE300C0021B05E /* NSObject+.swift in Sources */,
@@ -531,7 +508,6 @@
 				19800EF42204A18F005D5EEA /* NotFoundViewController.swift in Sources */,
 				192973CE21EEC8BF0021B05E /* UIColor+.swift in Sources */,
 				192973B921EE33F10021B05E /* MainViewController.swift in Sources */,
-				192973D221EEC9DA0021B05E /* SearchViewController.swift in Sources */,
 				192973B521EE30200021B05E /* UIViewController+.swift in Sources */,
 				19800EFB2204B033005D5EEA /* ProgressViewController.swift in Sources */,
 				192973C421EE38EC0021B05E /* PopupViewController.swift in Sources */,

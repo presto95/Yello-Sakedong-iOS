@@ -70,7 +70,9 @@ internal enum Asset {
   internal static let icBack = ImageAsset(name: "ic_back")
   internal static let icLike = ImageAsset(name: "ic_like")
   internal static let icX = ImageAsset(name: "ic_x")
+  internal static let icnDelete = ImageAsset(name: "icnDelete")
   internal static let page404 = ImageAsset(name: "page404")
+  internal static let sampleFood = ImageAsset(name: "sampleFood")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

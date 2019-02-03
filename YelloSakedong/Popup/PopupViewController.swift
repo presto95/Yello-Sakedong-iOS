@@ -25,27 +25,23 @@ final class PopupViewController: UIViewController {
   }
   
   /// 페이저 뷰 요소가 선택되어 있는 상태인가.
-  private var pagerViewHasSelected: Bool = false
+  private var hasPagerViewSelected: Bool = false
   
   /// 페이저 뷰의 선택된 인덱스.
   private var selectedIndexOfPagerView: Int = 0
-  
-  /// 키보드 관련 정보.
-  private var keyboardInfo: KeyboardInfo!
   
   // MARK: - IBOutlet
   
   /// 팝업 배경 컨테이너 뷰.
   @IBOutlet private weak var backgroundView: UIView! {
     didSet {
-      backgroundView.layer.applySketchShadow(
-        color: .shadow,
-        alpha: 0.5,
-        x: 4,
-        y: 3,
-        blur: 12,
-        spread: 0
-      )
+      backgroundView.layer
+        .applySketchShadow(color: .shadow,
+                           alpha: 0.5,
+                           x: 4,
+                           y: 3,
+                           blur: 12,
+                           spread: 0)
       backgroundView.clipsToBounds = true
       backgroundView.layer.cornerRadius = 6
     }
@@ -135,12 +131,11 @@ final class PopupViewController: UIViewController {
   // MARK: - @objc Method
   
   @objc private func keyboardWillShow(_ notification: Notification) {
-    setKeyboardInfo(notification)
-    adjustPopupViewIfKeyboardWillShow()
+    adjustPopupViewIfKeyboardWillShow(notification)
   }
   
   @objc private func keyboardWillHide(_ notification: Notification) {
-    adjustPopupViewIfKeyboardWillHide()
+    adjustPopupViewIfKeyboardWillHide(notification)
   }
   
   @objc private func addButtonDidTap(_ sender: UIButton) {
@@ -163,45 +158,30 @@ final class PopupViewController: UIViewController {
     hero.dismissViewController()
   }
   
-  private func setKeyboardInfo(_ notification: Notification) {
-    let userInfo = notification.userInfo
-    let frameUserInfo = userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
-    let durationUserInfo = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey]
-    let animationUserInfo = userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey]
-    guard let frameInfo = frameUserInfo as? CGRect else { return }
-    guard let durationInfo = durationUserInfo as? NSNumber else { return }
-    guard let animationInfo = animationUserInfo as? NSNumber else { return }
-    let duration = durationInfo.doubleValue
-    let animation = UIView.AnimationOptions(rawValue: UInt(truncating: animationInfo))
-    keyboardInfo = KeyboardInfo(frame: frameInfo, duration: duration, animation: animation)
-  }
-  
-  private func adjustPopupViewIfKeyboardWillShow() {
+  private func adjustPopupViewIfKeyboardWillShow(_ notification: Notification) {
     UIView.animate(
-      withDuration: keyboardInfo.duration,
+      withDuration: notification.keyboardDuration,
       delay: 0,
-      options: keyboardInfo.animation,
+      options: notification.keyboardAnimation,
       animations: { [weak self] in
         guard let self = self else { return }
         print("키보드 보여짐")
-        print(self.keyboardInfo.frame)
-        self.backgroundViewCenterYConstraint.constant -= self.keyboardInfo.frame.height / 2.5
+        self.backgroundViewCenterYConstraint.constant -= notification.keyboardFrame.height / 2.5
       },
       completion: nil
     )
     view.layoutIfNeeded()
   }
   
-  private func adjustPopupViewIfKeyboardWillHide() {
+  private func adjustPopupViewIfKeyboardWillHide(_ notification: Notification) {
     UIView.animate(
-      withDuration: keyboardInfo.duration,
+      withDuration: notification.keyboardDuration,
       delay: 0,
-      options: keyboardInfo.animation,
+      options: notification.keyboardAnimation,
       animations: { [weak self] in
         guard let self = self else { return }
         print("키보드 사라짐")
-        print(self.keyboardInfo.frame)
-        self.backgroundViewCenterYConstraint.constant += self.keyboardInfo.frame.height / 5
+        self.backgroundViewCenterYConstraint.constant += notification.keyboardFrame.height / 5
       },
       completion: nil
     )
@@ -215,7 +195,7 @@ extension PopupViewController: FSPagerViewDataSource {
   func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
     let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
     if let popupCell = cell as? PopupFoodmojiCell {
-      if pagerViewHasSelected {
+      if hasPagerViewSelected {
         if index == selectedIndexOfPagerView {
           
         } else {
@@ -239,8 +219,8 @@ extension PopupViewController: FSPagerViewDataSource {
 extension PopupViewController: FSPagerViewDelegate {
   func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
     selectedIndexOfPagerView = index
-    if !pagerViewHasSelected {
-      pagerViewHasSelected = true
+    if !hasPagerViewSelected {
+      hasPagerViewSelected = true
       
       //
     } else {
@@ -259,9 +239,9 @@ extension PopupViewController: FSPagerViewDelegate {
 extension PopupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   func imagePickerController(
     _ picker: UIImagePickerController,
-    didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+  ) {
     if let image = info[.editedImage] as? UIImage {
-      
       addImageButton.setTitle(nil, for: [])
       addImageButton.setImage(image, for: [])
     }

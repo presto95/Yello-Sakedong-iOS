@@ -60,6 +60,10 @@ extension ResultViewController: UITableViewDataSource {
       let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.infoCell,
                                                for: indexPath)
       cell.hero.modifiers = [.fade]
+      if let infoCell = cell as? ResultInfoCell {
+        infoCell.delegate = self
+        infoCell.setState()
+      }
       return cell
     } else {
       // 나머지 섹션: Translation 셀
@@ -112,9 +116,30 @@ extension ResultViewController: UITableViewDataSource {
   }
 }
 
+// MARK: - ResultInfoCellDelegate 구현
+
+extension ResultViewController: ResultInfoCellDelegate {
+  func resultInfoCell(_ resultInfoCell: ResultInfoCell, didTapAddButton button: UIButton) {
+    if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+      let imagePicker = UIImagePickerController()
+      imagePicker.delegate = self
+      imagePicker.sourceType = .photoLibrary
+      imagePicker.allowsEditing = true
+      present(imagePicker, animated: true, completion: nil)
+    }
+  }
+}
+
 // MARK: - ResultTranslationCellDelegate 구현
 
 extension ResultViewController: ResultTranslationCellDelegate {
+  func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
+                             didTapLikeButton button: UIButton) {
+    if let indexPath = tableView.indexPath(for: resultTranslationCell) {
+      print(indexPath)
+    }
+  }
+  
   func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
                              didTapDeleteButton button: UIButton) {
     UIAlertController
@@ -142,5 +167,26 @@ extension ResultViewController: AddTasteButtonProtocol {
     StoryboardScene.Popup.popupViewController
       .instantiate()
       .present(to: self)
+  }
+}
+
+// MARK: - UIImagePickerDelegate 구현
+
+extension ResultViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  func imagePickerController(
+    _ picker: UIImagePickerController,
+    didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+  ) {
+    if let image = info[.editedImage] as? UIImage {
+      if let infoCell
+        = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ResultInfoCell {
+        infoCell.foodImage = image
+      }
+    }
+    picker.dismiss(animated: true, completion: nil)
+  }
+  
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    picker.dismiss(animated: true, completion: nil)
   }
 }

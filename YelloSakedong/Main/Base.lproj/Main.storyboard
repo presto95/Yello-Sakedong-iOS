@@ -20,24 +20,32 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDB-Zs-Wpj">
                                 <rect key="frame" x="0.0" y="64" width="375" height="400"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hku-6S-Q8f">
-                                <rect key="frame" x="0.0" y="64" width="375" height="400"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="맛이 궁금한 음식을 입력하세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="65C-X6-DCW">
-                                        <rect key="frame" x="16" y="126.5" width="343" height="27"/>
-                                        <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hku-6S-Q8f">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="맛이 궁금한 음식을 입력하세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="65C-X6-DCW">
+                                                <rect key="frame" x="16" y="167" width="343" height="27"/>
+                                                <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="65C-X6-DCW" secondAttribute="trailing" constant="16" id="BGS-Iq-U99"/>
+                                            <constraint firstItem="65C-X6-DCW" firstAttribute="centerY" secondItem="hku-6S-Q8f" secondAttribute="centerY" multiplier="0.9" id="JN0-oV-3wf"/>
+                                            <constraint firstItem="65C-X6-DCW" firstAttribute="leading" secondItem="hku-6S-Q8f" secondAttribute="leading" constant="16" id="Tu7-VZ-rdV"/>
+                                            <constraint firstItem="65C-X6-DCW" firstAttribute="centerX" secondItem="hku-6S-Q8f" secondAttribute="centerX" id="kZM-ep-5DO"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="65C-X6-DCW" secondAttribute="trailing" constant="16" id="IQZ-bu-7Rh"/>
-                                    <constraint firstItem="65C-X6-DCW" firstAttribute="leading" secondItem="hku-6S-Q8f" secondAttribute="leading" constant="16" id="a4W-pA-oaU"/>
-                                    <constraint firstItem="65C-X6-DCW" firstAttribute="centerY" secondItem="hku-6S-Q8f" secondAttribute="centerY" multiplier="0.7" id="bmP-nU-UgW"/>
-                                    <constraint firstItem="65C-X6-DCW" firstAttribute="centerX" secondItem="hku-6S-Q8f" secondAttribute="centerX" id="x2d-jG-hJY"/>
+                                    <constraint firstAttribute="bottom" secondItem="hku-6S-Q8f" secondAttribute="bottom" id="7EL-d5-Ay2"/>
+                                    <constraint firstAttribute="trailing" secondItem="hku-6S-Q8f" secondAttribute="trailing" id="KuE-eW-MWA"/>
+                                    <constraint firstItem="hku-6S-Q8f" firstAttribute="top" secondItem="UDB-Zs-Wpj" secondAttribute="top" id="R0N-1m-2Wh"/>
+                                    <constraint firstItem="hku-6S-Q8f" firstAttribute="leading" secondItem="UDB-Zs-Wpj" secondAttribute="leading" id="uC6-gO-5o9"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkU-Xa-0K5">
@@ -48,17 +56,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="L4R-Yw-J4H" firstAttribute="trailing" secondItem="TkU-Xa-0K5" secondAttribute="trailing" id="6yp-3T-C1H"/>
-                            <constraint firstItem="UDB-Zs-Wpj" firstAttribute="trailing" secondItem="hku-6S-Q8f" secondAttribute="trailing" id="Dk2-dM-YFL"/>
-                            <constraint firstItem="UDB-Zs-Wpj" firstAttribute="bottom" secondItem="hku-6S-Q8f" secondAttribute="bottom" id="F2U-IA-mWS"/>
-                            <constraint firstItem="UDB-Zs-Wpj" firstAttribute="leading" secondItem="hku-6S-Q8f" secondAttribute="leading" id="UMz-NV-xoh"/>
-                            <constraint firstItem="UDB-Zs-Wpj" firstAttribute="top" secondItem="hku-6S-Q8f" secondAttribute="top" id="VzC-c4-TcL"/>
+                            <constraint firstItem="TkU-Xa-0K5" firstAttribute="leading" secondItem="L4R-Yw-J4H" secondAttribute="leading" id="9VH-BR-Elw"/>
+                            <constraint firstItem="TkU-Xa-0K5" firstAttribute="trailing" secondItem="L4R-Yw-J4H" secondAttribute="trailing" id="CCh-FL-tLD"/>
+                            <constraint firstItem="TkU-Xa-0K5" firstAttribute="bottom" secondItem="ZAF-Kr-a8E" secondAttribute="bottom" id="DAW-Yv-mpn"/>
                             <constraint firstAttribute="bottom" secondItem="TkU-Xa-0K5" secondAttribute="bottom" id="ZEN-eX-bBJ"/>
+                            <constraint firstItem="UDB-Zs-Wpj" firstAttribute="leading" secondItem="L4R-Yw-J4H" secondAttribute="leading" id="c5r-8S-tIx"/>
+                            <constraint firstItem="TkU-Xa-0K5" firstAttribute="top" secondItem="UDB-Zs-Wpj" secondAttribute="bottom" id="dYO-GR-bRY"/>
                             <constraint firstItem="TkU-Xa-0K5" firstAttribute="leading" secondItem="L4R-Yw-J4H" secondAttribute="leading" id="gPU-6W-fPV"/>
-                            <constraint firstItem="hku-6S-Q8f" firstAttribute="top" secondItem="L4R-Yw-J4H" secondAttribute="top" id="jWk-yU-d8u"/>
-                            <constraint firstItem="hku-6S-Q8f" firstAttribute="leading" secondItem="L4R-Yw-J4H" secondAttribute="leading" id="qHc-hl-X6p"/>
-                            <constraint firstItem="L4R-Yw-J4H" firstAttribute="trailing" secondItem="hku-6S-Q8f" secondAttribute="trailing" id="qQF-c1-b8e"/>
-                            <constraint firstItem="TkU-Xa-0K5" firstAttribute="top" secondItem="hku-6S-Q8f" secondAttribute="bottom" id="r5G-0C-L0B"/>
-                            <constraint firstItem="hku-6S-Q8f" firstAttribute="height" secondItem="ZAF-Kr-a8E" secondAttribute="height" multiplier="0.6" id="t4p-FP-934"/>
+                            <constraint firstItem="UDB-Zs-Wpj" firstAttribute="trailing" secondItem="L4R-Yw-J4H" secondAttribute="trailing" id="jdd-TM-syi"/>
+                            <constraint firstItem="UDB-Zs-Wpj" firstAttribute="top" secondItem="L4R-Yw-J4H" secondAttribute="top" id="siv-2w-Upc"/>
+                            <constraint firstItem="UDB-Zs-Wpj" firstAttribute="height" secondItem="ZAF-Kr-a8E" secondAttribute="height" multiplier="0.6" id="wmQ-7W-Rdt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L4R-Yw-J4H"/>
                     </view>
@@ -70,7 +77,6 @@
                         <outlet property="lowerView" destination="TkU-Xa-0K5" id="ULS-ZM-407"/>
                         <outlet property="upperShadowView" destination="UDB-Zs-Wpj" id="thj-dx-mIs"/>
                         <outlet property="upperView" destination="hku-6S-Q8f" id="5Gp-5r-VcG"/>
-                        <outlet property="upperViewTopConstraint" destination="VzC-c4-TcL" id="k1t-Qf-Oae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EB-pK-b2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -144,6 +150,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ygE-DG-R5I">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
