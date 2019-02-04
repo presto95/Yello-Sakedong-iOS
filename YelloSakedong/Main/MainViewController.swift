@@ -15,6 +15,7 @@ final class MainViewController: UIViewController {
   
   /// 푸드모지 버튼.
   private var foodmojiButton: UIButton!
+  
   // MARK: IBOutlet
   
   /// 상단 그림자를 넣기 위한 뷰.
@@ -26,12 +27,8 @@ final class MainViewController: UIViewController {
       upperView.addGestureRecognizer(
         UITapGestureRecognizer(target: self, action: #selector(upperViewDidTap(_:)))
       )
-      addArc()
     }
   }
-  
-  /// 상단 컨테이너 뷰 위쪽 제약.
-  @IBOutlet private weak var upperViewTopConstraint: NSLayoutConstraint!
   
   /// 하단 컨테이너 뷰.
   @IBOutlet private weak var lowerView: UIView!
@@ -56,6 +53,7 @@ final class MainViewController: UIViewController {
     navigationItem.rightBarButtonItem = addTasteButton
     navigationItem.backBarButtonItem = UIBarButtonItem()
     initializeFoodmojiButton()
+    addArcAndShadowToUpperView()
     NotificationCenter.default.addObserver(self,
                                            selector: #selector(keyboardWillShow(_:)),
                                            name: UIResponder.keyboardWillShowNotification,
@@ -66,17 +64,11 @@ final class MainViewController: UIViewController {
                                            object: nil)
   }
   
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    // 최초에 화면이 보여질 때만 arc를 레이어에 추가
-    if isBeingPresented || isMovingToParent {
-      addArc()
-    }
-  }
-  
   deinit {
     NotificationCenter.default.removeObserver(self)
   }
+  
+  // MARK: @objc Method
   
   /// 상단 뷰를 탭했을 때의 동작.
   @objc private func upperViewDidTap(_ recognizer: UITapGestureRecognizer) {
@@ -107,6 +99,8 @@ final class MainViewController: UIViewController {
     dismissFoodmojiButton()
   }
   
+  // MARK: Private Method
+  
   /// 푸드모지 버튼 초기화.
   private func initializeFoodmojiButton() {
     foodmojiButton = UIButton(type: .system)
@@ -126,7 +120,8 @@ final class MainViewController: UIViewController {
   /// 푸드모지 버튼 드러내기.
   private func revealFoodmojiButton(_ notification: Notification) {
     foodmojiButton.transform = .init(scaleX: 0.1, y: 0.1)
-    let center = CGPoint(x: view.bounds.width / 2, y: notification.keyboardFrame.origin.y)
+    let center = CGPoint(x: view.bounds.width / 2,
+                         y: view.bounds.height - notification.keyboardFrame.height)
     foodmojiButton.center = .init(x: center.x, y: center.y - 20)
     UIView.animate(
       withDuration: 0.5,
@@ -190,10 +185,11 @@ extension MainViewController: UITextFieldDelegate {
   func textFieldDidEndEditing(_ textField: UITextField) {
     // 초기 상태로 돌아가기
     textField.text = nil
-    //textField.resignFirstResponder()
+    textField.resignFirstResponder()
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.text = nil
     textField.resignFirstResponder()
     return true
   }
@@ -203,9 +199,9 @@ extension MainViewController: UITextFieldDelegate {
 
 private extension MainViewController {
   
-  /// arc 추가하기
-  func addArc() {
-    /// arc 베지어 곡선 만들기
+  /// arc와 그림자 상단 뷰에 추가하기
+  func addArcAndShadowToUpperView() {
+    // arc 베지어 곡선 만들기
     let path = UIBezierPath(
       arcCenter: .init(x: upperView.bounds.width / 2, y: 0),
       radius: upperView.bounds.height,
@@ -218,7 +214,7 @@ private extension MainViewController {
     shapeLayer.path = path.cgPath
     shapeLayer.fillColor = UIColor.white.cgColor
     upperView.layer.mask = shapeLayer
-    /// Shape Layer 만들고 그림자 효과 축하여 상단 그림자를 위한 뷰의 서브레이어에 추가
+    /// Shape Layer 만들고 그림자 효과 추가하여 상단 그림자를 위한 뷰의 서브레이어에 추가
     let shadowLayer = CAShapeLayer()
     shadowLayer.path = path.cgPath
     shadowLayer.fillColor = UIColor.white.cgColor

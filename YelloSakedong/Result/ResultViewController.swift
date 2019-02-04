@@ -47,6 +47,16 @@ final class ResultViewController: UIViewController {
     navigationItem.rightBarButtonItem = addTasteButton
     navigationItem.backBarButtonItem = UIBarButtonItem()
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.hidesBarsOnSwipe = true
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    navigationController?.hidesBarsOnSwipe = false
+  }
 }
 
 // MARK: - UITableViewDataSource 구현
