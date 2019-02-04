@@ -40,7 +40,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljf-ce-qrc">
-                        <rect key="frame" x="216.5" y="10.5" width="44" height="44"/>
+                        <rect key="frame" x="245" y="10.5" width="44" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="Sxy-D7-Yhx"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="ZHl-Gk-5Sd"/>
@@ -50,18 +50,22 @@
                         <state key="normal" image="icnDelete"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEA-Xt-mfG">
-                        <rect key="frame" x="260.5" y="10.5" width="43.5" height="44"/>
+                        <rect key="frame" x="289" y="10.5" width="15" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="p38-1P-Fm3"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="tintColor" name="red"/>
-                        <inset key="contentEdgeInsets" minX="5.5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <inset key="imageEdgeInsets" minX="-3" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <state key="normal" title="130" image="ic_like">
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
+                        <state key="normal" image="ic_like">
                             <color key="titleColor" name="red"/>
                         </state>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="130" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kca-cL-gGL">
+                        <rect key="frame" x="279" y="24" width="25" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="1gJ-hz-riT" firstAttribute="leading" secondItem="Uvt-Fs-zue" secondAttribute="trailing" constant="6" id="9xo-tk-94t"/>
@@ -70,9 +74,11 @@
                     <constraint firstItem="rEA-Xt-mfG" firstAttribute="centerY" secondItem="1gJ-hz-riT" secondAttribute="centerY" id="Gov-Yd-0Rs"/>
                     <constraint firstAttribute="trailing" secondItem="rEA-Xt-mfG" secondAttribute="trailing" constant="16" id="NY3-7n-HGc"/>
                     <constraint firstItem="Uvt-Fs-zue" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="OVj-8a-rDq"/>
+                    <constraint firstItem="kca-cL-gGL" firstAttribute="centerY" secondItem="1gJ-hz-riT" secondAttribute="centerY" id="aPK-SG-NCa"/>
                     <constraint firstItem="Uvt-Fs-zue" firstAttribute="centerY" secondItem="1gJ-hz-riT" secondAttribute="centerY" id="bTS-Tx-4eX"/>
                     <constraint firstItem="1gJ-hz-riT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="cQ8-xi-cFb"/>
                     <constraint firstItem="bu6-gR-0a3" firstAttribute="top" secondItem="1gJ-hz-riT" secondAttribute="bottom" constant="10" id="cpX-EZ-4SV"/>
+                    <constraint firstAttribute="trailing" secondItem="kca-cL-gGL" secondAttribute="trailing" constant="16" id="hPR-HA-ip0"/>
                     <constraint firstItem="Ljf-ce-qrc" firstAttribute="centerY" secondItem="1gJ-hz-riT" secondAttribute="centerY" id="ivy-2d-Xtj"/>
                     <constraint firstItem="rEA-Xt-mfG" firstAttribute="leading" secondItem="Ljf-ce-qrc" secondAttribute="trailing" id="lr9-w0-FcG"/>
                     <constraint firstItem="bu6-gR-0a3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="oao-nT-zmi"/>
@@ -88,6 +94,7 @@
                 <outlet property="deleteButton" destination="Ljf-ce-qrc" id="y5x-7f-50z"/>
                 <outlet property="descriptionLabel" destination="bu6-gR-0a3" id="p12-I6-bX4"/>
                 <outlet property="likeButton" destination="rEA-Xt-mfG" id="ge1-4V-nwt"/>
+                <outlet property="likeCountLabel" destination="kca-cL-gGL" id="lOF-gT-FeU"/>
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="127.28635682158921"/>
         </tableViewCell>

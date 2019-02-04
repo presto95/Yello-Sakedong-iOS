@@ -76,7 +76,6 @@ extension ResultViewController: UITableViewDataSource {
       }
       return cell
     } else {
-      // 나머지 섹션: Translation 셀
       // 1번 섹션: 내가 등록한 것을 표시하는 셀
       // 2번 섹션: 다른 사람이 등록한 것 중 순위권에 있는 것을 표시하는 셀
       // 3번 섹션: 다른 사람이 등록한 것 중 순위권에 없는 것을 표시하는 셀
@@ -85,19 +84,25 @@ extension ResultViewController: UITableViewDataSource {
       if let translationCell = cell as? ResultTranslationCell {
         translationCell.delegate = self
         if section == 1 {
-          translationCell.hidesDeleteButton = false
-          translationCell.hidesColorChipView = true
-          translationCell.isRanked = false
+          translationCell.setState(
+            isDeleteButtonHidden: false,
+            isColorChipHidden: true,
+            isRanked: false
+          )
           translationCell.backgroundColor = .myBackgroundColor
         } else if section == 2 {
-          translationCell.hidesDeleteButton = true
-          translationCell.hidesColorChipView = false
-          translationCell.isRanked = true
+          translationCell.setState(
+            isDeleteButtonHidden: true,
+            isColorChipHidden: false,
+            isRanked: true
+          )
           translationCell.backgroundColor = .rankedBackgroundColor
         } else {
-          translationCell.hidesDeleteButton = true
-          translationCell.hidesColorChipView = true
-          translationCell.isRanked = false
+          translationCell.setState(
+            isDeleteButtonHidden: true,
+            isColorChipHidden: true,
+            isRanked: false
+          )
         }
       }
       cell.hero.modifiers = [.fade, .scale(0.5)]
@@ -145,9 +150,7 @@ extension ResultViewController: ResultInfoCellDelegate {
 extension ResultViewController: ResultTranslationCellDelegate {
   func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
                              didTapLikeButton button: UIButton) {
-    if let indexPath = tableView.indexPath(for: resultTranslationCell) {
-      print(indexPath)
-    }
+    resultTranslationCell.adjustLikeCount()
   }
   
   func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,

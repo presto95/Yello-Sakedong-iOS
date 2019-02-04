@@ -8,6 +8,8 @@
 
 import UIKit
 
+import EFCountingLabel
+
 /// ResultTranslationCell의 델리게이트 프로토콜.
 protocol ResultTranslationCellDelegate: class {
   
@@ -38,16 +40,18 @@ final class ResultTranslationCell: UITableViewCell {
       if newValue {
         likeButton.setTitleColor(.rankedTintColor, for: [])
         likeButton.tintColor = .rankedTintColor
+        likeCountLabel.textColor = .rankedTintColor
       } else {
         likeButton.setTitleColor(.unrankedTintColor, for: [])
         likeButton.tintColor = .unrankedTintColor
+        likeCountLabel.textColor = .unrankedTintColor
       }
     }
   }
   
   /// 컬러칩 뷰가 숨겨져 있는지.
   /// `constraint`를 계산하여 구함.
-  var hidesColorChipView: Bool {
+  var isColorChipHidden: Bool {
     get {
       return colorChipViewWidthConstraint.constant == .leastNonzeroMagnitude
         && authorLabelLeadingConstraint.constant == .leastNonzeroMagnitude
@@ -64,7 +68,7 @@ final class ResultTranslationCell: UITableViewCell {
   }
   
   /// 삭제 버튼이 숨겨져 있는지.
-  var hidesDeleteButton: Bool {
+  var isDeleteButtonHidden: Bool {
     get {
       return deleteButton.isHidden
     }
@@ -73,8 +77,21 @@ final class ResultTranslationCell: UITableViewCell {
     }
   }
   
+  /// 좋아요 개수.
+  var likeCount: Int {
+    get {
+      return Int(likeCountLabel.text ?? "") ?? 0
+    }
+    set {
+      likeCountLabel.text = "\(newValue)"
+    }
+  }
+  
   /// 순위권에 있는지에 대한 플래그 값을 저장.
   private var _isRanked: Bool = false
+  
+  /// 좋아요를 눌렀는지에 대한 플래그 값을 저장.
+  private var _hasLikeButtonTapped: Bool = false
   
   /// 컬러칩 뷰.
   @IBOutlet weak var colorChipView: UIView! {
@@ -90,12 +107,15 @@ final class ResultTranslationCell: UITableViewCell {
   /// 작성자 레이블 리딩 제약.
   @IBOutlet private weak var authorLabelLeadingConstraint: NSLayoutConstraint!
   
-  /// 좋아요 버튼 및 좋아요 수.
+  /// 좋아요 버튼.
   @IBOutlet private weak var likeButton: UIButton! {
     didSet {
       likeButton.addTarget(self, action: #selector(likeButtonDidTap(_:)), for: .touchUpInside)
     }
   }
+  
+  /// 좋아요 수 레이블.
+  @IBOutlet private weak var likeCountLabel: UILabel!
   
   /// 내가 올린 정보 삭제 버튼.
   @IBOutlet weak var deleteButton: UIButton! {
@@ -116,5 +136,31 @@ final class ResultTranslationCell: UITableViewCell {
   
   @objc private func deleteButtonDidTap(_ sender: UIButton) {
     delegate?.resultTranslationCell(self, didTapDeleteButton: sender)
+  }
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    likeButton.contentEdgeInsets = .init(top: 0,
+                                         left: 5.5,
+                                         bottom: 0,
+                                         right: likeCountLabel.bounds.width + 3)
+  }
+  
+  func setState(isDeleteButtonHidden: Bool,
+                isColorChipHidden: Bool,
+                isRanked: Bool) {
+    self.isDeleteButtonHidden = isDeleteButtonHidden
+    self.isColorChipHidden = isColorChipHidden
+    self.isRanked = isRanked
+  }
+  
+  func adjustLikeCount() {
+    if _hasLikeButtonTapped {
+      likeCount -= 1
+      _hasLikeButtonTapped = false
+    } else {
+      likeCount += 1
+      _hasLikeButtonTapped = true
+    }
   }
 }
