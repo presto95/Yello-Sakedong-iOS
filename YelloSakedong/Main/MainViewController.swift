@@ -21,6 +21,9 @@ final class MainViewController: UIViewController {
   /// 상단 그림자를 넣기 위한 뷰.
   @IBOutlet private weak var upperShadowView: UIView!
   
+  /// 상단 그림자 뷰 높이 제약.
+  @IBOutlet private weak var upperShadowViewHeightConstraint: NSLayoutConstraint!
+  
   /// 상단 컨테이너 뷰.
   @IBOutlet private weak var upperView: UIView! {
     didSet {
@@ -89,13 +92,13 @@ final class MainViewController: UIViewController {
   
   /// 키보드가 나타나려 할 때의 동작.
   @objc private func keyboardWillShow(_ notification: Notification) {
-    print("보여짐")
+    adjustUpperViewIfKeyboardWillShow(notification)
     revealFoodmojiButton(notification)
   }
   
   /// 키보드가 내려가려 할 때의 동작.
   @objc private func keyboardWillHide(_ notification: Notification) {
-    print("사라짐")
+    adjustUpperViewIfKeyboardWillHide(notification)
     dismissFoodmojiButton()
   }
   
@@ -153,6 +156,38 @@ final class MainViewController: UIViewController {
       },
       completion: nil
     )
+  }
+  
+  /// 상단 뷰 키보드 나타남에 대응
+  private func adjustUpperViewIfKeyboardWillShow(_ notification: Notification) {
+    UIView.animate(
+      withDuration: notification.keyboardDuration,
+      delay: 0,
+      options: notification.keyboardAnimation,
+      animations: { [weak self] in
+        guard let self = self else { return }
+        self.upperShadowViewHeightConstraint
+          = self.upperShadowViewHeightConstraint.changedMultiplier(to: 0.5)
+      },
+      completion: nil
+    )
+    view.layoutIfNeeded()
+  }
+  
+  /// 상단 뷰 키보드 사라짐에 대응
+  private func adjustUpperViewIfKeyboardWillHide(_ notification: Notification) {
+    UIView.animate(
+      withDuration: notification.keyboardDuration,
+      delay: 0,
+      options: notification.keyboardAnimation,
+      animations: { [weak self] in
+        guard let self = self else { return }
+        self.upperShadowViewHeightConstraint
+          = self.upperShadowViewHeightConstraint.changedMultiplier(to: 0.6)
+      },
+      completion: nil
+    )
+    view.layoutIfNeeded()
   }
 }
 

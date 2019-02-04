@@ -28,9 +28,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="hku-6S-Q8f" secondAttribute="bottom" id="7EL-d5-Ay2"/>
                                     <constraint firstAttribute="trailing" secondItem="hku-6S-Q8f" secondAttribute="trailing" id="KuE-eW-MWA"/>
                                     <constraint firstItem="hku-6S-Q8f" firstAttribute="top" secondItem="UDB-Zs-Wpj" secondAttribute="top" id="R0N-1m-2Wh"/>
+                                    <constraint firstAttribute="bottom" secondItem="hku-6S-Q8f" secondAttribute="bottom" id="rbi-tF-ulI"/>
                                     <constraint firstItem="hku-6S-Q8f" firstAttribute="leading" secondItem="UDB-Zs-Wpj" secondAttribute="leading" id="uC6-gO-5o9"/>
                                 </constraints>
                             </view>
@@ -72,6 +72,7 @@
                         <outlet property="foodTextField" destination="65C-X6-DCW" id="K37-2v-ihB"/>
                         <outlet property="lowerView" destination="TkU-Xa-0K5" id="ULS-ZM-407"/>
                         <outlet property="upperShadowView" destination="UDB-Zs-Wpj" id="thj-dx-mIs"/>
+                        <outlet property="upperShadowViewHeightConstraint" destination="wmQ-7W-Rdt" id="cZ0-PW-twb"/>
                         <outlet property="upperView" destination="hku-6S-Q8f" id="5Gp-5r-VcG"/>
                     </connections>
                 </viewController>
