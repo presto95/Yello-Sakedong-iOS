@@ -63,7 +63,6 @@ final class ResultInfoCell: UITableViewCell {
   @IBOutlet private weak var foodmojiImageView: UIImageView! {
     didSet {
       foodmojiImageView.image = Foodmoji.Medium.image(at: Int.random(in: 0..<10))
-      foodmojiImageView.hero.id = "emoticonButton"
     }
   }
 

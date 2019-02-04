@@ -13,6 +13,20 @@ import Hero
 /// 첫 화면 뷰 컨트롤러.
 final class MainViewController: UIViewController {
   
+  /// 푸드모지 애니메이션 관련 상수 정의.
+  enum FoodmojiAnimation {
+    
+    static let duration: TimeInterval = 0.5
+    
+    static let delay: TimeInterval = 0.0
+    
+    static let damping: CGFloat = 0.6
+    
+    static let springVelocity: CGFloat = 0.5
+    
+    static let animation: UIView.AnimationOptions = [.curveEaseInOut]
+  }
+  
   /// 푸드모지 버튼.
   private var foodmojiButton: UIButton!
   
@@ -107,8 +121,6 @@ final class MainViewController: UIViewController {
   /// 푸드모지 버튼 초기화.
   private func initializeFoodmojiButton() {
     foodmojiButton = UIButton(type: .system)
-    foodmojiButton.hero.id = "foodmoji"
-    foodmojiButton.hero.modifiers = [.arc]
     foodmojiButton.alpha = 0
     foodmojiButton.setImage(Foodmoji.Large.tenth.image, for: [])
     foodmojiButton.imageView?.contentMode = .scaleAspectFit
@@ -122,19 +134,19 @@ final class MainViewController: UIViewController {
   
   /// 푸드모지 버튼 드러내기.
   private func revealFoodmojiButton(_ notification: Notification) {
-    foodmojiButton.transform = .init(scaleX: 0.1, y: 0.1)
     let center = CGPoint(x: view.bounds.width / 2,
                          y: view.bounds.height - notification.keyboardFrame.height)
     foodmojiButton.center = .init(x: center.x, y: center.y - 20)
     UIView.animate(
-      withDuration: 0.5,
-      delay: 0,
-      usingSpringWithDamping: 0.6,
-      initialSpringVelocity: 0.5,
-      options: .curveEaseInOut,
+      withDuration: FoodmojiAnimation.duration,
+      delay: FoodmojiAnimation.delay,
+      usingSpringWithDamping: FoodmojiAnimation.damping,
+      initialSpringVelocity: FoodmojiAnimation.springVelocity,
+      options: FoodmojiAnimation.animation,
       animations: { [weak self] in
-        self?.foodmojiButton.transform = .identity
-        self?.foodmojiButton.alpha = 1
+        guard let self = self else { return }
+        self.foodmojiButton.transform = .identity
+        self.foodmojiButton.alpha = 1
       },
       completion: nil
     )
@@ -143,16 +155,16 @@ final class MainViewController: UIViewController {
   
   /// 푸드모지 버튼 숨기기.
   private func dismissFoodmojiButton() {
-    foodmojiButton.transform = .identity
     UIView.animate(
-      withDuration: 0.5,
-      delay: 0,
-      usingSpringWithDamping: 0.6,
-      initialSpringVelocity: 0.5,
-      options: .curveEaseInOut,
+      withDuration: FoodmojiAnimation.duration,
+      delay: FoodmojiAnimation.delay,
+      usingSpringWithDamping: FoodmojiAnimation.damping,
+      initialSpringVelocity: FoodmojiAnimation.springVelocity,
+      options: FoodmojiAnimation.animation,
       animations: { [weak self] in
-        self?.foodmojiButton.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-        self?.foodmojiButton.alpha = 0
+        guard let self = self else { return }
+        self.foodmojiButton.transform = .init(scaleX: 0.1, y: 0.1)
+        self.foodmojiButton.alpha = 0
       },
       completion: nil
     )
