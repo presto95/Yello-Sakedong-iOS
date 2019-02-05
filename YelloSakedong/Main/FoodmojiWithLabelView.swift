@@ -8,8 +8,6 @@
 
 import UIKit
 
-import SnapKit
-
 /// 메인 화면의 레이블과 함께하는 이모티콘 뷰.
 final class FoodmojiWithLabelView: UIView {
   
