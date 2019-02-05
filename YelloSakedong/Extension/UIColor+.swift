@@ -17,18 +17,18 @@ extension UIColor {
     self.init(red: rgb, green: rgb, blue: rgb)
   }
   
-  /// 그림자 색상.
+  /// 그림자 색상. `rgb: 215`
   static let shadow = UIColor(rgb: 215)
   
-  /// 순위권에 있는 요소들의 틴트 색상.
+  /// 순위권에 있는 요소들의 틴트 색상. `red: 255, green: 98, blue: 30`
   static let rankedTintColor = UIColor(red: 255, green: 98, blue: 30)
   
-  /// 순위권에 있는 정보의 배경 색상.
+  /// 순위권에 있는 정보의 배경 색상. `red: 248, green: 249, blue: 251`
   static let rankedBackgroundColor = UIColor(red: 248, green: 249, blue: 251)
   
-  /// 순위권에 잇는 요소들의 틴트 색상.
+  /// 순위권에 잇는 요소들의 틴트 색상. `rgb: 119`
   static let unrankedTintColor = UIColor(rgb: 119)
   
-  /// 내가 등록한 정보의 배경 색상.
+  /// 내가 등록한 정보의 배경 색상. `red: 255, green: 203, blue: 0`
   static let myBackgroundColor = UIColor(red: 255, green: 203, blue: 0)
 }

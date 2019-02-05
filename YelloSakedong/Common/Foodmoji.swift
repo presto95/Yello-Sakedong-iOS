@@ -10,7 +10,7 @@ import Foundation
 
 enum Foodmoji: CaseIterable {
   
-  enum Large: Int, CaseIterable {
+  enum Large: CaseIterable {
     
     case first
     
@@ -58,11 +58,11 @@ enum Foodmoji: CaseIterable {
     }
     
     static func image(at index: Int) -> AssetImageTypeAlias? {
-      return Foodmoji.Large(rawValue: index)?.image
+      return Foodmoji.Large.allCases[index].image
     }
   }
   
-  enum Medium: Int, CaseIterable {
+  enum Medium: CaseIterable {
     
     case first
     
@@ -110,13 +110,14 @@ enum Foodmoji: CaseIterable {
     }
     
     static func image(at index: Int) -> AssetImageTypeAlias? {
-      return Foodmoji.Medium(rawValue: index)?.image
+      return Foodmoji.Medium.allCases[index].image
+
     }
   }
   
   enum Small: CaseIterable {
     
-    enum Colored: Int, CaseIterable {
+    enum Colored: CaseIterable {
       
       case first
       
@@ -164,11 +165,11 @@ enum Foodmoji: CaseIterable {
       }
       
       static func image(at index: Int) -> AssetImageTypeAlias? {
-        return Foodmoji.Small.Colored(rawValue: index)?.image
+        return Foodmoji.Small.Colored.allCases[index].image
       }
     }
     
-    enum Uncolored: Int, CaseIterable {
+    enum Uncolored: CaseIterable {
       
       case first
       
@@ -216,7 +217,7 @@ enum Foodmoji: CaseIterable {
       }
       
       static func image(at index: Int) -> AssetImageTypeAlias? {
-        return Foodmoji.Small.Colored(rawValue: index)?.image
+        return Foodmoji.Small.Colored.allCases[index].image
       }
     }
   }

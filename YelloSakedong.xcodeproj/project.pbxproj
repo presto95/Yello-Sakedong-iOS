@@ -10,8 +10,8 @@
 		190734BA21FB999D00E3988D /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190734B821FB999C00E3988D /* Storyboard.swift */; };
 		190734BB21FB999D00E3988D /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190734B921FB999C00E3988D /* Assets.swift */; };
 		190DA1F021EF056A00B8CF97 /* AddTasteButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */; };
-		191C1EF621F23D9400F31ED8 /* PopupFoodmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF521F23D9400F31ED8 /* PopupFoodmojiCell.swift */; };
-		191C1EFA21F23E6700F31ED8 /* PopupFoodmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF921F23E6700F31ED8 /* PopupFoodmojiView.swift */; };
+		191C1EF621F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF521F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift */; };
+		191C1EFA21F23E6700F31ED8 /* PopupFoodmojiPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF921F23E6700F31ED8 /* PopupFoodmojiPagerView.swift */; };
 		192973AA21EE2F8F0021B05E /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192973A921EE2F8F0021B05E /* Splash.storyboard */; };
 		192973AE21EE2FD20021B05E /* FoodmojiWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973AD21EE2FD20021B05E /* FoodmojiWithLabelView.swift */; };
 		192973B121EE300C0021B05E /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973B021EE300C0021B05E /* NSObject+.swift */; };
@@ -43,7 +43,7 @@
 		19800EF92204AE28005D5EEA /* NSLayoutConstraint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EF82204AE28005D5EEA /* NSLayoutConstraint+.swift */; };
 		19800EFB2204B033005D5EEA /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EFA2204B033005D5EEA /* ProgressViewController.swift */; };
 		19800EFD2204B236005D5EEA /* Foodmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EFC2204B236005D5EEA /* Foodmoji.swift */; };
-		1995740622056B0A005903EF /* ChipColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995740522056B0A005903EF /* ChipColor.swift */; };
+		1995740622056B0A005903EF /* ColorChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995740522056B0A005903EF /* ColorChip.swift */; };
 		19A976BF2206F42600534088 /* Notification+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A976BE2206F42600534088 /* Notification+.swift */; };
 		53858AEE8F97CE1227F5569D /* Pods_YelloSakedong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40609488D999FFB5247FC345 /* Pods_YelloSakedong.framework */; };
 /* End PBXBuildFile section */
@@ -62,8 +62,8 @@
 		190734B821FB999C00E3988D /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		190734B921FB999C00E3988D /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTasteButtonProtocol.swift; sourceTree = "<group>"; };
-		191C1EF521F23D9400F31ED8 /* PopupFoodmojiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiCell.swift; sourceTree = "<group>"; };
-		191C1EF921F23E6700F31ED8 /* PopupFoodmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiView.swift; sourceTree = "<group>"; };
+		191C1EF521F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiPagerCell.swift; sourceTree = "<group>"; };
+		191C1EF921F23E6700F31ED8 /* PopupFoodmojiPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiPagerView.swift; sourceTree = "<group>"; };
 		192973A921EE2F8F0021B05E /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		192973AD21EE2FD20021B05E /* FoodmojiWithLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodmojiWithLabelView.swift; sourceTree = "<group>"; };
 		192973B021EE300C0021B05E /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		19800EF82204AE28005D5EEA /* NSLayoutConstraint+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+.swift"; sourceTree = "<group>"; };
 		19800EFA2204B033005D5EEA /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		19800EFC2204B236005D5EEA /* Foodmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foodmoji.swift; sourceTree = "<group>"; };
-		1995740522056B0A005903EF /* ChipColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipColor.swift; sourceTree = "<group>"; };
+		1995740522056B0A005903EF /* ColorChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChip.swift; sourceTree = "<group>"; };
 		19A976BE2206F42600534088 /* Notification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+.swift"; sourceTree = "<group>"; };
 		40609488D999FFB5247FC345 /* Pods_YelloSakedong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YelloSakedong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6609C43A3087759D7CB35B3B /* Pods-YelloSakedong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.debug.xcconfig"; path = "Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				19800EFC2204B236005D5EEA /* Foodmoji.swift */,
-				1995740522056B0A005903EF /* ChipColor.swift */,
+				1995740522056B0A005903EF /* ColorChip.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -184,8 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				192973C121EE38DE0021B05E /* Popup.storyboard */,
-				191C1EF921F23E6700F31ED8 /* PopupFoodmojiView.swift */,
-				191C1EF521F23D9400F31ED8 /* PopupFoodmojiCell.swift */,
+				191C1EF921F23E6700F31ED8 /* PopupFoodmojiPagerView.swift */,
+				191C1EF521F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift */,
 				192973C321EE38EC0021B05E /* PopupViewController.swift */,
 			);
 			path = Popup;
@@ -496,12 +496,12 @@
 				192973E321EECBA90021B05E /* ResultTranslationCell.swift in Sources */,
 				19800EEE2204916D005D5EEA /* NetworkManagerType.swift in Sources */,
 				195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */,
-				1995740622056B0A005903EF /* ChipColor.swift in Sources */,
+				1995740622056B0A005903EF /* ColorChip.swift in Sources */,
 				19800EEC22049165005D5EEA /* NetworkManager.swift in Sources */,
 				19A976BF2206F42600534088 /* Notification+.swift in Sources */,
 				192973B121EE300C0021B05E /* NSObject+.swift in Sources */,
 				192973B721EE30290021B05E /* UIView+.swift in Sources */,
-				191C1EFA21F23E6700F31ED8 /* PopupFoodmojiView.swift in Sources */,
+				191C1EFA21F23E6700F31ED8 /* PopupFoodmojiPagerView.swift in Sources */,
 				192973CC21EEC6870021B05E /* CALayer+.swift in Sources */,
 				190734BB21FB999D00E3988D /* Assets.swift in Sources */,
 				19800EF92204AE28005D5EEA /* NSLayoutConstraint+.swift in Sources */,
@@ -513,7 +513,7 @@
 				192973C421EE38EC0021B05E /* PopupViewController.swift in Sources */,
 				190DA1F021EF056A00B8CF97 /* AddTasteButtonProtocol.swift in Sources */,
 				192973DF21EECADE0021B05E /* ResultInfoCell.swift in Sources */,
-				191C1EF621F23D9400F31ED8 /* PopupFoodmojiCell.swift in Sources */,
+				191C1EF621F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift in Sources */,
 				190734BA21FB999D00E3988D /* Storyboard.swift in Sources */,
 				193D655C21E32F5200FAB1DE /* SplashViewController.swift in Sources */,
 				19800EFD2204B236005D5EEA /* Foodmoji.swift in Sources */,

@@ -81,23 +81,37 @@ final class ResultInfoCell: UITableViewCell {
     setState()
   }
   
+  /// 뷰 상태에 따른 설정.
   func setState() {
     if isFoodImageExists {
+      // 음식 이미지가 존재하면
+      // 음식 추가 버튼의 배경 색상을 노란색으로 하고 백그라운드 이미지를 없애며, 사용자 입력을 받지 않도록 한다.
+      // 음식 이미지 뷰를 나타낸다.
       addImageButton.backgroundColor = UIColor(red: 255, green: 193, blue: 40)
+      addImageButton.setBackgroundImage(nil, for: [])
       addImageButton.isUserInteractionEnabled = false
       foodImageView.isHidden = false
     } else {
-      addImageButton.backgroundColor = UIColor(rgb: 238)
+      // 음식 이미지가 존재하지 않으면
+      // 음식 추가 버튼의 배경 색상을 없애고 백그라운드 이미지를 설정하며, 사용자 입력을 받도록 한다.
+      // 음식 이미지 뷰를 숨긴다.
+      addImageButton.backgroundColor = nil
+      addImageButton.setBackgroundImage(Asset.addImage.image, for: [])
       addImageButton.isUserInteractionEnabled = true
       foodImageView.isHidden = true
     }
     if isFoodmojiExists {
+      // 푸드모지가 존재하면
+      // 푸드모지 이미지 뷰를 나타낸다.
       foodmojiImageView.isHidden = false
     } else {
+      // 푸드모지가 존재하지 않으면
+      // 푸드모지 이미지 뷰를 숨긴다.
       foodmojiImageView.isHidden = true
     }
   }
   
+  /// 이미지 추가 버튼을 눌렀을 때의 동작 정의.
   @objc private func didTapAddButton(_ sender: UIButton) {
     delegate?.resultInfoCell(self, didTapAddButton: sender)
   }

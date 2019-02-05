@@ -42,7 +42,6 @@ final class PopupViewController: UIViewController {
                            y: 3,
                            blur: 12,
                            spread: 0)
-      backgroundView.clipsToBounds = true
       backgroundView.layer.cornerRadius = 6
     }
   }
@@ -50,9 +49,10 @@ final class PopupViewController: UIViewController {
   /// 이미지 추가 버튼.
   @IBOutlet private weak var addImageButton: UIButton! {
     didSet {
-      addImageButton.imageView?.contentMode = .scaleAspectFit
       addImageButton.clipsToBounds = true
       addImageButton.layer.cornerRadius = addImageButton.bounds.height / 2
+      addImageButton.setBackgroundImage(Asset.addImage.image, for: [])
+      addImageButton.imageView?.contentMode = .scaleAspectFit
       addImageButton.addTarget(self, action: #selector(addButtonDidTap(_:)), for: .touchUpInside)
     }
   }
@@ -60,6 +60,12 @@ final class PopupViewController: UIViewController {
   /// 맛 등록 버튼.
   @IBOutlet private weak var registerButton: UIButton! {
     didSet {
+      let path = UIBezierPath(roundedRect: registerButton.bounds,
+                              byRoundingCorners: [.bottomLeft, .bottomRight],
+                              cornerRadii: .init(width: 6, height: 0))
+      let shapeLayer = CAShapeLayer()
+      shapeLayer.path = path.cgPath
+      registerButton.layer.mask = shapeLayer
       registerButton.addTarget(self,
                                action: #selector(registerButtonDidTap(_:)),
                                for: .touchUpInside)
@@ -79,7 +85,7 @@ final class PopupViewController: UIViewController {
   @IBOutlet private weak var textView: UITextView!
   
   /// 푸드모지 페이저 뷰.
-  @IBOutlet private weak var pagerView: PopupFoodmojiView! {
+  @IBOutlet private weak var pagerView: PopupFoodmojiPagerView! {
     didSet {
       pagerView.delegate = self
       pagerView.dataSource = self
@@ -194,14 +200,13 @@ final class PopupViewController: UIViewController {
 extension PopupViewController: FSPagerViewDataSource {
   func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
     let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-    if let popupCell = cell as? PopupFoodmojiCell {
+    if let popupCell = cell as? PopupFoodmojiPagerCell {
       if hasPagerViewSelected {
         if index == selectedIndexOfPagerView {
           
         } else {
           
         }
-        
       } else {
         
       }
@@ -242,8 +247,7 @@ extension PopupViewController: UIImagePickerControllerDelegate, UINavigationCont
     didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
   ) {
     if let image = info[.editedImage] as? UIImage {
-      addImageButton.setTitle(nil, for: [])
-      addImageButton.setImage(image, for: [])
+      addImageButton.setBackgroundImage(image, for: [])
     }
     picker.dismiss(animated: true, completion: nil)
   }

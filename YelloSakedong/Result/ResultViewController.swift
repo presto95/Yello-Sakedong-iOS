@@ -190,11 +190,9 @@ extension ResultViewController: UIImagePickerControllerDelegate, UINavigationCon
     _ picker: UIImagePickerController,
     didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
   ) {
-    if let image = info[.editedImage] as? UIImage {
-      if let infoCell
-        = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ResultInfoCell {
-        infoCell.foodImage = image
-      }
+    if let image = info[.editedImage] as? UIImage,
+      let infoCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ResultInfoCell {
+      infoCell.foodImage = image
     }
     picker.dismiss(animated: true, completion: nil)
   }

@@ -11,7 +11,7 @@ import UIKit
 import FSPagerView
 
 /// 팝업 뷰 컨트롤러의 푸드모지 페이저 뷰.
-final class PopupFoodmojiView: FSPagerView {
+final class PopupFoodmojiPagerView: FSPagerView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -27,6 +27,6 @@ final class PopupFoodmojiView: FSPagerView {
     isInfinite = true
     itemSize = .init(width: bounds.width, height: bounds.height)
     interitemSpacing = 8
-    register(PopupFoodmojiCell.self, forCellWithReuseIdentifier: "cell")
+    register(PopupFoodmojiPagerCell.self, forCellWithReuseIdentifier: "cell")
   }
 }

@@ -11,7 +11,7 @@ import UIKit
 import FSPagerView
 
 /// 팝업 뷰 컨트롤러의 푸드모지 페이저 셀.
-final class PopupFoodmojiCell: FSPagerViewCell {
+final class PopupFoodmojiPagerCell: FSPagerViewCell {
   
   /// 현재 셀 인덱스.
   var currentCellIndex: Int!

@@ -47,7 +47,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XZ-wa-nBy" customClass="FSPageControl" customModule="FSPagerView">
-                                        <rect key="frame" x="0.0" y="317.5" width="300" height="20"/>
+                                        <rect key="frame" x="20" y="317.5" width="260" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="ZTt-mD-swi"/>
@@ -68,7 +68,7 @@
                                         </attributedString>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8E-i5-jgU" customClass="PopupFoodmojiView" customModule="YelloSakedong" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8E-i5-jgU" customClass="PopupFoodmojiPagerView" customModule="YelloSakedong" customModuleProvider="target">
                                         <rect key="frame" x="20" y="252.5" width="260" height="65"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -83,7 +83,7 @@
                                             <constraint firstAttribute="width" constant="87" id="b7Y-Fe-BGu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
-                                        <state key="normal" title="+">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
@@ -104,8 +104,8 @@
                                     <constraint firstItem="L8E-i5-jgU" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" constant="20" id="dGE-4D-mS4"/>
                                     <constraint firstItem="fAT-Cu-L3m" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" constant="18" id="kcS-Ts-k6e"/>
                                     <constraint firstAttribute="trailing" secondItem="fAT-Cu-L3m" secondAttribute="trailing" constant="16" id="mAv-vu-pEN"/>
-                                    <constraint firstAttribute="trailing" secondItem="3XZ-wa-nBy" secondAttribute="trailing" id="qKI-Oo-5Im"/>
-                                    <constraint firstItem="3XZ-wa-nBy" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" id="shF-r4-VaR"/>
+                                    <constraint firstAttribute="trailing" secondItem="3XZ-wa-nBy" secondAttribute="trailing" constant="20" id="qKI-Oo-5Im"/>
+                                    <constraint firstItem="3XZ-wa-nBy" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" constant="20" id="shF-r4-VaR"/>
                                     <constraint firstAttribute="trailing" secondItem="WKa-bP-ozp" secondAttribute="trailing" constant="12" id="tnu-nE-GAV"/>
                                     <constraint firstItem="yQE-Uf-mi2" firstAttribute="top" secondItem="fAT-Cu-L3m" secondAttribute="bottom" constant="8" id="v1t-Pi-rAT"/>
                                     <constraint firstItem="Qns-u6-9J1" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" id="yvj-uF-yfv"/>

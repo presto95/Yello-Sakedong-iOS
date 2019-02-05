@@ -9,7 +9,7 @@
 import Foundation
 
 /// 칩 색상 정의.
-enum ChipColor: Int, CaseIterable {
+enum ColorChip: CaseIterable {
   
   case black
   
@@ -51,6 +51,6 @@ enum ChipColor: Int, CaseIterable {
   
   /// 인덱스에 따른 색상 뽑아내기.
   static func color(at index: Int) -> AssetColorTypeAlias {
-    return ChipColor.allCases[index].color
+    return ColorChip.allCases[index].color
   }
 }
