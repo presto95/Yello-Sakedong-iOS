@@ -10,8 +10,10 @@ import UIKit
 
 import FSPagerView
 
+/// PopupFoodmojiPagerCell 델리게이트 프로토콜.
 protocol PopupFoodmojiPagerCellDelegate: class {
   
+  /// 특정 셀 내의 특정 버튼을 탭할 때의 동작.
   func popupFoodmojiPagerCell(
     _ popupFoodmojiPagerCell: PopupFoodmojiPagerCell,
     didTapFoodmojiButton button: UIButton,
@@ -44,6 +46,7 @@ final class PopupFoodmojiPagerCell: FSPagerViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+   
   }
   
   override func prepareForReuse() {
@@ -74,10 +77,5 @@ final class PopupFoodmojiPagerCell: FSPagerViewCell {
         button.setImage(Foodmoji.Small.Colored.image(at: imageIndex), for: [])
       }
     }
-  }
-  
-  /// 스택뷰 내 특정 인덱스의 푸드모지 버튼.
-  func foodmojiButton(at index: Int) -> UIButton {
-    return foodmojiButtons[index]
   }
 }

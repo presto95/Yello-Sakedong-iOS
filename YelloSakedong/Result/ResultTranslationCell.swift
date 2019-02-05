@@ -97,7 +97,7 @@ final class ResultTranslationCell: UITableViewCell {
   private var hasLikeButtonTapped: Bool = false
   
   /// 컬러칩 뷰.
-  @IBOutlet weak var colorChipView: UIView! {
+  @IBOutlet private weak var colorChipView: UIView! {
     didSet {
       colorChipView.clipsToBounds = true
       colorChipView.layer.cornerRadius = colorChipView.bounds.height / 2
@@ -121,7 +121,7 @@ final class ResultTranslationCell: UITableViewCell {
   @IBOutlet private weak var likeCountLabel: UILabel!
   
   /// 내가 올린 정보 삭제 버튼.
-  @IBOutlet weak var deleteButton: UIButton! {
+  @IBOutlet private weak var deleteButton: UIButton! {
     didSet {
       deleteButton.addTarget(self, action: #selector(deleteButtonDidTap(_:)), for: .touchUpInside)
     }

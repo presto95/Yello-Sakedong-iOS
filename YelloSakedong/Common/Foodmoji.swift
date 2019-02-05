@@ -57,6 +57,10 @@ enum Foodmoji: CaseIterable {
       }
     }
     
+    static var count: Int {
+      return Foodmoji.Large.allCases.count
+    }
+    
     static func image(at index: Int) -> AssetImageTypeAlias? {
       return Foodmoji.Large.allCases[index].image
     }
@@ -107,6 +111,10 @@ enum Foodmoji: CaseIterable {
       case .tenth:
         return Asset.emoM10.image
       }
+    }
+    
+    static var count: Int {
+      return Foodmoji.Medium.allCases.count
     }
     
     static func image(at index: Int) -> AssetImageTypeAlias? {
@@ -164,6 +172,10 @@ enum Foodmoji: CaseIterable {
         }
       }
       
+      static var count: Int {
+        return Foodmoji.Small.Colored.allCases.count
+      }
+      
       static func image(at index: Int) -> AssetImageTypeAlias? {
         return Foodmoji.Small.Colored.allCases[index].image
       }
@@ -214,6 +226,10 @@ enum Foodmoji: CaseIterable {
         case .tenth:
           return Asset.emoSGrey10.image
         }
+      }
+      
+      static var count: Int {
+        return Foodmoji.Small.Uncolored.allCases.count
       }
       
       static func image(at index: Int) -> AssetImageTypeAlias? {

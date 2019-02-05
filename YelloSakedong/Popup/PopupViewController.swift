@@ -229,7 +229,7 @@ final class PopupViewController: UIViewController {
 
 // MARK: - KeyboardObserver 구현
 
-extension PopupViewController: KeyboardObserver {
+extension PopupViewController: KeyboardObserverProtocol {
   func keyboardWillShow(_ notification: Notification) {
     subscribeKeyboardWillShow(notification)
   }
@@ -241,7 +241,7 @@ extension PopupViewController: KeyboardObserver {
 
 // MARK: - KeyboardSubscriber 구현
 
-extension PopupViewController: KeyboardSubscriber {
+extension PopupViewController: KeyboardSubscriberProtocol {
   func subscribeKeyboardWillShow(_ notification: Notification) {
     adjustPopupViewIfKeyboardWillShow(notification)
   }

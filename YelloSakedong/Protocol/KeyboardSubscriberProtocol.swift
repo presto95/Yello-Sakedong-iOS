@@ -9,7 +9,7 @@
 import Foundation
 
 /// 키보드 서브스크라이버 프로토콜.
-protocol KeyboardSubscriber {
+protocol KeyboardSubscriberProtocol {
   
   func subscribeKeyboardWillShow(_ notification: Notification)
   
@@ -26,7 +26,7 @@ protocol KeyboardSubscriber {
 
 // MARK: - 키보드 서브스크라이버 프로토콜 초기 구현
 
-extension KeyboardSubscriber {
+extension KeyboardSubscriberProtocol {
   
   func subscribeKeyboardWillShow(_ notification: Notification) { }
   

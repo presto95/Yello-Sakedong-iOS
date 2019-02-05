@@ -206,7 +206,7 @@ final class MainViewController: UIViewController {
 
 // MARK: - KeyboardObserver 구현
 
-extension MainViewController: KeyboardObserver {
+extension MainViewController: KeyboardObserverProtocol {
   func keyboardWillShow(_ notification: Notification) {
     subscribeKeyboardWillShow(notification)
   }
@@ -222,7 +222,7 @@ extension MainViewController: KeyboardObserver {
 
 // MARK: - KeyboardSubscriber 구현
 
-extension MainViewController: KeyboardSubscriber {
+extension MainViewController: KeyboardSubscriberProtocol {
   func subscribeKeyboardWillShow(_ notification: Notification) {
     adjustUpperViewIfKeyboardWillShow(notification)
   }
@@ -280,18 +280,20 @@ private extension MainViewController {
     // arc 베지어 곡선 만들기
     let path = UIBezierPath(
       arcCenter: .init(x: upperView.bounds.width / 2, y: 0),
-      radius: upperView.bounds.height,
+      //radius: upperView.bounds.height,
+      radius: upperShadowView.bounds.height,
       startAngle: 0,
       endAngle: .pi,
       clockwise: true
     )
     // Shape Layer 만들고 상단 컨테이너 뷰의 마스크로 설정
     let shapeLayer = CAShapeLayer()
+    shapeLayer.needsDisplayOnBoundsChange = true
     shapeLayer.path = path.cgPath
-    shapeLayer.fillColor = UIColor.white.cgColor
     upperView.layer.mask = shapeLayer
     /// Shape Layer 만들고 그림자 효과 추가하여 상단 그림자를 위한 뷰의 서브레이어에 추가
     let shadowLayer = CAShapeLayer()
+    shadowLayer.needsDisplayOnBoundsChange = true
     shadowLayer.path = path.cgPath
     shadowLayer.fillColor = UIColor.white.cgColor
     shadowLayer.applySketchShadow(color: .black, alpha: 0.1, x: 0, y: 16, blur: 32, spread: 0)

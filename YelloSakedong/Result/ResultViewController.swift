@@ -136,6 +136,7 @@ extension ResultViewController: UITableViewDataSource {
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
+    // 정보에 따라 달라짐
     return 4
   }
 }

@@ -49,6 +49,11 @@ enum ColorChip: CaseIterable {
     }
   }
   
+  /// 칩 색상 개수.
+  static var count: Int {
+    return ColorChip.allCases.count
+  }
+  
   /// 인덱스에 따른 색상 뽑아내기.
   static func color(at index: Int) -> AssetColorTypeAlias {
     return ColorChip.allCases[index].color

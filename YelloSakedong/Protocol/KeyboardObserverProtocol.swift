@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 /// 키보드 옵저버 프로토콜.
-protocol KeyboardObserver {
+protocol KeyboardObserverProtocol {
   
   func keyboardWillShow(_ notification: Notification)
   
@@ -31,7 +31,7 @@ protocol KeyboardObserver {
 
 // MARK: - 키보드 옵저버 프로토콜 초기 구현
 
-extension KeyboardObserver where Self: UIViewController {
+extension KeyboardObserverProtocol where Self: UIViewController {
   
   func keyboardWillShow(_ notification: Notification) { }
   

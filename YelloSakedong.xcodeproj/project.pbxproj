@@ -10,9 +10,9 @@
 		190734BA21FB999D00E3988D /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190734B821FB999C00E3988D /* Storyboard.swift */; };
 		190734BB21FB999D00E3988D /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190734B921FB999C00E3988D /* Assets.swift */; };
 		190DA1F021EF056A00B8CF97 /* AddTasteButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */; };
-		1919DAA72209771B00F6D2D2 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAA62209771B00F6D2D2 /* KeyboardObserver.swift */; };
+		1919DAA72209771B00F6D2D2 /* KeyboardObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAA62209771B00F6D2D2 /* KeyboardObserverProtocol.swift */; };
 		1919DAAD22097FEF00F6D2D2 /* Notification.Name+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAAC22097FEF00F6D2D2 /* Notification.Name+.swift */; };
-		1919DAAF2209809000F6D2D2 /* KeyboardSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAAE2209809000F6D2D2 /* KeyboardSubscriber.swift */; };
+		1919DAAF2209809000F6D2D2 /* KeyboardSubscriberProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAAE2209809000F6D2D2 /* KeyboardSubscriberProtocol.swift */; };
 		1919DAB22209855500F6D2D2 /* result.json in Resources */ = {isa = PBXBuildFile; fileRef = 1919DAB12209855500F6D2D2 /* result.json */; };
 		1919DAB42209856500F6D2D2 /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = 1919DAB32209856500F6D2D2 /* food.json */; };
 		1919DABA2209863000F6D2D2 /* PopupFoodmojiPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1919DAB82209863000F6D2D2 /* PopupFoodmojiPagerCell.xib */; };
@@ -68,9 +68,9 @@
 		190734B821FB999C00E3988D /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		190734B921FB999C00E3988D /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTasteButtonProtocol.swift; sourceTree = "<group>"; };
-		1919DAA62209771B00F6D2D2 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
+		1919DAA62209771B00F6D2D2 /* KeyboardObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserverProtocol.swift; sourceTree = "<group>"; };
 		1919DAAC22097FEF00F6D2D2 /* Notification.Name+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+.swift"; sourceTree = "<group>"; };
-		1919DAAE2209809000F6D2D2 /* KeyboardSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSubscriber.swift; sourceTree = "<group>"; };
+		1919DAAE2209809000F6D2D2 /* KeyboardSubscriberProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSubscriberProtocol.swift; sourceTree = "<group>"; };
 		1919DAB12209855500F6D2D2 /* result.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = result.json; sourceTree = "<group>"; };
 		1919DAB32209856500F6D2D2 /* food.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
 		1919DAB82209863000F6D2D2 /* PopupFoodmojiPagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupFoodmojiPagerCell.xib; sourceTree = "<group>"; };
@@ -307,8 +307,8 @@
 			children = (
 				19800EED2204916D005D5EEA /* NetworkManagerType.swift */,
 				190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */,
-				1919DAA62209771B00F6D2D2 /* KeyboardObserver.swift */,
-				1919DAAE2209809000F6D2D2 /* KeyboardSubscriber.swift */,
+				1919DAA62209771B00F6D2D2 /* KeyboardObserverProtocol.swift */,
+				1919DAAE2209809000F6D2D2 /* KeyboardSubscriberProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -535,13 +535,13 @@
 				192973CC21EEC6870021B05E /* CALayer+.swift in Sources */,
 				190734BB21FB999D00E3988D /* Assets.swift in Sources */,
 				19800EF92204AE28005D5EEA /* NSLayoutConstraint+.swift in Sources */,
-				1919DAAF2209809000F6D2D2 /* KeyboardSubscriber.swift in Sources */,
+				1919DAAF2209809000F6D2D2 /* KeyboardSubscriberProtocol.swift in Sources */,
 				19800EF42204A18F005D5EEA /* NotFoundViewController.swift in Sources */,
 				192973CE21EEC8BF0021B05E /* UIColor+.swift in Sources */,
 				192973B921EE33F10021B05E /* MainViewController.swift in Sources */,
 				192973B521EE30200021B05E /* UIViewController+.swift in Sources */,
 				19800EFB2204B033005D5EEA /* ProgressViewController.swift in Sources */,
-				1919DAA72209771B00F6D2D2 /* KeyboardObserver.swift in Sources */,
+				1919DAA72209771B00F6D2D2 /* KeyboardObserverProtocol.swift in Sources */,
 				192973C421EE38EC0021B05E /* PopupViewController.swift in Sources */,
 				190DA1F021EF056A00B8CF97 /* AddTasteButtonProtocol.swift in Sources */,
 				192973DF21EECADE0021B05E /* ResultInfoCell.swift in Sources */,
