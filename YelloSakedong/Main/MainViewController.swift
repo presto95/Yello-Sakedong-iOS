@@ -142,9 +142,11 @@ final class MainViewController: UIViewController {
     foodmojiButton.transform = .init(scaleX: 0.1, y: 0.1)
     let center = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height)
     foodmojiButton.center = center
-    foodmojiButton.addTarget(self,
-                             action: #selector(foodmojiButtonDidTap(_:)),
-                             for: .touchUpInside)
+    foodmojiButton.addTarget(
+      self,
+      action: #selector(foodmojiButtonDidTap(_:)),
+      for: .touchUpInside
+    )
   }
   
   /// 푸드모지 버튼 드러내기.

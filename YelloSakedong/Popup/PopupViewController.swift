@@ -60,24 +60,30 @@ final class PopupViewController: UIViewController {
   /// 맛 등록 버튼.
   @IBOutlet private weak var registerButton: UIButton! {
     didSet {
-      let path = UIBezierPath(roundedRect: registerButton.bounds,
-                              byRoundingCorners: [.bottomLeft, .bottomRight],
-                              cornerRadii: .init(width: 6, height: 0))
+      let path = UIBezierPath(
+        roundedRect: registerButton.bounds,
+        byRoundingCorners: [.bottomLeft, .bottomRight],
+        cornerRadii: .init(width: 6, height: 0)
+      )
       let shapeLayer = CAShapeLayer()
       shapeLayer.path = path.cgPath
       registerButton.layer.mask = shapeLayer
-      registerButton.addTarget(self,
-                               action: #selector(registerButtonDidTap(_:)),
-                               for: .touchUpInside)
+      registerButton.addTarget(
+        self,
+        action: #selector(registerButtonDidTap(_:)),
+        for: .touchUpInside
+      )
     }
   }
   
   /// 취소 버튼.
   @IBOutlet private weak var cancelButton: UIButton! {
     didSet {
-      cancelButton.addTarget(self,
-                             action: #selector(cancelButtonDidTap(_:)),
-                             for: .touchUpInside)
+      cancelButton.addTarget(
+        self,
+        action: #selector(cancelButtonDidTap(_:)),
+        for: .touchUpInside
+      )
     }
   }
   
@@ -160,7 +166,6 @@ final class PopupViewController: UIViewController {
   }
   
   @objc private func cancelButtonDidTap(_ sender: UIButton) {
-    textView.resignFirstResponder()
     hero.dismissViewController()
   }
   
@@ -171,7 +176,6 @@ final class PopupViewController: UIViewController {
       options: notification.keyboardAnimation,
       animations: { [weak self] in
         guard let self = self else { return }
-        print("키보드 보여짐")
         self.backgroundViewCenterYConstraint.constant -= notification.keyboardFrame.height / 2.5
       },
       completion: nil
@@ -186,8 +190,7 @@ final class PopupViewController: UIViewController {
       options: notification.keyboardAnimation,
       animations: { [weak self] in
         guard let self = self else { return }
-        print("키보드 사라짐")
-        self.backgroundViewCenterYConstraint.constant += notification.keyboardFrame.height / 5
+        self.backgroundViewCenterYConstraint.constant += notification.keyboardFrame.height / 2.5
       },
       completion: nil
     )

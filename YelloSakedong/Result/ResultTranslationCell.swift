@@ -14,13 +14,16 @@ import EFCountingLabel
 protocol ResultTranslationCellDelegate: class {
   
   /// 좋아요 버튼을 탭했을 때의 동작.
-  func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
-                             didTapLikeButton button: UIButton)
+  func resultTranslationCell(
+    _ resultTranslationCell: ResultTranslationCell,
+    didTapLikeButton button: UIButton
+  )
   
   /// 삭제 버튼을 탭했을 때의 동작.
-  func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
-                             didTapDeleteButton button: UIButton)
-  
+  func resultTranslationCell(
+    _ resultTranslationCell: ResultTranslationCell,
+    didTapDeleteButton button: UIButton
+  )
 }
 
 /// 맛번역 테이블뷰 셀.
@@ -140,15 +143,19 @@ final class ResultTranslationCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    likeButton.contentEdgeInsets = .init(top: 0,
-                                         left: 5.5,
-                                         bottom: 0,
-                                         right: likeCountLabel.bounds.width + 3)
+    likeButton.contentEdgeInsets = .init(
+      top: 0,
+      left: 5.5,
+      bottom: 0,
+      right: likeCountLabel.bounds.width + 3
+    )
   }
   
-  func setState(isDeleteButtonHidden: Bool,
-                isColorChipHidden: Bool,
-                isRanked: Bool) {
+  func setState(
+    isDeleteButtonHidden: Bool,
+    isColorChipHidden: Bool,
+    isRanked: Bool
+  ) {
     self.isDeleteButtonHidden = isDeleteButtonHidden
     self.isColorChipHidden = isColorChipHidden
     self.isRanked = isRanked

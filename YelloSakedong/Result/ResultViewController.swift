@@ -79,8 +79,10 @@ extension ResultViewController: UITableViewDataSource {
       // 1번 섹션: 내가 등록한 것을 표시하는 셀
       // 2번 섹션: 다른 사람이 등록한 것 중 순위권에 있는 것을 표시하는 셀
       // 3번 섹션: 다른 사람이 등록한 것 중 순위권에 없는 것을 표시하는 셀
-      let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.translationCell,
-                                               for: indexPath)
+      let cell = tableView.dequeueReusableCell(
+        withIdentifier: CellIdentifier.translationCell,
+        for: indexPath
+      )
       if let translationCell = cell as? ResultTranslationCell {
         translationCell.delegate = self
         if section == 1 {
@@ -148,13 +150,17 @@ extension ResultViewController: ResultInfoCellDelegate {
 // MARK: - ResultTranslationCellDelegate 구현
 
 extension ResultViewController: ResultTranslationCellDelegate {
-  func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
-                             didTapLikeButton button: UIButton) {
+  func resultTranslationCell(
+    _ resultTranslationCell: ResultTranslationCell,
+    didTapLikeButton button: UIButton
+  ) {
     resultTranslationCell.adjustLikeCount()
   }
   
-  func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
-                             didTapDeleteButton button: UIButton) {
+  func resultTranslationCell(
+    _ resultTranslationCell: ResultTranslationCell,
+    didTapDeleteButton button: UIButton
+  ) {
     UIAlertController
       .alert(title: "", message: "삭제할까요?")
       .action(title: "네", style: .destructive) { _, _ in
