@@ -24,11 +24,16 @@ final class PopupViewController: UIViewController {
     }
   }
   
-  /// 페이저 뷰 요소가 선택되어 있는 상태인가.
-  private var hasPagerViewSelected: Bool = false
-  
   /// 페이저 뷰의 선택된 인덱스.
-  private var selectedIndexOfPagerView: Int = 0
+  private var selectedIndexOfPagerView: Int?
+  
+  /// 페이저 셀 내 스택 뷰의 선택된 인덱스.
+  private var selectedIndexInPagerCell: Int?
+  
+  /// 페이저 뷰가 선택되었는지.
+  private var hasPagerViewSelected: Bool {
+    return selectedIndexOfPagerView != nil && selectedIndexInPagerCell != nil
+  }
   
   // MARK: - IBOutlet
   
@@ -133,6 +138,7 @@ final class PopupViewController: UIViewController {
       pageControl.setFillColor(UIColor(rgb: 216), for: .normal)
       pageControl.setFillColor(UIColor(rgb: 119), for: .selected)
       pageControl.setStrokeColor(nil, for: [])
+      pageControl.contentInsets = .init(top: 0, left: 0, bottom: 8, right: 0)
     }
   }
   
@@ -143,7 +149,6 @@ final class PopupViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    //hero.isEnabled = true
     registerKeyboardNotifications()
   }
   
@@ -158,6 +163,7 @@ final class PopupViewController: UIViewController {
   
   // MARK: - @objc Method
 
+  /// 이미지 추가 버튼 눌렀을 때의 동작.
   @objc private func addButtonDidTap(_ sender: UIButton) {
     if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
       let imagePicker = UIImagePickerController()
@@ -168,15 +174,20 @@ final class PopupViewController: UIViewController {
     }
   }
   
+  /// 맛 등록 버튼 눌렀을 때의 동작.
   @objc private func registerButtonDidTap(_ sender: UIButton) {
     // 맛 추가
     hero.dismissViewController()
   }
   
+  /// 취소 버튼 눌렀을 때의 동작.
   @objc private func cancelButtonDidTap(_ sender: UIButton) {
     hero.dismissViewController()
   }
   
+  // MARK: - Private Method
+  
+  /// 키보드가 나타날 때 팝업 뷰를 키보드에 대응하기.
   private func adjustPopupViewIfKeyboardWillShow(_ notification: Notification) {
     UIView.animate(
       withDuration: notification.keyboardDuration,
@@ -191,6 +202,7 @@ final class PopupViewController: UIViewController {
     view.layoutIfNeeded()
   }
   
+  /// 키보드가 사라질 때 팝업 뷰를 키보드에 대응하기.
   private func adjustPopupViewIfKeyboardWillHide(_ notification: Notification) {
     UIView.animate(
       withDuration: notification.keyboardDuration,
@@ -236,15 +248,12 @@ extension PopupViewController: FSPagerViewDataSource {
   func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
     let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
     if let popupCell = cell as? PopupFoodmojiPagerCell {
-      if hasPagerViewSelected {
-        if index == selectedIndexOfPagerView {
-          
-        } else {
-          
-        }
-      } else {
-        
-      }
+      popupCell.delegate = self
+      popupCell.cellIndex = index
+      popupCell.setFoodmojiButtons(
+        selectedIndexOfPagerView: selectedIndexOfPagerView,
+        selectedIndexInPagerCell: selectedIndexInPagerCell
+      )
     }
     return cell
   }
@@ -257,20 +266,23 @@ extension PopupViewController: FSPagerViewDataSource {
 // MARK: - FSPagerViewDelegate 구현
 
 extension PopupViewController: FSPagerViewDelegate {
-  func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-    selectedIndexOfPagerView = index
-    if !hasPagerViewSelected {
-      hasPagerViewSelected = true
-      
-      //
-    } else {
-      
-    }
-    pagerView.reloadData()
-  }
-  
   func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
     currentPageControlIndex = targetIndex
+  }
+}
+
+// MARK: - PopupFoodmojiPagerCellDelegate 구현
+
+extension PopupViewController: PopupFoodmojiPagerCellDelegate {
+  func popupFoodmojiPagerCell(
+    _ popupFoodmojiPagerCell: PopupFoodmojiPagerCell,
+    didTapFoodmojiButton button: UIButton,
+    in pagerCellIndex: Int,
+    at buttonIndex: Int
+  ) {
+    selectedIndexOfPagerView = pagerCellIndex
+    selectedIndexInPagerCell = buttonIndex
+    pagerView.reloadData()
   }
 }
 
@@ -280,7 +292,7 @@ extension PopupViewController: UIImagePickerControllerDelegate, UINavigationCont
   func imagePickerController(
     _ picker: UIImagePickerController,
     didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
-    ) {
+  ) {
     if let image = info[.editedImage] as? UIImage {
       addImageButton.setBackgroundImage(image, for: [])
     }

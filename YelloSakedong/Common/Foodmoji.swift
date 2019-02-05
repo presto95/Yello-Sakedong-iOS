@@ -217,7 +217,7 @@ enum Foodmoji: CaseIterable {
       }
       
       static func image(at index: Int) -> AssetImageTypeAlias? {
-        return Foodmoji.Small.Colored.allCases[index].image
+        return Foodmoji.Small.Uncolored.allCases[index].image
       }
     }
   }
