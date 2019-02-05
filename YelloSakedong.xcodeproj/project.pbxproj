@@ -13,6 +13,9 @@
 		1919DAA72209771B00F6D2D2 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAA62209771B00F6D2D2 /* KeyboardObserver.swift */; };
 		1919DAAD22097FEF00F6D2D2 /* Notification.Name+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAAC22097FEF00F6D2D2 /* Notification.Name+.swift */; };
 		1919DAAF2209809000F6D2D2 /* KeyboardSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAAE2209809000F6D2D2 /* KeyboardSubscriber.swift */; };
+		1919DAB22209855500F6D2D2 /* result.json in Resources */ = {isa = PBXBuildFile; fileRef = 1919DAB12209855500F6D2D2 /* result.json */; };
+		1919DAB42209856500F6D2D2 /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = 1919DAB32209856500F6D2D2 /* food.json */; };
+		1919DABA2209863000F6D2D2 /* PopupFoodmojiPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1919DAB82209863000F6D2D2 /* PopupFoodmojiPagerCell.xib */; };
 		191C1EF621F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF521F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift */; };
 		191C1EFA21F23E6700F31ED8 /* PopupFoodmojiPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF921F23E6700F31ED8 /* PopupFoodmojiPagerView.swift */; };
 		192973AA21EE2F8F0021B05E /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192973A921EE2F8F0021B05E /* Splash.storyboard */; };
@@ -68,6 +71,9 @@
 		1919DAA62209771B00F6D2D2 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		1919DAAC22097FEF00F6D2D2 /* Notification.Name+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+.swift"; sourceTree = "<group>"; };
 		1919DAAE2209809000F6D2D2 /* KeyboardSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSubscriber.swift; sourceTree = "<group>"; };
+		1919DAB12209855500F6D2D2 /* result.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = result.json; sourceTree = "<group>"; };
+		1919DAB32209856500F6D2D2 /* food.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
+		1919DAB82209863000F6D2D2 /* PopupFoodmojiPagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupFoodmojiPagerCell.xib; sourceTree = "<group>"; };
 		191C1EF521F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiPagerCell.swift; sourceTree = "<group>"; };
 		191C1EF921F23E6700F31ED8 /* PopupFoodmojiPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiPagerView.swift; sourceTree = "<group>"; };
 		192973A921EE2F8F0021B05E /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -149,6 +155,15 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		1919DAB02209854A00F6D2D2 /* Dummy */ = {
+			isa = PBXGroup;
+			children = (
+				1919DAB12209855500F6D2D2 /* result.json */,
+				1919DAB32209856500F6D2D2 /* food.json */,
+			);
+			path = Dummy;
+			sourceTree = "<group>";
+		};
 		192973A721EE2F780021B05E /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +207,7 @@
 			children = (
 				192973C121EE38DE0021B05E /* Popup.storyboard */,
 				191C1EF921F23E6700F31ED8 /* PopupFoodmojiPagerView.swift */,
+				1919DAB82209863000F6D2D2 /* PopupFoodmojiPagerCell.xib */,
 				191C1EF521F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift */,
 				192973C321EE38EC0021B05E /* PopupViewController.swift */,
 			);
@@ -251,6 +267,7 @@
 		195B99A221E0E8A300367456 /* YelloSakedong */ = {
 			isa = PBXGroup;
 			children = (
+				1919DAB02209854A00F6D2D2 /* Dummy */,
 				19800EF52204A4EC005D5EEA /* Protocol */,
 				192973C621EE39440021B05E /* Network */,
 				192973C521EE393E0021B05E /* Model */,
@@ -400,13 +417,16 @@
 				192973CA21EE3A440021B05E /* .swiftlint.yml in Resources */,
 				195B99AE21E0E8A400367456 /* LaunchScreen.storyboard in Resources */,
 				192973E021EECADE0021B05E /* ResultInfoCell.xib in Resources */,
+				1919DAB42209856500F6D2D2 /* food.json in Resources */,
 				195B99AB21E0E8A400367456 /* Assets.xcassets in Resources */,
 				195B99A921E0E8A300367456 /* Main.storyboard in Resources */,
 				192973E421EECBA90021B05E /* ResultTranslationCell.xib in Resources */,
 				192973AA21EE2F8F0021B05E /* Splash.storyboard in Resources */,
 				192973C221EE38DE0021B05E /* Popup.storyboard in Resources */,
+				1919DABA2209863000F6D2D2 /* PopupFoodmojiPagerCell.xib in Resources */,
 				192973DA21EECA3F0021B05E /* Result.storyboard in Resources */,
 				19800EF022049AD1005D5EEA /* FoodmojiWithLabelView.xib in Resources */,
+				1919DAB22209855500F6D2D2 /* result.json in Resources */,
 				19800EF72204AD44005D5EEA /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

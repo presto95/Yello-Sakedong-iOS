@@ -61,6 +61,7 @@ final class PopupViewController: UIViewController {
   /// 맛 등록 버튼.
   @IBOutlet private weak var registerButton: UIButton! {
     didSet {
+      registerButton.isEnabled = false
       let path = UIBezierPath(
         roundedRect: registerButton.bounds,
         byRoundingCorners: [.bottomLeft, .bottomRight],
@@ -99,6 +100,30 @@ final class PopupViewController: UIViewController {
     }
   }
   
+  /// 푸드모지 페이저 뷰 좌측 페이드 효과를 위한 뷰.
+  @IBOutlet private weak var pagerViewLeadingGradientView: UIView! {
+    didSet {
+      pagerViewLeadingGradientView.layer.applyGradient(
+        colors: [UIColor.white.cgColor, UIColor.clear.cgColor],
+        locations: [0, 1],
+        startPoint: .init(x: 0, y: 0.5),
+        endPoint: .init(x: 1, y: 0.5)
+      )
+    }
+  }
+  
+  /// 푸드모지 페이저 뷰 우측 페이드 효과를 위한 뷰.
+  @IBOutlet private weak var pagerViewTrailingGradientView: UIView! {
+    didSet {
+      pagerViewTrailingGradientView.layer.applyGradient(
+        colors: [UIColor.clear.cgColor, UIColor.white.cgColor],
+        locations: [0, 1],
+        startPoint: .init(x: 0, y: 0.5),
+        endPoint: .init(x: 1, y: 0.5)
+      )
+    }
+  }
+  
   /// 푸드모지 페이지 컨트롤.
   @IBOutlet private weak var pageControl: FSPageControl! {
     didSet {
@@ -128,7 +153,7 @@ final class PopupViewController: UIViewController {
   }
   
   deinit {
-    NotificationCenter.default.removeObserver(self)
+    removeKeyboardNotifications()
   }
   
   // MARK: - @objc Method

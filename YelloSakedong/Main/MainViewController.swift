@@ -76,7 +76,7 @@ final class MainViewController: UIViewController {
   }
   
   deinit {
-    NotificationCenter.default.removeObserver(self)
+    removeKeyboardNotifications()
   }
   
   // MARK: @objc Method

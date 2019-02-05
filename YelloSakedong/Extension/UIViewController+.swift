@@ -8,14 +8,8 @@
 
 import UIKit
 
-public extension UIViewController {
+extension UIViewController {
 
-  @discardableResult
-  func deliver(_ closure: (UIViewController) -> Void) -> UIViewController {
-    closure(self)
-    return self
-  }
-  
   func present(
     to viewController: UIViewController,
     transitionStyle style: UIModalTransitionStyle = .crossDissolve,

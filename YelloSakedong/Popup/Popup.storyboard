@@ -69,11 +69,19 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8E-i5-jgU" customClass="PopupFoodmojiPagerView" customModule="YelloSakedong" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="252.5" width="260" height="65"/>
+                                        <rect key="frame" x="0.0" y="252.5" width="300" height="65"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="HD2-56-xdM"/>
                                         </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQq-K8-C8G">
+                                        <rect key="frame" x="0.0" y="252.5" width="15" height="65"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAF-7d-JPc">
+                                        <rect key="frame" x="285" y="252.5" width="15" height="65"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0b-nv-4Rc">
                                         <rect key="frame" x="106.5" y="38" width="87" height="87"/>
@@ -91,19 +99,27 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="L8E-i5-jgU" firstAttribute="top" secondItem="yQE-Uf-mi2" secondAttribute="bottom" constant="8" id="1hC-y9-eFZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="L8E-i5-jgU" secondAttribute="trailing" constant="20" id="5Qs-wy-B6u"/>
+                                    <constraint firstItem="VQq-K8-C8G" firstAttribute="leading" secondItem="L8E-i5-jgU" secondAttribute="leading" id="3ny-gp-X8j"/>
+                                    <constraint firstAttribute="trailing" secondItem="L8E-i5-jgU" secondAttribute="trailing" id="5Qs-wy-B6u"/>
                                     <constraint firstItem="Z0b-nv-4Rc" firstAttribute="top" secondItem="YiD-li-mEg" secondAttribute="top" constant="38" id="G6q-ct-k3q"/>
                                     <constraint firstItem="WKa-bP-ozp" firstAttribute="top" secondItem="YiD-li-mEg" secondAttribute="top" constant="12" id="GGo-AX-9eP"/>
                                     <constraint firstAttribute="bottom" secondItem="Qns-u6-9J1" secondAttribute="bottom" id="HPO-DC-io3"/>
                                     <constraint firstItem="3XZ-wa-nBy" firstAttribute="top" secondItem="L8E-i5-jgU" secondAttribute="bottom" id="KjX-P5-r7D"/>
                                     <constraint firstAttribute="trailing" secondItem="yQE-Uf-mi2" secondAttribute="trailing" constant="18" id="L9B-KE-LLO"/>
                                     <constraint firstItem="fAT-Cu-L3m" firstAttribute="top" secondItem="Z0b-nv-4Rc" secondAttribute="bottom" constant="16" id="LH4-Cm-qT1"/>
+                                    <constraint firstItem="VQq-K8-C8G" firstAttribute="bottom" secondItem="L8E-i5-jgU" secondAttribute="bottom" id="Lto-OE-31P"/>
                                     <constraint firstItem="yQE-Uf-mi2" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" constant="18" id="R6u-Nn-3zi"/>
+                                    <constraint firstItem="hAF-7d-JPc" firstAttribute="top" secondItem="L8E-i5-jgU" secondAttribute="top" id="RSy-Br-nU8"/>
                                     <constraint firstItem="Z0b-nv-4Rc" firstAttribute="centerX" secondItem="YiD-li-mEg" secondAttribute="centerX" id="S30-Ic-lxd"/>
+                                    <constraint firstItem="hAF-7d-JPc" firstAttribute="width" secondItem="L8E-i5-jgU" secondAttribute="width" multiplier="0.05" id="Vm9-fD-SrY"/>
+                                    <constraint firstItem="VQq-K8-C8G" firstAttribute="width" secondItem="L8E-i5-jgU" secondAttribute="width" multiplier="0.05" id="aoh-qZ-BTl"/>
                                     <constraint firstItem="Qns-u6-9J1" firstAttribute="top" secondItem="3XZ-wa-nBy" secondAttribute="bottom" id="b8p-xw-Ff4"/>
-                                    <constraint firstItem="L8E-i5-jgU" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" constant="20" id="dGE-4D-mS4"/>
+                                    <constraint firstItem="L8E-i5-jgU" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" id="dGE-4D-mS4"/>
+                                    <constraint firstItem="hAF-7d-JPc" firstAttribute="bottom" secondItem="L8E-i5-jgU" secondAttribute="bottom" id="efu-8g-6v3"/>
                                     <constraint firstItem="fAT-Cu-L3m" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" constant="18" id="kcS-Ts-k6e"/>
                                     <constraint firstAttribute="trailing" secondItem="fAT-Cu-L3m" secondAttribute="trailing" constant="16" id="mAv-vu-pEN"/>
+                                    <constraint firstItem="VQq-K8-C8G" firstAttribute="top" secondItem="L8E-i5-jgU" secondAttribute="top" id="nWU-P0-daU"/>
+                                    <constraint firstItem="hAF-7d-JPc" firstAttribute="trailing" secondItem="L8E-i5-jgU" secondAttribute="trailing" id="nxv-52-Cpa"/>
                                     <constraint firstAttribute="trailing" secondItem="3XZ-wa-nBy" secondAttribute="trailing" constant="20" id="qKI-Oo-5Im"/>
                                     <constraint firstItem="3XZ-wa-nBy" firstAttribute="leading" secondItem="YiD-li-mEg" secondAttribute="leading" constant="20" id="shF-r4-VaR"/>
                                     <constraint firstAttribute="trailing" secondItem="WKa-bP-ozp" secondAttribute="trailing" constant="12" id="tnu-nE-GAV"/>
@@ -128,6 +144,8 @@
                         <outlet property="cancelButton" destination="WKa-bP-ozp" id="9U4-ZE-x6t"/>
                         <outlet property="pageControl" destination="3XZ-wa-nBy" id="3e2-Df-l3b"/>
                         <outlet property="pagerView" destination="L8E-i5-jgU" id="Vgg-Dy-e10"/>
+                        <outlet property="pagerViewLeadingGradientView" destination="VQq-K8-C8G" id="C5z-3P-4iX"/>
+                        <outlet property="pagerViewTrailingGradientView" destination="hAF-7d-JPc" id="yZD-JE-vee"/>
                         <outlet property="registerButton" destination="Qns-u6-9J1" id="x3F-IC-Nw4"/>
                         <outlet property="textView" destination="yQE-Uf-mi2" id="S9d-3b-AgE"/>
                     </connections>
