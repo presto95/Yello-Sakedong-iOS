@@ -31,7 +31,7 @@ final class PopupFoodmojiPagerCell: FSPagerViewCell {
   var cellIndex: Int = 0
 
   /// 스택뷰 내 푸드모지 버튼들
-  var foodmojiButtons: [UIButton] {
+  private var foodmojiButtons: [UIButton] {
     return stackView.arrangedSubviews.compactMap { $0 as? UIButton }
   }
   

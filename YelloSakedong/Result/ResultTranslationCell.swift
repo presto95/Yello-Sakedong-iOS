@@ -34,7 +34,7 @@ final class ResultTranslationCell: UITableViewCell {
   
   /// 상위 랭크에 있는 정보인지.
   /// 설정하는 경우 플래그 값에 따라 요소 색상을 변화시킴
-  var isRanked: Bool {
+  private var isRanked: Bool {
     get {
       return _isRanked
     }
@@ -54,7 +54,7 @@ final class ResultTranslationCell: UITableViewCell {
   
   /// 컬러칩 뷰가 숨겨져 있는지.
   /// `constraint`를 계산하여 구함.
-  var isColorChipHidden: Bool {
+  private var isColorChipHidden: Bool {
     get {
       return colorChipViewWidthConstraint.constant == .leastNonzeroMagnitude
         && authorLabelLeadingConstraint.constant == .leastNonzeroMagnitude
@@ -71,7 +71,7 @@ final class ResultTranslationCell: UITableViewCell {
   }
   
   /// 삭제 버튼이 숨겨져 있는지.
-  var isDeleteButtonHidden: Bool {
+  private var isDeleteButtonHidden: Bool {
     get {
       return deleteButton.isHidden
     }
@@ -81,7 +81,7 @@ final class ResultTranslationCell: UITableViewCell {
   }
   
   /// 좋아요 개수.
-  var likeCount: Int {
+  private var likeCount: Int {
     get {
       return Int(likeCountLabel.text ?? "") ?? 0
     }

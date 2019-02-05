@@ -27,7 +27,7 @@ final class ResultInfoCell: UITableViewCell {
   weak var delegate: ResultInfoCellDelegate?
   
   /// 음식 이미지.
-  var foodImage: UIImage? {
+  private var foodImage: UIImage? {
     get {
       return foodImageView.image
     }
@@ -38,12 +38,12 @@ final class ResultInfoCell: UITableViewCell {
   }
   
   /// 음식 이미지가 존재하는가에 대한 상태.
-  var isFoodImageExists: Bool {
+  private var isFoodImageExists: Bool {
     return foodImageView.image != nil
   }
   
   /// 푸드모지가 존재하는가에 대한 상태.
-  var isFoodmojiExists: Bool = false {
+  private var isFoodmojiExists: Bool = false {
     didSet {
       setState()
     }
@@ -90,6 +90,10 @@ final class ResultInfoCell: UITableViewCell {
     super.awakeFromNib()
     hero.isEnabled = true
     setState()
+  }
+  
+  func setFoodImage(_ image: UIImage?) {
+    foodImageView.image = image
   }
   
   /// 뷰 상태에 따른 설정.

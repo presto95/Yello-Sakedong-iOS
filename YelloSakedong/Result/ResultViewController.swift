@@ -200,7 +200,7 @@ extension ResultViewController: UIImagePickerControllerDelegate, UINavigationCon
   ) {
     if let image = info[.editedImage] as? UIImage,
       let infoCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ResultInfoCell {
-      infoCell.foodImage = image
+      infoCell.setFoodImage(image)
     }
     picker.dismiss(animated: true, completion: nil)
   }
