@@ -33,12 +33,6 @@ final class MainViewController: UIViewController {
   // MARK: IBOutlet
   
   /// 상단 그림자를 넣기 위한 뷰.
-  @IBOutlet private weak var upperShadowView: UIView!
-  
-  /// 상단 그림자 뷰 높이 제약.
-  @IBOutlet private weak var upperShadowViewHeightConstraint: NSLayoutConstraint!
-  
-  /// 상단 컨테이너 뷰.
   @IBOutlet private weak var upperView: UIView! {
     didSet {
       upperView.addGestureRecognizer(
@@ -46,6 +40,9 @@ final class MainViewController: UIViewController {
       )
     }
   }
+  
+  /// 상단 그림자 뷰 높이 제약.
+  @IBOutlet private weak var upperViewHeightConstraint: NSLayoutConstraint!
   
   /// 하단 컨테이너 뷰.
   @IBOutlet private weak var lowerView: UIView!
@@ -71,7 +68,6 @@ final class MainViewController: UIViewController {
     navigationController?.hero.navigationAnimationType = .fade
     attachAddTasteButtonToNavigationBar()
     initializeFoodmojiButton()
-    addArcAndShadowToUpperView()
     registerKeyboardNotifications()
   }
   
@@ -179,8 +175,8 @@ final class MainViewController: UIViewController {
       options: notification.keyboardAnimation,
       animations: { [weak self] in
         guard let self = self else { return }
-        self.upperShadowViewHeightConstraint
-          = self.upperShadowViewHeightConstraint.changedMultiplier(to: 0.5)
+        self.upperViewHeightConstraint
+          = self.upperViewHeightConstraint.changedMultiplier(to: 0.4)
       },
       completion: nil
     )
@@ -195,8 +191,8 @@ final class MainViewController: UIViewController {
       options: notification.keyboardAnimation,
       animations: { [weak self] in
         guard let self = self else { return }
-        self.upperShadowViewHeightConstraint
-          = self.upperShadowViewHeightConstraint.changedMultiplier(to: 0.6)
+        self.upperViewHeightConstraint
+          = self.upperViewHeightConstraint.changedMultiplier(to: 0.6)
       },
       completion: nil
     )
@@ -268,35 +264,5 @@ extension MainViewController: UITextFieldDelegate {
     textField.text = nil
     textField.resignFirstResponder()
     return true
-  }
-}
-
-// MARK: - Private Extension
-
-private extension MainViewController {
-  
-  /// arc와 그림자 상단 뷰에 추가하기
-  func addArcAndShadowToUpperView() {
-    // arc 베지어 곡선 만들기
-    let path = UIBezierPath(
-      arcCenter: .init(x: upperView.bounds.width / 2, y: 0),
-      //radius: upperView.bounds.height,
-      radius: upperShadowView.bounds.height,
-      startAngle: 0,
-      endAngle: .pi,
-      clockwise: true
-    )
-    // Shape Layer 만들고 상단 컨테이너 뷰의 마스크로 설정
-    let shapeLayer = CAShapeLayer()
-    shapeLayer.needsDisplayOnBoundsChange = true
-    shapeLayer.path = path.cgPath
-    upperView.layer.mask = shapeLayer
-    /// Shape Layer 만들고 그림자 효과 추가하여 상단 그림자를 위한 뷰의 서브레이어에 추가
-    let shadowLayer = CAShapeLayer()
-    shadowLayer.needsDisplayOnBoundsChange = true
-    shadowLayer.path = path.cgPath
-    shadowLayer.fillColor = UIColor.white.cgColor
-    shadowLayer.applySketchShadow(color: .black, alpha: 0.1, x: 0, y: 16, blur: 32, spread: 0)
-    upperShadowView.layer.addSublayer(shadowLayer)
   }
 }

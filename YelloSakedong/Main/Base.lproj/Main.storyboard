@@ -21,17 +21,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDB-Zs-Wpj">
                                 <rect key="frame" x="0.0" y="64" width="375" height="400"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hku-6S-Q8f">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_arc" translatesAutoresizingMaskIntoConstraints="NO" id="MW3-zE-pob">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="hku-6S-Q8f" secondAttribute="trailing" id="KuE-eW-MWA"/>
-                                    <constraint firstItem="hku-6S-Q8f" firstAttribute="top" secondItem="UDB-Zs-Wpj" secondAttribute="top" id="R0N-1m-2Wh"/>
-                                    <constraint firstAttribute="bottom" secondItem="hku-6S-Q8f" secondAttribute="bottom" id="rbi-tF-ulI"/>
-                                    <constraint firstItem="hku-6S-Q8f" firstAttribute="leading" secondItem="UDB-Zs-Wpj" secondAttribute="leading" id="uC6-gO-5o9"/>
+                                    <constraint firstAttribute="bottom" secondItem="MW3-zE-pob" secondAttribute="bottom" id="8T1-gH-XEq"/>
+                                    <constraint firstItem="MW3-zE-pob" firstAttribute="top" secondItem="UDB-Zs-Wpj" secondAttribute="top" id="lYo-fq-Cvt"/>
+                                    <constraint firstItem="MW3-zE-pob" firstAttribute="leading" secondItem="UDB-Zs-Wpj" secondAttribute="leading" id="mQF-I7-jox"/>
+                                    <constraint firstAttribute="trailing" secondItem="MW3-zE-pob" secondAttribute="trailing" id="pYL-ll-6wa"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkU-Xa-0K5">
@@ -39,7 +38,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="맛이 궁금한 음식을 입력하세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="65C-X6-DCW">
-                                <rect key="frame" x="54.5" y="210.5" width="266" height="27"/>
+                                <rect key="frame" x="54.5" y="198" width="266" height="27"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -47,17 +46,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="65C-X6-DCW" firstAttribute="centerX" secondItem="hku-6S-Q8f" secondAttribute="centerX" id="0QW-Qm-f13"/>
                             <constraint firstItem="L4R-Yw-J4H" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="65C-X6-DCW" secondAttribute="trailing" constant="16" id="15A-vP-v9p"/>
-                            <constraint firstItem="65C-X6-DCW" firstAttribute="centerY" secondItem="hku-6S-Q8f" secondAttribute="centerY" multiplier="0.8" id="28V-wc-12C"/>
                             <constraint firstItem="L4R-Yw-J4H" firstAttribute="trailing" secondItem="TkU-Xa-0K5" secondAttribute="trailing" id="6yp-3T-C1H"/>
                             <constraint firstItem="TkU-Xa-0K5" firstAttribute="leading" secondItem="L4R-Yw-J4H" secondAttribute="leading" id="9VH-BR-Elw"/>
                             <constraint firstItem="TkU-Xa-0K5" firstAttribute="trailing" secondItem="L4R-Yw-J4H" secondAttribute="trailing" id="CCh-FL-tLD"/>
                             <constraint firstItem="TkU-Xa-0K5" firstAttribute="bottom" secondItem="ZAF-Kr-a8E" secondAttribute="bottom" id="DAW-Yv-mpn"/>
+                            <constraint firstItem="65C-X6-DCW" firstAttribute="centerY" secondItem="UDB-Zs-Wpj" secondAttribute="centerY" multiplier="0.8" id="Nti-7X-YE0"/>
                             <constraint firstAttribute="bottom" secondItem="TkU-Xa-0K5" secondAttribute="bottom" id="ZEN-eX-bBJ"/>
                             <constraint firstItem="65C-X6-DCW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L4R-Yw-J4H" secondAttribute="leading" constant="16" id="Zbo-cZ-99L"/>
                             <constraint firstItem="UDB-Zs-Wpj" firstAttribute="leading" secondItem="L4R-Yw-J4H" secondAttribute="leading" id="c5r-8S-tIx"/>
                             <constraint firstItem="TkU-Xa-0K5" firstAttribute="top" secondItem="UDB-Zs-Wpj" secondAttribute="bottom" id="dYO-GR-bRY"/>
+                            <constraint firstItem="65C-X6-DCW" firstAttribute="centerX" secondItem="UDB-Zs-Wpj" secondAttribute="centerX" id="e6H-O7-cnA"/>
                             <constraint firstItem="TkU-Xa-0K5" firstAttribute="leading" secondItem="L4R-Yw-J4H" secondAttribute="leading" id="gPU-6W-fPV"/>
                             <constraint firstItem="UDB-Zs-Wpj" firstAttribute="trailing" secondItem="L4R-Yw-J4H" secondAttribute="trailing" id="jdd-TM-syi"/>
                             <constraint firstItem="UDB-Zs-Wpj" firstAttribute="top" secondItem="L4R-Yw-J4H" secondAttribute="top" id="siv-2w-Upc"/>
@@ -71,9 +70,8 @@
                     <connections>
                         <outlet property="foodTextField" destination="65C-X6-DCW" id="K37-2v-ihB"/>
                         <outlet property="lowerView" destination="TkU-Xa-0K5" id="ULS-ZM-407"/>
-                        <outlet property="upperShadowView" destination="UDB-Zs-Wpj" id="thj-dx-mIs"/>
-                        <outlet property="upperShadowViewHeightConstraint" destination="wmQ-7W-Rdt" id="cZ0-PW-twb"/>
-                        <outlet property="upperView" destination="hku-6S-Q8f" id="5Gp-5r-VcG"/>
+                        <outlet property="upperView" destination="UDB-Zs-Wpj" id="thj-dx-mIs"/>
+                        <outlet property="upperViewHeightConstraint" destination="wmQ-7W-Rdt" id="cZ0-PW-twb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EB-pK-b2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -192,6 +190,7 @@
     </scenes>
     <resources>
         <image name="emoL1" width="140" height="140"/>
+        <image name="main_arc" width="375" height="387"/>
         <image name="page404" width="375" height="716"/>
     </resources>
 </document>

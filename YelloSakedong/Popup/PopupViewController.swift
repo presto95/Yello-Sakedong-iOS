@@ -13,17 +13,7 @@ import Hero
 
 /// 팝업 뷰 컨트롤러.
 final class PopupViewController: UIViewController {
-  
-  /// 페이지 컨트롤의 현재 인덱스.
-  var currentPageControlIndex: Int {
-    get {
-      return pageControl.currentPage
-    }
-    set {
-      pageControl.currentPage = newValue
-    }
-  }
-  
+
   /// 키보드가 나타나 있는가.
   private var isKeyboardAppeared: Bool = false
   
@@ -276,7 +266,7 @@ extension PopupViewController: FSPagerViewDataSource {
 
 extension PopupViewController: FSPagerViewDelegate {
   func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
-    currentPageControlIndex = targetIndex
+    pageControl.currentPage = targetIndex
   }
 }
 

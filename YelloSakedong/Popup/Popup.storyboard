@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YiD-li-mEg">
-                                <rect key="frame" x="37.5" y="141" width="300" height="385.5"/>
+                                <rect key="frame" x="37.5" y="157" width="300" height="353.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKa-bP-ozp">
                                         <rect key="frame" x="244" y="12" width="44" height="44"/>
@@ -31,7 +31,7 @@
                                         <state key="normal" image="ic_x"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qns-u6-9J1">
-                                        <rect key="frame" x="0.0" y="337.5" width="300" height="48"/>
+                                        <rect key="frame" x="0.0" y="305.5" width="300" height="48"/>
                                         <color key="backgroundColor" red="0.97254901960784312" green="0.97647058823529409" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="Yzc-M7-Efx"/>
@@ -47,40 +47,31 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XZ-wa-nBy" customClass="FSPageControl" customModule="FSPagerView">
-                                        <rect key="frame" x="20" y="317.5" width="260" height="20"/>
+                                        <rect key="frame" x="20" y="285.5" width="260" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="ZTt-mD-swi"/>
                                         </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yQE-Uf-mi2">
-                                        <rect key="frame" x="18" y="182.5" width="264" height="62"/>
+                                        <rect key="frame" x="18" y="182.5" width="264" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="입안에서 붕뜨는 플라스틱을 태우는 듯한, 시큼하며 인공적 세제맛.">
-                                                <attributes>
-                                                    <color key="NSBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <font key="NSFont" size="15" name="AppleSDGothicNeo-Regular"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                        <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8E-i5-jgU" customClass="PopupFoodmojiPagerView" customModule="YelloSakedong" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="252.5" width="300" height="65"/>
+                                        <rect key="frame" x="0.0" y="220.5" width="300" height="65"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="HD2-56-xdM"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQq-K8-C8G">
-                                        <rect key="frame" x="0.0" y="252.5" width="15" height="65"/>
+                                        <rect key="frame" x="0.0" y="220.5" width="15" height="65"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAF-7d-JPc">
-                                        <rect key="frame" x="285" y="252.5" width="15" height="65"/>
+                                        <rect key="frame" x="285" y="220.5" width="15" height="65"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0b-nv-4Rc">
