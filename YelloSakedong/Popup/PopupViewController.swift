@@ -24,6 +24,9 @@ final class PopupViewController: UIViewController {
     }
   }
   
+  /// 키보드가 나타나 있는가.
+  private var isKeyboardAppeared: Bool = false
+  
   /// 페이저 뷰의 선택된 인덱스.
   private var selectedIndexOfPagerView: Int?
   
@@ -195,7 +198,10 @@ final class PopupViewController: UIViewController {
       options: notification.keyboardAnimation,
       animations: { [weak self] in
         guard let self = self else { return }
-        self.backgroundViewCenterYConstraint.constant -= notification.keyboardFrame.height / 2.5
+        if !self.isKeyboardAppeared {
+          self.backgroundViewCenterYConstraint.constant -= notification.keyboardFrame.height / 2.5
+          self.isKeyboardAppeared = !self.isKeyboardAppeared
+        }
       },
       completion: nil
     )
@@ -210,7 +216,10 @@ final class PopupViewController: UIViewController {
       options: notification.keyboardAnimation,
       animations: { [weak self] in
         guard let self = self else { return }
-        self.backgroundViewCenterYConstraint.constant += notification.keyboardFrame.height / 2.5
+        if self.isKeyboardAppeared {
+          self.backgroundViewCenterYConstraint.constant += notification.keyboardFrame.height / 2.5
+          self.isKeyboardAppeared = !self.isKeyboardAppeared
+        }
       },
       completion: nil
     )
