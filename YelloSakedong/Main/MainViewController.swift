@@ -71,14 +71,24 @@ final class MainViewController: UIViewController {
     navigationItem.backBarButtonItem = UIBarButtonItem()
     initializeFoodmojiButton()
     addArcAndShadowToUpperView()
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(keyboardWillShow(_:)),
-                                           name: UIResponder.keyboardWillShowNotification,
-                                           object: nil)
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(keyboardWillHide(_:)),
-                                           name: UIResponder.keyboardWillHideNotification,
-                                           object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(keyboardWillShow(_:)),
+      name: UIResponder.keyboardWillShowNotification,
+      object: nil
+    )
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(keyboardWillHide(_:)),
+      name: UIResponder.keyboardWillHideNotification,
+      object: nil
+    )
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(keyboardDidShow(_:)),
+      name: UIResponder.keyboardDidShowNotification,
+      object: nil
+    )
   }
   
   deinit {
@@ -107,13 +117,17 @@ final class MainViewController: UIViewController {
   /// 키보드가 나타나려 할 때의 동작.
   @objc private func keyboardWillShow(_ notification: Notification) {
     adjustUpperViewIfKeyboardWillShow(notification)
-    revealFoodmojiButton(notification)
   }
   
   /// 키보드가 내려가려 할 때의 동작.
   @objc private func keyboardWillHide(_ notification: Notification) {
     adjustUpperViewIfKeyboardWillHide(notification)
-    dismissFoodmojiButton()
+    dismissFoodmojiButton(notification)
+  }
+  
+  /// 키보드가 나타난 직후의 동작.
+  @objc private func keyboardDidShow(_ notification: Notification) {
+    revealFoodmojiButton(notification)
   }
   
   // MARK: Private Method
@@ -125,6 +139,7 @@ final class MainViewController: UIViewController {
     foodmojiButton.setImage(Foodmoji.Large.tenth.image, for: [])
     foodmojiButton.imageView?.contentMode = .scaleAspectFit
     foodmojiButton.sizeToFit()
+    foodmojiButton.transform = .init(scaleX: 0.1, y: 0.1)
     let center = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height)
     foodmojiButton.center = center
     foodmojiButton.addTarget(self,
@@ -135,8 +150,8 @@ final class MainViewController: UIViewController {
   /// 푸드모지 버튼 드러내기.
   private func revealFoodmojiButton(_ notification: Notification) {
     let center = CGPoint(x: view.bounds.width / 2,
-                         y: view.bounds.height - notification.keyboardFrame.height)
-    foodmojiButton.center = .init(x: center.x, y: center.y - 20)
+                         y: view.bounds.height - notification.keyboardFrame.height - 20)
+    foodmojiButton.center = center
     UIView.animate(
       withDuration: FoodmojiAnimation.duration,
       delay: FoodmojiAnimation.delay,
@@ -154,7 +169,7 @@ final class MainViewController: UIViewController {
   }
   
   /// 푸드모지 버튼 숨기기.
-  private func dismissFoodmojiButton() {
+  private func dismissFoodmojiButton(_ notification: Notification) {
     UIView.animate(
       withDuration: FoodmojiAnimation.duration,
       delay: FoodmojiAnimation.delay,
@@ -165,6 +180,17 @@ final class MainViewController: UIViewController {
         guard let self = self else { return }
         self.foodmojiButton.transform = .init(scaleX: 0.1, y: 0.1)
         self.foodmojiButton.alpha = 0
+      },
+      completion: nil
+    )
+    UIView.animate(
+      withDuration: notification.keyboardDuration,
+      delay: 0,
+      options: notification.keyboardAnimation,
+      animations: { [weak self] in
+        guard let self = self else { return }
+        self.foodmojiButton.center
+          = .init(x: self.view.bounds.width / 2, y: self.view.bounds.height)
       },
       completion: nil
     )
