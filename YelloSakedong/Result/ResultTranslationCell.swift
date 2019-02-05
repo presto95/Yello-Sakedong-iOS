@@ -94,7 +94,7 @@ final class ResultTranslationCell: UITableViewCell {
   private var _isRanked: Bool = false
   
   /// 좋아요를 눌렀는지에 대한 플래그 값을 저장.
-  private var _hasLikeButtonTapped: Bool = false
+  private var hasLikeButtonTapped: Bool = false
   
   /// 컬러칩 뷰.
   @IBOutlet weak var colorChipView: UIView! {
@@ -151,6 +151,7 @@ final class ResultTranslationCell: UITableViewCell {
     )
   }
   
+  /// 상태값에 따라 뷰 상태 설정.
   func setState(
     isDeleteButtonHidden: Bool,
     isColorChipHidden: Bool,
@@ -161,13 +162,14 @@ final class ResultTranslationCell: UITableViewCell {
     self.isRanked = isRanked
   }
   
+  /// 좋아요 수 조정.
   func adjustLikeCount() {
-    if _hasLikeButtonTapped {
+    if hasLikeButtonTapped {
       likeCount -= 1
-      _hasLikeButtonTapped = false
+      hasLikeButtonTapped = false
     } else {
       likeCount += 1
-      _hasLikeButtonTapped = true
+      hasLikeButtonTapped = true
     }
   }
 }

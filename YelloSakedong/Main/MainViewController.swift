@@ -54,9 +54,11 @@ final class MainViewController: UIViewController {
   @IBOutlet private weak var foodTextField: UITextField! {
     didSet {
       foodTextField.delegate = self
-      foodTextField.addTarget(self,
-                              action: #selector(foodTextFieldTextDidChange),
-                              for: .editingChanged)
+      foodTextField.addTarget(
+        self,
+        action: #selector(foodTextFieldTextDidChange),
+        for: .editingChanged
+      )
     }
   }
   // MARK: Life Cycle
@@ -67,28 +69,10 @@ final class MainViewController: UIViewController {
     hero.modalAnimationType = .fade
     navigationController?.hero.isEnabled = true
     navigationController?.hero.navigationAnimationType = .fade
-    navigationItem.rightBarButtonItem = addTasteButton
-    navigationItem.backBarButtonItem = UIBarButtonItem()
+    attachAddTasteButtonToNavigationBar()
     initializeFoodmojiButton()
     addArcAndShadowToUpperView()
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(keyboardWillShow(_:)),
-      name: UIResponder.keyboardWillShowNotification,
-      object: nil
-    )
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(keyboardWillHide(_:)),
-      name: UIResponder.keyboardWillHideNotification,
-      object: nil
-    )
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(keyboardDidShow(_:)),
-      name: UIResponder.keyboardDidShowNotification,
-      object: nil
-    )
+    registerKeyboardNotifications()
   }
   
   deinit {
@@ -114,22 +98,6 @@ final class MainViewController: UIViewController {
       .present(to: self)
   }
   
-  /// 키보드가 나타나려 할 때의 동작.
-  @objc private func keyboardWillShow(_ notification: Notification) {
-    adjustUpperViewIfKeyboardWillShow(notification)
-  }
-  
-  /// 키보드가 내려가려 할 때의 동작.
-  @objc private func keyboardWillHide(_ notification: Notification) {
-    adjustUpperViewIfKeyboardWillHide(notification)
-    dismissFoodmojiButton(notification)
-  }
-  
-  /// 키보드가 나타난 직후의 동작.
-  @objc private func keyboardDidShow(_ notification: Notification) {
-    revealFoodmojiButton(notification)
-  }
-  
   // MARK: Private Method
   
   /// 푸드모지 버튼 초기화.
@@ -151,9 +119,11 @@ final class MainViewController: UIViewController {
   
   /// 푸드모지 버튼 드러내기.
   private func revealFoodmojiButton(_ notification: Notification) {
-    let center = CGPoint(x: view.bounds.width / 2,
-                         y: view.bounds.height - notification.keyboardFrame.height - 20)
-    foodmojiButton.center = center
+    let foodmojiButtonCenter = CGPoint(
+      x: view.bounds.width / 2,
+      y: view.bounds.height - notification.keyboardFrame.height - 20
+    )
+    foodmojiButton.center = foodmojiButtonCenter
     UIView.animate(
       withDuration: FoodmojiAnimation.duration,
       delay: FoodmojiAnimation.delay,
@@ -194,7 +164,10 @@ final class MainViewController: UIViewController {
         self.foodmojiButton.center
           = .init(x: self.view.bounds.width / 2, y: self.view.bounds.height)
       },
-      completion: nil
+      completion: { [weak self] _ in
+        guard let self = self else { return }
+        self.foodmojiButton.removeFromSuperview()
+      }
     )
   }
   
@@ -231,30 +204,57 @@ final class MainViewController: UIViewController {
   }
 }
 
+// MARK: - KeyboardObserver 구현
+
+extension MainViewController: KeyboardObserver {
+  func keyboardWillShow(_ notification: Notification) {
+    subscribeKeyboardWillShow(notification)
+  }
+  
+  func keyboardWillHide(_ notification: Notification) {
+    subscribeKeyboardWillHide(notification)
+  }
+  
+  func keyboardDidShow(_ notification: Notification) {
+    subscribeKeyboardDidShow(notification)
+  }
+}
+
+// MARK: - KeyboardSubscriber 구현
+
+extension MainViewController: KeyboardSubscriber {
+  func subscribeKeyboardWillShow(_ notification: Notification) {
+    adjustUpperViewIfKeyboardWillShow(notification)
+  }
+  
+  func subscribeKeyboardWillHide(_ notification: Notification) {
+    adjustUpperViewIfKeyboardWillHide(notification)
+    dismissFoodmojiButton(notification)
+  }
+  
+  func subscribeKeyboardDidShow(_ notification: Notification) {
+    revealFoodmojiButton(notification)
+  }
+}
+
 // MARK: - AddTasteButtonProtocol 구현
 
 extension MainViewController: AddTasteButtonProtocol {
-  var addTasteButtonTarget: AddTasteButtonProtocol {
-    return self
-  }
-  
-  var addTasteButtonAction: Selector {
+  var addTasteButtonAction: Selector? {
     return #selector(addTasteButtonDidTap(_:))
   }
   
   @objc func addTasteButtonDidTap(_ sender: UIBarButtonItem) {
-    StoryboardScene.Popup.popupViewController
-      .instantiate()
-      .present(to: self)
+    presentPopupViewController()
   }
 }
 
 // MARK: - UITextFieldDelegate 구현
 
 extension MainViewController: UITextFieldDelegate {
+  
   func textFieldDidBeginEditing(_ textField: UITextField) {
     // 상단 뷰 약간 위로 올라가며 입력 받을 준비
-    
   }
   
   func textFieldDidEndEditing(_ textField: UITextField) {
@@ -264,6 +264,7 @@ extension MainViewController: UITextFieldDelegate {
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    // 초기 상태로 돌아가기
     textField.text = nil
     textField.resignFirstResponder()
     return true

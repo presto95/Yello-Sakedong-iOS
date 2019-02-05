@@ -20,7 +20,7 @@ final class ProgressViewController: UIViewController {
     didSet {
       foodmojiImageView.layer.applySketchShadow(
         color: .white,
-        alpha: 1,
+        alpha: 0.5,
         x: 0,
         y: 0,
         blur: 16,
@@ -61,9 +61,14 @@ final class ProgressViewController: UIViewController {
           // 결과를 찾으면 ResultViewController로
           // 그렇지 않으면 NotFoundViewController로 이동
           self.hero.dismissViewController {
+            // 결과 창 띄우기
             StoryboardScene.Result.resultViewController
               .instantiate()
               .push(at: parent)
+            // 404 창 띄우기
+//            StoryboardScene.Main.notFoundViewController
+//              .instantiate()
+//              .push(at: parent)
           }
           timer.invalidate()
         }

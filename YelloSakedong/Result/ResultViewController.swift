@@ -44,8 +44,7 @@ final class ResultViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     hero.isEnabled = true
-    navigationItem.rightBarButtonItem = addTasteButton
-    navigationItem.backBarButtonItem = UIBarButtonItem()
+    attachAddTasteButtonToNavigationBar()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -62,30 +61,34 @@ final class ResultViewController: UIViewController {
 // MARK: - UITableViewDataSource 구현
 
 extension ResultViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView,
-                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  func tableView(
+    _ tableView: UITableView,
+    cellForRowAt indexPath: IndexPath
+  ) -> UITableViewCell {
     let section = indexPath.section
     if section == 0 {
       // 0번 섹션: 정보 셀
-      let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.infoCell,
-                                               for: indexPath)
-      cell.hero.modifiers = [.fade]
+      let cell = tableView.dequeueReusableCell(
+        withIdentifier: CellIdentifier.infoCell,
+        for: indexPath
+      )
+      cell.hero.modifiers = [.fade, .scale(0.9), .translate(.init(x: 0, y: 32))]
       if let infoCell = cell as? ResultInfoCell {
         infoCell.delegate = self
         infoCell.setState()
       }
       return cell
     } else {
-      // 1번 섹션: 내가 등록한 것을 표시하는 셀
-      // 2번 섹션: 다른 사람이 등록한 것 중 순위권에 있는 것을 표시하는 셀
-      // 3번 섹션: 다른 사람이 등록한 것 중 순위권에 없는 것을 표시하는 셀
       let cell = tableView.dequeueReusableCell(
         withIdentifier: CellIdentifier.translationCell,
         for: indexPath
       )
+      cell.hero.modifiers = [.fade, .scale(0.9), .translate(.init(x: 0, y: 32))]
       if let translationCell = cell as? ResultTranslationCell {
         translationCell.delegate = self
         if section == 1 {
+          // 1번 섹션: 내가 등록한 것을 표시하는 셀
+          // 삭제 버튼 나타내고, 컬러칩 숨기고, 순위권에 있지 않음
           translationCell.setState(
             isDeleteButtonHidden: false,
             isColorChipHidden: true,
@@ -93,6 +96,8 @@ extension ResultViewController: UITableViewDataSource {
           )
           translationCell.backgroundColor = .myBackgroundColor
         } else if section == 2 {
+          // 2번 섹션: 다른 사람이 등록한 것 중 순위권에 있는 것을 표시하는 셀
+          // 삭제 버튼 숨기고, 컬러칩 나타내고, 순위권에 있음
           translationCell.setState(
             isDeleteButtonHidden: true,
             isColorChipHidden: false,
@@ -100,14 +105,16 @@ extension ResultViewController: UITableViewDataSource {
           )
           translationCell.backgroundColor = .rankedBackgroundColor
         } else {
+          // 3번 섹션: 다른 사람이 등록한 것 중 순위권에 없는 것을 표시하는 셀
+          // 삭제 버튼 숨기고, 컬러칩 숨기고, 순위권에 있지 않음
           translationCell.setState(
             isDeleteButtonHidden: true,
             isColorChipHidden: true,
             isRanked: false
           )
+          translationCell.backgroundColor = .white
         }
       }
-      cell.hero.modifiers = [.fade, .scale(0.5)]
       return cell
     }
   }
@@ -174,18 +181,12 @@ extension ResultViewController: ResultTranslationCellDelegate {
 // MARK: - AddTasteButtonProtocol 구현
 
 extension ResultViewController: AddTasteButtonProtocol {
-  var addTasteButtonTarget: AddTasteButtonProtocol {
-    return self
-  }
-  
-  var addTasteButtonAction: Selector {
+  var addTasteButtonAction: Selector? {
     return #selector(addTasteButtonDidTap(_:))
   }
   
   @objc func addTasteButtonDidTap(_ sender: UIBarButtonItem) {
-    StoryboardScene.Popup.popupViewController
-      .instantiate()
-      .present(to: self)
+    presentPopupViewController()
   }
 }
 

@@ -10,6 +10,9 @@
 		190734BA21FB999D00E3988D /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190734B821FB999C00E3988D /* Storyboard.swift */; };
 		190734BB21FB999D00E3988D /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190734B921FB999C00E3988D /* Assets.swift */; };
 		190DA1F021EF056A00B8CF97 /* AddTasteButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */; };
+		1919DAA72209771B00F6D2D2 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAA62209771B00F6D2D2 /* KeyboardObserver.swift */; };
+		1919DAAD22097FEF00F6D2D2 /* Notification.Name+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAAC22097FEF00F6D2D2 /* Notification.Name+.swift */; };
+		1919DAAF2209809000F6D2D2 /* KeyboardSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAAE2209809000F6D2D2 /* KeyboardSubscriber.swift */; };
 		191C1EF621F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF521F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift */; };
 		191C1EFA21F23E6700F31ED8 /* PopupFoodmojiPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF921F23E6700F31ED8 /* PopupFoodmojiPagerView.swift */; };
 		192973AA21EE2F8F0021B05E /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192973A921EE2F8F0021B05E /* Splash.storyboard */; };
@@ -62,6 +65,9 @@
 		190734B821FB999C00E3988D /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		190734B921FB999C00E3988D /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTasteButtonProtocol.swift; sourceTree = "<group>"; };
+		1919DAA62209771B00F6D2D2 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
+		1919DAAC22097FEF00F6D2D2 /* Notification.Name+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+.swift"; sourceTree = "<group>"; };
+		1919DAAE2209809000F6D2D2 /* KeyboardSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSubscriber.swift; sourceTree = "<group>"; };
 		191C1EF521F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiPagerCell.swift; sourceTree = "<group>"; };
 		191C1EF921F23E6700F31ED8 /* PopupFoodmojiPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiPagerView.swift; sourceTree = "<group>"; };
 		192973A921EE2F8F0021B05E /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 				192973CD21EEC8BF0021B05E /* UIColor+.swift */,
 				19800EF82204AE28005D5EEA /* NSLayoutConstraint+.swift */,
 				19A976BE2206F42600534088 /* Notification+.swift */,
+				1919DAAC22097FEF00F6D2D2 /* Notification.Name+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -283,6 +290,8 @@
 			children = (
 				19800EED2204916D005D5EEA /* NetworkManagerType.swift */,
 				190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */,
+				1919DAA62209771B00F6D2D2 /* KeyboardObserver.swift */,
+				1919DAAE2209809000F6D2D2 /* KeyboardSubscriber.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -496,6 +505,7 @@
 				192973E321EECBA90021B05E /* ResultTranslationCell.swift in Sources */,
 				19800EEE2204916D005D5EEA /* NetworkManagerType.swift in Sources */,
 				195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */,
+				1919DAAD22097FEF00F6D2D2 /* Notification.Name+.swift in Sources */,
 				1995740622056B0A005903EF /* ColorChip.swift in Sources */,
 				19800EEC22049165005D5EEA /* NetworkManager.swift in Sources */,
 				19A976BF2206F42600534088 /* Notification+.swift in Sources */,
@@ -505,11 +515,13 @@
 				192973CC21EEC6870021B05E /* CALayer+.swift in Sources */,
 				190734BB21FB999D00E3988D /* Assets.swift in Sources */,
 				19800EF92204AE28005D5EEA /* NSLayoutConstraint+.swift in Sources */,
+				1919DAAF2209809000F6D2D2 /* KeyboardSubscriber.swift in Sources */,
 				19800EF42204A18F005D5EEA /* NotFoundViewController.swift in Sources */,
 				192973CE21EEC8BF0021B05E /* UIColor+.swift in Sources */,
 				192973B921EE33F10021B05E /* MainViewController.swift in Sources */,
 				192973B521EE30200021B05E /* UIViewController+.swift in Sources */,
 				19800EFB2204B033005D5EEA /* ProgressViewController.swift in Sources */,
+				1919DAA72209771B00F6D2D2 /* KeyboardObserver.swift in Sources */,
 				192973C421EE38EC0021B05E /* PopupViewController.swift in Sources */,
 				190DA1F021EF056A00B8CF97 /* AddTasteButtonProtocol.swift in Sources */,
 				192973DF21EECADE0021B05E /* ResultInfoCell.swift in Sources */,

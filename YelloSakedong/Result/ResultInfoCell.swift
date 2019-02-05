@@ -10,8 +10,10 @@ import UIKit
 
 import Hero
 
+/// ResultInfoCell 델리게이트 프로토콜.
 protocol ResultInfoCellDelegate: class {
   
+  /// 음식 추가 버튼을 탭했을 때의 동작.
   func resultInfoCell(
     _ resultInfoCell: ResultInfoCell,
     didTapAddButton button: UIButton
@@ -21,8 +23,10 @@ protocol ResultInfoCellDelegate: class {
 /// 결과 화면에서 정보를 표시하는 테이블 뷰 셀.
 final class ResultInfoCell: UITableViewCell {
   
+  /// ResultInfoCell Delegate.
   weak var delegate: ResultInfoCellDelegate?
   
+  /// 음식 이미지.
   var foodImage: UIImage? {
     get {
       return foodImageView.image
@@ -33,16 +37,19 @@ final class ResultInfoCell: UITableViewCell {
     }
   }
   
+  /// 음식 이미지가 존재하는가에 대한 상태.
   var isFoodImageExists: Bool {
     return foodImageView.image != nil
   }
   
+  /// 푸드모지가 존재하는가에 대한 상태.
   var isFoodmojiExists: Bool = false {
     didSet {
       setState()
     }
   }
   
+  /// 이미지 추가 버튼.
   @IBOutlet private weak var addImageButton: UIButton! {
     didSet {
       addImageButton.clipsToBounds = true

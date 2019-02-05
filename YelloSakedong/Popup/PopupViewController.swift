@@ -13,7 +13,7 @@ import Hero
 
 /// 팝업 뷰 컨트롤러.
 final class PopupViewController: UIViewController {
-
+  
   /// 페이지 컨트롤의 현재 인덱스.
   var currentPageControlIndex: Int {
     get {
@@ -35,13 +35,14 @@ final class PopupViewController: UIViewController {
   /// 팝업 배경 컨테이너 뷰.
   @IBOutlet private weak var backgroundView: UIView! {
     didSet {
-      backgroundView.layer
-        .applySketchShadow(color: .shadow,
-                           alpha: 0.5,
-                           x: 4,
-                           y: 3,
-                           blur: 12,
-                           spread: 0)
+      backgroundView.layer.applySketchShadow(
+        color: .shadow,
+        alpha: 0.5,
+        x: 4,
+        y: 3,
+        blur: 12,
+        spread: 0
+      )
       backgroundView.layer.cornerRadius = 6
     }
   }
@@ -117,18 +118,8 @@ final class PopupViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(keyboardWillShow(_:)),
-      name: UIResponder.keyboardWillShowNotification,
-      object: nil
-    )
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(keyboardWillHide(_:)),
-      name: UIResponder.keyboardWillHideNotification,
-      object: nil
-    )
+    //hero.isEnabled = true
+    registerKeyboardNotifications()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -141,15 +132,7 @@ final class PopupViewController: UIViewController {
   }
   
   // MARK: - @objc Method
-  
-  @objc private func keyboardWillShow(_ notification: Notification) {
-    adjustPopupViewIfKeyboardWillShow(notification)
-  }
-  
-  @objc private func keyboardWillHide(_ notification: Notification) {
-    adjustPopupViewIfKeyboardWillHide(notification)
-  }
-  
+
   @objc private func addButtonDidTap(_ sender: UIButton) {
     if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
       let imagePicker = UIImagePickerController()
@@ -195,6 +178,30 @@ final class PopupViewController: UIViewController {
       completion: nil
     )
     view.layoutIfNeeded()
+  }
+}
+
+// MARK: - KeyboardObserver 구현
+
+extension PopupViewController: KeyboardObserver {
+  func keyboardWillShow(_ notification: Notification) {
+    subscribeKeyboardWillShow(notification)
+  }
+  
+  func keyboardWillHide(_ notification: Notification) {
+    subscribeKeyboardWillHide(notification)
+  }
+}
+
+// MARK: - KeyboardSubscriber 구현
+
+extension PopupViewController: KeyboardSubscriber {
+  func subscribeKeyboardWillShow(_ notification: Notification) {
+    adjustPopupViewIfKeyboardWillShow(notification)
+  }
+  
+  func subscribeKeyboardWillHide(_ notification: Notification) {
+    adjustPopupViewIfKeyboardWillHide(notification)
   }
 }
 
@@ -248,7 +255,7 @@ extension PopupViewController: UIImagePickerControllerDelegate, UINavigationCont
   func imagePickerController(
     _ picker: UIImagePickerController,
     didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
-  ) {
+    ) {
     if let image = info[.editedImage] as? UIImage {
       addImageButton.setBackgroundImage(image, for: [])
     }

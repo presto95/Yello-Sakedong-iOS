@@ -10,26 +10,21 @@ import UIKit
 
 /// 404 뷰 컨트롤러.
 final class NotFoundViewController: UIViewController {
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
+    attachAddTasteButtonToNavigationBar()
   }
 }
 
 // MARK: - AddTasteButtonProtocol 구현
 
 extension NotFoundViewController: AddTasteButtonProtocol {
-  var addTasteButtonTarget: AddTasteButtonProtocol {
-    return self
-  }
-  
-  var addTasteButtonAction: Selector {
+  var addTasteButtonAction: Selector? {
     return #selector(addTasteButtonDidTap(_:))
   }
   
   @objc func addTasteButtonDidTap(_ sender: UIBarButtonItem) {
-    StoryboardScene.Popup.popupViewController
-      .instantiate()
-      .present(to: self)
+    presentPopupViewController()
   }
 }
