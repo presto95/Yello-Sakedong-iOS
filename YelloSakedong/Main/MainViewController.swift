@@ -67,7 +67,6 @@ final class MainViewController: UIViewController {
     hero.modalAnimationType = .fade
     navigationController?.hero.isEnabled = true
     navigationController?.hero.navigationAnimationType = .fade
-    attachAddTasteButtonToNavigationBar()
     initializeFoodmojiButton()
     registerKeyboardNotifications()
   }
@@ -235,19 +234,6 @@ extension MainViewController: KeyboardSubscriberProtocol {
   
   func subscribeKeyboardDidShow(_ notification: Notification) {
     revealFoodmojiButton(notification)
-  }
-}
-
-// MARK: - AddTasteButtonProtocol 구현
-
-extension MainViewController: AddTasteButtonProtocol {
-  
-  var addTasteButtonAction: Selector? {
-    return #selector(addTasteButtonDidTap(_:))
-  }
-  
-  @objc func addTasteButtonDidTap(_ sender: UIBarButtonItem) {
-    presentPopupViewController(foodName: foodName)
   }
 }
 
