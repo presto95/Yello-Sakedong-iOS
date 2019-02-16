@@ -40,6 +40,8 @@
 		194480EF2217F1E7005E45D7 /* API+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194480EE2217F1E7005E45D7 /* API+User.swift */; };
 		194480F42217F647005E45D7 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194480F32217F647005E45D7 /* StatusCode.swift */; };
 		194480F62217F6FC005E45D7 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194480F52217F6FC005E45D7 /* HTTPError.swift */; };
+		194480FB2217F99D005E45D7 /* YSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194480FA2217F99D005E45D7 /* YSError.swift */; };
+		194480FD2217FEFC005E45D7 /* RestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194480FC2217FEFC005E45D7 /* RestError.swift */; };
 		195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195B99A321E0E8A300367456 /* AppDelegate.swift */; };
 		195B99A921E0E8A300367456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 195B99A721E0E8A300367456 /* Main.storyboard */; };
 		195B99AB21E0E8A400367456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 195B99AA21E0E8A400367456 /* Assets.xcassets */; };
@@ -100,6 +102,8 @@
 		194480EE2217F1E7005E45D7 /* API+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+User.swift"; sourceTree = "<group>"; };
 		194480F32217F647005E45D7 /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
 		194480F52217F6FC005E45D7 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
+		194480FA2217F99D005E45D7 /* YSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSError.swift; sourceTree = "<group>"; };
+		194480FC2217FEFC005E45D7 /* RestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestError.swift; sourceTree = "<group>"; };
 		195B99A021E0E8A300367456 /* YelloSakedong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelloSakedong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		195B99A321E0E8A300367456 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		195B99A821E0E8A300367456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 			children = (
 				19800EFC2204B236005D5EEA /* Foodmoji.swift */,
 				1995740522056B0A005903EF /* ColorChip.swift */,
+				194480FA2217F99D005E45D7 /* YSError.swift */,
+				194480FC2217FEFC005E45D7 /* RestError.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -599,9 +605,11 @@
 				192973CE21EEC8BF0021B05E /* UIColor+.swift in Sources */,
 				192973B921EE33F10021B05E /* MainViewController.swift in Sources */,
 				192973B521EE30200021B05E /* UIViewController+.swift in Sources */,
+				194480FB2217F99D005E45D7 /* YSError.swift in Sources */,
 				19800EFB2204B033005D5EEA /* ProgressViewController.swift in Sources */,
 				1919DAA72209771B00F6D2D2 /* KeyboardObserverProtocol.swift in Sources */,
 				192973C421EE38EC0021B05E /* PopupViewController.swift in Sources */,
+				194480FD2217FEFC005E45D7 /* RestError.swift in Sources */,
 				190DA1F021EF056A00B8CF97 /* AddTasteButtonProtocol.swift in Sources */,
 				192973DF21EECADE0021B05E /* ResultInfoCell.swift in Sources */,
 				191C1EF621F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift in Sources */,

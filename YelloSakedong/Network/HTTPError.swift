@@ -9,7 +9,7 @@
 import Foundation
 
 /// HTTP 통신 에러 정의.
-enum HTTPError: Error {
+enum HTTPError: YSError {
   
   /// 409
   case conflict
@@ -20,6 +20,8 @@ enum HTTPError: Error {
   /// 나머지
   case `default`
 }
+
+// MARK: 에러 디스크립션
 
 extension HTTPError {
   
