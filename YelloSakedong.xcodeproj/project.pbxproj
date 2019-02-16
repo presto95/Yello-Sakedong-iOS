@@ -111,6 +111,8 @@
 		19A976BE2206F42600534088 /* Notification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+.swift"; sourceTree = "<group>"; };
 		40609488D999FFB5247FC345 /* Pods_YelloSakedong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YelloSakedong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6609C43A3087759D7CB35B3B /* Pods-YelloSakedong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.debug.xcconfig"; path = "Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.debug.xcconfig"; sourceTree = "<group>"; };
+		BCE12D1977317AD8409A261B /* Pods-YelloSakedong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.debug.xcconfig"; sourceTree = "<group>"; };
+		C963D2FC61E99F71FE3B2217 /* Pods-YelloSakedong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.release.xcconfig"; sourceTree = "<group>"; };
 		ED3E33EA866D68DDFD092837 /* Pods-YelloSakedong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.release.xcconfig"; path = "Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -312,6 +314,8 @@
 			children = (
 				6609C43A3087759D7CB35B3B /* Pods-YelloSakedong.debug.xcconfig */,
 				ED3E33EA866D68DDFD092837 /* Pods-YelloSakedong.release.xcconfig */,
+				BCE12D1977317AD8409A261B /* Pods-YelloSakedong.debug.xcconfig */,
+				C963D2FC61E99F71FE3B2217 /* Pods-YelloSakedong.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -474,7 +478,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
@@ -495,7 +499,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -691,7 +695,7 @@
 		};
 		195B99B321E0E8A400367456 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6609C43A3087759D7CB35B3B /* Pods-YelloSakedong.debug.xcconfig */;
+			baseConfigurationReference = BCE12D1977317AD8409A261B /* Pods-YelloSakedong.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -711,7 +715,7 @@
 		};
 		195B99B421E0E8A400367456 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED3E33EA866D68DDFD092837 /* Pods-YelloSakedong.release.xcconfig */;
+			baseConfigurationReference = C963D2FC61E99F71FE3B2217 /* Pods-YelloSakedong.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

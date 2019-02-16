@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.8.0)
+  - Alamofire (4.8.1)
   - FSPagerView (0.8.2)
   - Hero (1.4.0)
   - ObjectMapper (3.4.2)
@@ -24,7 +24,7 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
@@ -33,4 +33,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 131b5d0ea00b2049bb30f55501bd8f1d79e26afa
 
-COCOAPODS: 1.6.0.rc.2
+COCOAPODS: 1.5.3
