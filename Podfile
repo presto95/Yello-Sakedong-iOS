@@ -8,5 +8,9 @@ target 'YelloSakedong' do
   # Pods for YelloSakedong
   pod 'Hero'
   pod 'FSPagerView'
+  pod 'Alamofire'
+  pod 'ObjectMapper'
+  pod 'SwiftyJSON'
+  pod 'SnapKit'
 
 end

@@ -11,4 +11,3 @@ excluded:
 line_length:
   warning: 99
   error: 120
-

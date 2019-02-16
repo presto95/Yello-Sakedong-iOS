@@ -41,8 +41,6 @@
 		195B99A921E0E8A300367456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 195B99A721E0E8A300367456 /* Main.storyboard */; };
 		195B99AB21E0E8A400367456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 195B99AA21E0E8A400367456 /* Assets.xcassets */; };
 		195B99AE21E0E8A400367456 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 195B99AC21E0E8A400367456 /* LaunchScreen.storyboard */; };
-		19800EEC22049165005D5EEA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EEB22049165005D5EEA /* NetworkManager.swift */; };
-		19800EEE2204916D005D5EEA /* NetworkManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EED2204916D005D5EEA /* NetworkManagerType.swift */; };
 		19800EF022049AD1005D5EEA /* FoodmojiWithLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19800EEF22049AD1005D5EEA /* FoodmojiWithLabelView.xib */; };
 		19800EF42204A18F005D5EEA /* NotFoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EF32204A18F005D5EEA /* NotFoundViewController.swift */; };
 		19800EF72204AD44005D5EEA /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 19800EF62204AD43005D5EEA /* swiftgen.yml */; };
@@ -103,8 +101,6 @@
 		195B99AF21E0E8A400367456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19800EDF22049110005D5EEA /* YelloSakedongTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YelloSakedongTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19800EE322049111005D5EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		19800EEB22049165005D5EEA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		19800EED2204916D005D5EEA /* NetworkManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerType.swift; sourceTree = "<group>"; };
 		19800EEF22049AD1005D5EEA /* FoodmojiWithLabelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodmojiWithLabelView.xib; sourceTree = "<group>"; };
 		19800EF32204A18F005D5EEA /* NotFoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundViewController.swift; sourceTree = "<group>"; };
 		19800EF62204AD43005D5EEA /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -221,14 +217,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		192973C621EE39440021B05E /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				19800EEB22049165005D5EEA /* NetworkManager.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		192973D621EECA170021B05E /* Result */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,7 +257,6 @@
 			children = (
 				1919DAB02209854A00F6D2D2 /* Dummy */,
 				19800EF52204A4EC005D5EEA /* Protocol */,
-				192973C621EE39440021B05E /* Network */,
 				192973C521EE393E0021B05E /* Model */,
 				190DA1F121EF163E00B8CF97 /* Common */,
 				192973A721EE2F780021B05E /* Splash */,
@@ -305,7 +292,6 @@
 		19800EF52204A4EC005D5EEA /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				19800EED2204916D005D5EEA /* NetworkManagerType.swift */,
 				190DA1EF21EF056A00B8CF97 /* AddTasteButtonProtocol.swift */,
 				1919DAA62209771B00F6D2D2 /* KeyboardObserverProtocol.swift */,
 				1919DAAE2209809000F6D2D2 /* KeyboardSubscriberProtocol.swift */,
@@ -490,7 +476,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/EFCountingLabel/EFCountingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -502,7 +487,6 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFCountingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -523,11 +507,9 @@
 			files = (
 				192973D421EEC9E70021B05E /* ResultViewController.swift in Sources */,
 				192973E321EECBA90021B05E /* ResultTranslationCell.swift in Sources */,
-				19800EEE2204916D005D5EEA /* NetworkManagerType.swift in Sources */,
 				195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */,
 				1919DAAD22097FEF00F6D2D2 /* Notification.Name+.swift in Sources */,
 				1995740622056B0A005903EF /* ColorChip.swift in Sources */,
-				19800EEC22049165005D5EEA /* NetworkManager.swift in Sources */,
 				19A976BF2206F42600534088 /* Notification+.swift in Sources */,
 				192973B121EE300C0021B05E /* NSObject+.swift in Sources */,
 				192973B721EE30290021B05E /* UIView+.swift in Sources */,
