@@ -14,10 +14,8 @@ import Hero
 protocol ResultInfoCellDelegate: class {
   
   /// 음식 추가 버튼을 탭했을 때의 동작.
-  func resultInfoCell(
-    _ resultInfoCell: ResultInfoCell,
-    didTapAddButton button: UIButton
-  )
+  func resultInfoCell(_ resultInfoCell: ResultInfoCell,
+                      didTapAddButton button: UIButton)
 }
 
 /// 결과 화면에서 정보를 표시하는 테이블 뷰 셀.
@@ -54,11 +52,9 @@ final class ResultInfoCell: UITableViewCell {
     didSet {
       addImageButton.clipsToBounds = true
       addImageButton.layer.cornerRadius = addImageButton.bounds.height / 2
-      addImageButton.addTarget(
-        self,
-        action: #selector(didTapAddButton(_:)),
-        for: .touchUpInside
-      )
+      addImageButton.addTarget(self,
+                               action: #selector(addButtonDidTap(_:)),
+                               for: .touchUpInside)
     }
   }
   
@@ -127,7 +123,7 @@ final class ResultInfoCell: UITableViewCell {
   }
   
   /// 이미지 추가 버튼을 눌렀을 때의 동작 정의.
-  @objc private func didTapAddButton(_ sender: UIButton) {
+  @objc private func addButtonDidTap(_ sender: UIButton) {
     delegate?.resultInfoCell(self, didTapAddButton: sender)
   }
 }

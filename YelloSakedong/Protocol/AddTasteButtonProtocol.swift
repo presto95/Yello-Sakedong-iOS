@@ -24,12 +24,13 @@ protocol AddTasteButtonProtocol: class {
   func attachAddTasteButtonToNavigationBar()
   
   /// 팝업 뷰 컨트롤러 띄우기.
-  func presentPopupViewController()
+  func presentPopupViewController(foodName: String?)
 }
 
 // MARK: - AddTasteButtonProtocol 프로토콜 초기 구현
 
-extension AddTasteButtonProtocol where Self: UIViewController {
+extension AddTasteButtonProtocol where Self: UIViewController, Self: PopupViewDelegate {
+  
   var addTasteButton: UIBarButtonItem? {
     return UIBarButtonItem(
       image: Asset.addTaste.image,
@@ -44,9 +45,9 @@ extension AddTasteButtonProtocol where Self: UIViewController {
     navigationItem.backBarButtonItem = UIBarButtonItem()
   }
   
-  func presentPopupViewController() {
-    StoryboardScene.Popup.popupViewController
-      .instantiate()
-      .present(to: self)
+  func presentPopupViewController(foodName: String?) {
+    let popupViewController = StoryboardScene.Popup.popupViewController.instantiate()
+    popupViewController.delegate = self
+    popupViewController.present(to: self)
   }
 }

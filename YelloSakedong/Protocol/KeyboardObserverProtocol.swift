@@ -12,20 +12,28 @@ import UIKit
 /// 키보드 옵저버 프로토콜.
 protocol KeyboardObserverProtocol {
   
+  /// 키보드가 보이려 할 때.
   func keyboardWillShow(_ notification: Notification)
   
+  /// 키보드가 숨겨지려 할 때.
   func keyboardWillHide(_ notification: Notification)
   
+  /// 키보드가 보여진 후에.
   func keyboardDidShow(_ notification: Notification)
   
+  /// 키보드가 숨겨진 후에.
   func keyboardDidHide(_ notification: Notification)
   
+  /// 키보드의 프레임이 변화하려 할 때.
   func keyboardWillChangeFrame(_ notification: Notification)
   
+  /// 키보드의 프레임이 변화한 후에.
   func keyboardDidChangeFrame(_ notification: Notification)
   
+  /// 키보드 노티피케이션 등록.
   func registerKeyboardNotifications()
   
+  /// 키보드 노티피케이션 해제.
   func removeKeyboardNotifications()
 }
 
@@ -68,11 +76,12 @@ extension KeyboardObserverProtocol where Self: UIViewController {
   }
   
   func removeKeyboardNotifications() {
-    NotificationCenter.default.removeObserver(self, name: .keyboardWillShow, object: nil)
-    NotificationCenter.default.removeObserver(self, name: .keyboardWillHide, object: nil)
-    NotificationCenter.default.removeObserver(self, name: .keyboardDidShow, object: nil)
-    NotificationCenter.default.removeObserver(self, name: .keyboardDidHide, object: nil)
-    NotificationCenter.default.removeObserver(self, name: .keyboardWillChangeFrame, object: nil)
-    NotificationCenter.default.removeObserver(self, name: .keyboardDidChangeFrame, object: nil)
+    let notificationCenter = NotificationCenter.default
+    notificationCenter.removeObserver(self, name: .keyboardWillShow, object: nil)
+    notificationCenter.removeObserver(self, name: .keyboardWillHide, object: nil)
+    notificationCenter.removeObserver(self, name: .keyboardDidShow, object: nil)
+    notificationCenter.removeObserver(self, name: .keyboardDidHide, object: nil)
+    notificationCenter.removeObserver(self, name: .keyboardWillChangeFrame, object: nil)
+    notificationCenter.removeObserver(self, name: .keyboardDidChangeFrame, object: nil)
   }
 }

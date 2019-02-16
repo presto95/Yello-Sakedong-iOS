@@ -27,9 +27,7 @@ final class PopupFoodmojiPagerView: FSPagerView {
     isInfinite = true
     itemSize = .init(width: bounds.width, height: bounds.height)
     interitemSpacing = .leastNonzeroMagnitude
-    register(
-      UINib(nibName: PopupFoodmojiPagerCell.classNameToString, bundle: nil),
-      forCellWithReuseIdentifier: "cell"
-    )
+    register(UINib(nibName: PopupFoodmojiPagerCell.classNameToString, bundle: nil),
+             forCellWithReuseIdentifier: "cell")
   }
 }

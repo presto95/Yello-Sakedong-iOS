@@ -18,14 +18,8 @@ final class ProgressViewController: UIViewController {
   /// 푸드모지 이미지 뷰
   @IBOutlet private weak var foodmojiImageView: UIImageView! {
     didSet {
-      foodmojiImageView.layer.applySketchShadow(
-        color: .white,
-        alpha: 0.5,
-        x: 0,
-        y: 0,
-        blur: 16,
-        spread: 0
-      )
+      foodmojiImageView.layer
+        .applySketchShadow(color: .white, alpha: 0.5, x: 0, y: 0, blur: 16, spread: 0)
     }
   }
   

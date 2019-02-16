@@ -13,8 +13,6 @@
 		1919DAA72209771B00F6D2D2 /* KeyboardObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAA62209771B00F6D2D2 /* KeyboardObserverProtocol.swift */; };
 		1919DAAD22097FEF00F6D2D2 /* Notification.Name+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAAC22097FEF00F6D2D2 /* Notification.Name+.swift */; };
 		1919DAAF2209809000F6D2D2 /* KeyboardSubscriberProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1919DAAE2209809000F6D2D2 /* KeyboardSubscriberProtocol.swift */; };
-		1919DAB22209855500F6D2D2 /* result.json in Resources */ = {isa = PBXBuildFile; fileRef = 1919DAB12209855500F6D2D2 /* result.json */; };
-		1919DAB42209856500F6D2D2 /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = 1919DAB32209856500F6D2D2 /* food.json */; };
 		1919DABA2209863000F6D2D2 /* PopupFoodmojiPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1919DAB82209863000F6D2D2 /* PopupFoodmojiPagerCell.xib */; };
 		191C1EF621F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF521F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift */; };
 		191C1EFA21F23E6700F31ED8 /* PopupFoodmojiPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C1EF921F23E6700F31ED8 /* PopupFoodmojiPagerView.swift */; };
@@ -37,6 +35,7 @@
 		192973E321EECBA90021B05E /* ResultTranslationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192973E121EECBA90021B05E /* ResultTranslationCell.swift */; };
 		192973E421EECBA90021B05E /* ResultTranslationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 192973E221EECBA90021B05E /* ResultTranslationCell.xib */; };
 		193D655C21E32F5200FAB1DE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D655B21E32F5200FAB1DE /* SplashViewController.swift */; };
+		194480E92217E444005E45D7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194480E82217E444005E45D7 /* NetworkManager.swift */; };
 		195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195B99A321E0E8A300367456 /* AppDelegate.swift */; };
 		195B99A921E0E8A300367456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 195B99A721E0E8A300367456 /* Main.storyboard */; };
 		195B99AB21E0E8A400367456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 195B99AA21E0E8A400367456 /* Assets.xcassets */; };
@@ -49,7 +48,8 @@
 		19800EFD2204B236005D5EEA /* Foodmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EFC2204B236005D5EEA /* Foodmoji.swift */; };
 		1995740622056B0A005903EF /* ColorChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995740522056B0A005903EF /* ColorChip.swift */; };
 		19A976BF2206F42600534088 /* Notification+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A976BE2206F42600534088 /* Notification+.swift */; };
-		53858AEE8F97CE1227F5569D /* Pods_YelloSakedong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40609488D999FFB5247FC345 /* Pods_YelloSakedong.framework */; };
+		1CFD3690796BE10BB46569BE /* Pods_YelloSakedongTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58FBBB5C13A12DE8636948F /* Pods_YelloSakedongTests.framework */; };
+		EDFE886612C6A92DECD279C4 /* Pods_YelloSakedong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E34E94D4C5A66AF3889C3BE /* Pods_YelloSakedong.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +69,6 @@
 		1919DAA62209771B00F6D2D2 /* KeyboardObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserverProtocol.swift; sourceTree = "<group>"; };
 		1919DAAC22097FEF00F6D2D2 /* Notification.Name+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+.swift"; sourceTree = "<group>"; };
 		1919DAAE2209809000F6D2D2 /* KeyboardSubscriberProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSubscriberProtocol.swift; sourceTree = "<group>"; };
-		1919DAB12209855500F6D2D2 /* result.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = result.json; sourceTree = "<group>"; };
-		1919DAB32209856500F6D2D2 /* food.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
 		1919DAB82209863000F6D2D2 /* PopupFoodmojiPagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupFoodmojiPagerCell.xib; sourceTree = "<group>"; };
 		191C1EF521F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiPagerCell.swift; sourceTree = "<group>"; };
 		191C1EF921F23E6700F31ED8 /* PopupFoodmojiPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFoodmojiPagerView.swift; sourceTree = "<group>"; };
@@ -93,6 +91,7 @@
 		192973E121EECBA90021B05E /* ResultTranslationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTranslationCell.swift; sourceTree = "<group>"; };
 		192973E221EECBA90021B05E /* ResultTranslationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTranslationCell.xib; sourceTree = "<group>"; };
 		193D655B21E32F5200FAB1DE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		194480E82217E444005E45D7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		195B99A021E0E8A300367456 /* YelloSakedong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelloSakedong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		195B99A321E0E8A300367456 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		195B99A821E0E8A300367456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,11 +108,12 @@
 		19800EFC2204B236005D5EEA /* Foodmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foodmoji.swift; sourceTree = "<group>"; };
 		1995740522056B0A005903EF /* ColorChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChip.swift; sourceTree = "<group>"; };
 		19A976BE2206F42600534088 /* Notification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+.swift"; sourceTree = "<group>"; };
-		40609488D999FFB5247FC345 /* Pods_YelloSakedong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YelloSakedong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6609C43A3087759D7CB35B3B /* Pods-YelloSakedong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.debug.xcconfig"; path = "Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.debug.xcconfig"; sourceTree = "<group>"; };
-		BCE12D1977317AD8409A261B /* Pods-YelloSakedong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.debug.xcconfig"; sourceTree = "<group>"; };
-		C963D2FC61E99F71FE3B2217 /* Pods-YelloSakedong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.release.xcconfig"; sourceTree = "<group>"; };
-		ED3E33EA866D68DDFD092837 /* Pods-YelloSakedong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.release.xcconfig"; path = "Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.release.xcconfig"; sourceTree = "<group>"; };
+		267E803D9EA0B54E264BBABD /* Pods-YelloSakedongTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedongTests.debug.xcconfig"; path = "Target Support Files/Pods-YelloSakedongTests/Pods-YelloSakedongTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3354FD5F95DCF8EB3CF062B1 /* Pods-YelloSakedongTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedongTests.release.xcconfig"; path = "Target Support Files/Pods-YelloSakedongTests/Pods-YelloSakedongTests.release.xcconfig"; sourceTree = "<group>"; };
+		4EBE870610029B7EE8992826 /* Pods-YelloSakedong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.release.xcconfig"; path = "Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.release.xcconfig"; sourceTree = "<group>"; };
+		7E34E94D4C5A66AF3889C3BE /* Pods_YelloSakedong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YelloSakedong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B58FBBB5C13A12DE8636948F /* Pods_YelloSakedongTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YelloSakedongTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E354AFF6202EB9FFCE1715CB /* Pods-YelloSakedong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedong.debug.xcconfig"; path = "Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53858AEE8F97CE1227F5569D /* Pods_YelloSakedong.framework in Frameworks */,
+				EDFE886612C6A92DECD279C4 /* Pods_YelloSakedong.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CFD3690796BE10BB46569BE /* Pods_YelloSakedongTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,15 +152,6 @@
 				1995740522056B0A005903EF /* ColorChip.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		1919DAB02209854A00F6D2D2 /* Dummy */ = {
-			isa = PBXGroup;
-			children = (
-				1919DAB12209855500F6D2D2 /* result.json */,
-				1919DAB32209856500F6D2D2 /* food.json */,
-			);
-			path = Dummy;
 			sourceTree = "<group>";
 		};
 		192973A721EE2F780021B05E /* Splash */ = {
@@ -232,6 +224,21 @@
 			path = Result;
 			sourceTree = "<group>";
 		};
+		194480E62217E41C005E45D7 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				194480E82217E444005E45D7 /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		194480E72217E434005E45D7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		195B999721E0E8A300367456 = {
 			isa = PBXGroup;
 			children = (
@@ -241,7 +248,7 @@
 				19800EE022049111005D5EEA /* YelloSakedongTests */,
 				195B99A121E0E8A300367456 /* Products */,
 				C20D6934ADC806EBE6D70F5E /* Pods */,
-				1C7219739D991305FB7A30D4 /* Frameworks */,
+				2663133AF42B78C275C89D4E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,8 +264,9 @@
 		195B99A221E0E8A300367456 /* YelloSakedong */ = {
 			isa = PBXGroup;
 			children = (
-				1919DAB02209854A00F6D2D2 /* Dummy */,
 				19800EF52204A4EC005D5EEA /* Protocol */,
+				194480E62217E41C005E45D7 /* Manager */,
+				194480E72217E434005E45D7 /* Service */,
 				192973C521EE393E0021B05E /* Model */,
 				190DA1F121EF163E00B8CF97 /* Common */,
 				192973A721EE2F780021B05E /* Splash */,
@@ -287,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				19800EE322049111005D5EEA /* Info.plist */,
+				1990A2AD2217D92B0024591E /* Test */,
 			);
 			path = YelloSakedongTests;
 			sourceTree = "<group>";
@@ -301,10 +310,18 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		1C7219739D991305FB7A30D4 /* Frameworks */ = {
+		1990A2AD2217D92B0024591E /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				40609488D999FFB5247FC345 /* Pods_YelloSakedong.framework */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		2663133AF42B78C275C89D4E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E34E94D4C5A66AF3889C3BE /* Pods_YelloSakedong.framework */,
+				B58FBBB5C13A12DE8636948F /* Pods_YelloSakedongTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -312,10 +329,10 @@
 		C20D6934ADC806EBE6D70F5E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6609C43A3087759D7CB35B3B /* Pods-YelloSakedong.debug.xcconfig */,
-				ED3E33EA866D68DDFD092837 /* Pods-YelloSakedong.release.xcconfig */,
-				BCE12D1977317AD8409A261B /* Pods-YelloSakedong.debug.xcconfig */,
-				C963D2FC61E99F71FE3B2217 /* Pods-YelloSakedong.release.xcconfig */,
+				E354AFF6202EB9FFCE1715CB /* Pods-YelloSakedong.debug.xcconfig */,
+				4EBE870610029B7EE8992826 /* Pods-YelloSakedong.release.xcconfig */,
+				267E803D9EA0B54E264BBABD /* Pods-YelloSakedongTests.debug.xcconfig */,
+				3354FD5F95DCF8EB3CF062B1 /* Pods-YelloSakedongTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -327,12 +344,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 195B99B221E0E8A400367456 /* Build configuration list for PBXNativeTarget "YelloSakedong" */;
 			buildPhases = (
-				0695EB171D331408D0C68692 /* [CP] Check Pods Manifest.lock */,
+				EDC449076C547D728036507B /* [CP] Check Pods Manifest.lock */,
 				195B999C21E0E8A300367456 /* Sources */,
 				195B999D21E0E8A300367456 /* Frameworks */,
 				195B999E21E0E8A300367456 /* Resources */,
 				195B99B621E0E97F00367456 /* ShellScript */,
-				2D07300F9672F8275030A458 /* [CP] Embed Pods Frameworks */,
+				87B5F561CB8FE6D97881BAED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -347,6 +364,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19800EE822049111005D5EEA /* Build configuration list for PBXNativeTarget "YelloSakedongTests" */;
 			buildPhases = (
+				BA3841DE38F1C178E8511E50 /* [CP] Check Pods Manifest.lock */,
 				19800EDB22049110005D5EEA /* Sources */,
 				19800EDC22049110005D5EEA /* Frameworks */,
 				19800EDD22049110005D5EEA /* Resources */,
@@ -407,7 +425,6 @@
 				192973CA21EE3A440021B05E /* .swiftlint.yml in Resources */,
 				195B99AE21E0E8A400367456 /* LaunchScreen.storyboard in Resources */,
 				192973E021EECADE0021B05E /* ResultInfoCell.xib in Resources */,
-				1919DAB42209856500F6D2D2 /* food.json in Resources */,
 				195B99AB21E0E8A400367456 /* Assets.xcassets in Resources */,
 				195B99A921E0E8A300367456 /* Main.storyboard in Resources */,
 				192973E421EECBA90021B05E /* ResultTranslationCell.xib in Resources */,
@@ -416,7 +433,6 @@
 				1919DABA2209863000F6D2D2 /* PopupFoodmojiPagerCell.xib in Resources */,
 				192973DA21EECA3F0021B05E /* Result.storyboard in Resources */,
 				19800EF022049AD1005D5EEA /* FoodmojiWithLabelView.xib in Resources */,
-				1919DAB22209855500F6D2D2 /* result.json in Resources */,
 				19800EF72204AD44005D5EEA /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,7 +447,80 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0695EB171D331408D0C68692 /* [CP] Check Pods Manifest.lock */ = {
+		195B99B621E0E97F00367456 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		87B5F561CB8FE6D97881BAED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA3841DE38F1C178E8511E50 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YelloSakedongTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDC449076C547D728036507B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -451,55 +540,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		195B99B621E0E97F00367456 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		2D07300F9672F8275030A458 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
-				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YelloSakedong/Pods-YelloSakedong-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -523,6 +563,7 @@
 				19800EF92204AE28005D5EEA /* NSLayoutConstraint+.swift in Sources */,
 				1919DAAF2209809000F6D2D2 /* KeyboardSubscriberProtocol.swift in Sources */,
 				19800EF42204A18F005D5EEA /* NotFoundViewController.swift in Sources */,
+				194480E92217E444005E45D7 /* NetworkManager.swift in Sources */,
 				192973CE21EEC8BF0021B05E /* UIColor+.swift in Sources */,
 				192973B921EE33F10021B05E /* MainViewController.swift in Sources */,
 				192973B521EE30200021B05E /* UIViewController+.swift in Sources */,
@@ -628,7 +669,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -683,7 +724,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -695,7 +736,7 @@
 		};
 		195B99B321E0E8A400367456 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCE12D1977317AD8409A261B /* Pods-YelloSakedong.debug.xcconfig */;
+			baseConfigurationReference = E354AFF6202EB9FFCE1715CB /* Pods-YelloSakedong.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -715,7 +756,7 @@
 		};
 		195B99B421E0E8A400367456 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C963D2FC61E99F71FE3B2217 /* Pods-YelloSakedong.release.xcconfig */;
+			baseConfigurationReference = 4EBE870610029B7EE8992826 /* Pods-YelloSakedong.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -735,6 +776,7 @@
 		};
 		19800EE622049111005D5EEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 267E803D9EA0B54E264BBABD /* Pods-YelloSakedongTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -756,6 +798,7 @@
 		};
 		19800EE722049111005D5EEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3354FD5F95DCF8EB3CF062B1 /* Pods-YelloSakedongTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

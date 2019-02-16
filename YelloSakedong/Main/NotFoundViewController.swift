@@ -20,11 +20,21 @@ final class NotFoundViewController: UIViewController {
 // MARK: - AddTasteButtonProtocol 구현
 
 extension NotFoundViewController: AddTasteButtonProtocol {
+  
   var addTasteButtonAction: Selector? {
     return #selector(addTasteButtonDidTap(_:))
   }
   
   @objc func addTasteButtonDidTap(_ sender: UIBarButtonItem) {
-    presentPopupViewController()
+    presentPopupViewController(foodName: foodName)
+  }
+}
+
+// MARK: - PopupViewDelegate 구현
+
+extension NotFoundViewController: PopupViewDelegate {
+  
+  var foodName: String? {
+    return nil
   }
 }

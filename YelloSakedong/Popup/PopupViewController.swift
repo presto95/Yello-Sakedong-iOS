@@ -11,8 +11,15 @@ import UIKit
 import FSPagerView
 import Hero
 
+protocol PopupViewDelegate: class {
+  
+  var foodName: String? { get }
+}
+
 /// 팝업 뷰 컨트롤러.
 final class PopupViewController: UIViewController {
+  
+  weak var delegate: PopupViewDelegate?
 
   /// 키보드가 나타나 있는가.
   private var isKeyboardAppeared: Bool = false
@@ -28,19 +35,24 @@ final class PopupViewController: UIViewController {
     return selectedIndexOfPagerView != nil && selectedIndexInPagerCell != nil
   }
   
+  private var isRegisterButtonEnabled: Bool {
+    get {
+      return registerButton.isEnabled
+    }
+    set {
+      registerButton.backgroundColor
+        = newValue ? Asset.yellow.color : UIColor(red: 248, green: 249, blue: 251)
+      registerButton.isEnabled = newValue
+    }
+  }
+  
   // MARK: - IBOutlet
   
   /// 팝업 배경 컨테이너 뷰.
   @IBOutlet private weak var backgroundView: UIView! {
     didSet {
-      backgroundView.layer.applySketchShadow(
-        color: .shadow,
-        alpha: 0.5,
-        x: 4,
-        y: 3,
-        blur: 12,
-        spread: 0
-      )
+      backgroundView.layer
+        .applySketchShadow(color: .shadow, alpha: 0.5, x: 4, y: 3, blur: 12, spread: 0)
       backgroundView.layer.cornerRadius = 6
     }
   }
@@ -60,35 +72,36 @@ final class PopupViewController: UIViewController {
   @IBOutlet private weak var registerButton: UIButton! {
     didSet {
       registerButton.isEnabled = false
-      let path = UIBezierPath(
-        roundedRect: registerButton.bounds,
-        byRoundingCorners: [.bottomLeft, .bottomRight],
-        cornerRadii: .init(width: 6, height: 0)
-      )
+      let path = UIBezierPath(roundedRect: registerButton.bounds,
+                              byRoundingCorners: [.bottomLeft, .bottomRight],
+                              cornerRadii: .init(width: 6, height: 0))
       let shapeLayer = CAShapeLayer()
       shapeLayer.path = path.cgPath
       registerButton.layer.mask = shapeLayer
-      registerButton.addTarget(
-        self,
-        action: #selector(registerButtonDidTap(_:)),
-        for: .touchUpInside
-      )
+      registerButton.addTarget(self,
+                               action: #selector(registerButtonDidTap(_:)),
+                               for: .touchUpInside)
     }
   }
   
   /// 취소 버튼.
   @IBOutlet private weak var cancelButton: UIButton! {
     didSet {
-      cancelButton.addTarget(
-        self,
-        action: #selector(cancelButtonDidTap(_:)),
-        for: .touchUpInside
-      )
+      cancelButton.addTarget(self,
+                             action: #selector(cancelButtonDidTap(_:)),
+                             for: .touchUpInside)
+    }
+  }
+  
+  /// 음식명 텍스트 필드.
+  @IBOutlet weak var foodNameTextField: UITextField! {
+    didSet {
+      foodNameTextField.text = delegate?.foodName
     }
   }
   
   /// 맛 디스크립션 입력받는 텍스트 뷰.
-  @IBOutlet private weak var textView: UITextView!
+  @IBOutlet private weak var contentsTextView: UITextView!
   
   /// 푸드모지 페이저 뷰.
   @IBOutlet private weak var pagerView: PopupFoodmojiPagerView! {
@@ -101,24 +114,22 @@ final class PopupViewController: UIViewController {
   /// 푸드모지 페이저 뷰 좌측 페이드 효과를 위한 뷰.
   @IBOutlet private weak var pagerViewLeadingGradientView: UIView! {
     didSet {
-      pagerViewLeadingGradientView.layer.applyGradient(
-        colors: [UIColor.white.cgColor, UIColor.clear.cgColor],
-        locations: [0, 1],
-        startPoint: .init(x: 0, y: 0.5),
-        endPoint: .init(x: 1, y: 0.5)
-      )
+      pagerViewLeadingGradientView.layer
+        .applyGradient(colors: [UIColor.white.cgColor, UIColor.clear.cgColor],
+                       locations: [0, 1],
+                       startPoint: .init(x: 0, y: 0.5),
+                       endPoint: .init(x: 1, y: 0.5))
     }
   }
   
   /// 푸드모지 페이저 뷰 우측 페이드 효과를 위한 뷰.
   @IBOutlet private weak var pagerViewTrailingGradientView: UIView! {
     didSet {
-      pagerViewTrailingGradientView.layer.applyGradient(
-        colors: [UIColor.clear.cgColor, UIColor.white.cgColor],
-        locations: [0, 1],
-        startPoint: .init(x: 0, y: 0.5),
-        endPoint: .init(x: 1, y: 0.5)
-      )
+      pagerViewTrailingGradientView.layer
+        .applyGradient(colors: [UIColor.clear.cgColor, UIColor.white.cgColor],
+                       locations: [0, 1],
+                       startPoint: .init(x: 0, y: 0.5),
+                       endPoint: .init(x: 1, y: 0.5))
     }
   }
   
@@ -147,7 +158,7 @@ final class PopupViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    textView.becomeFirstResponder()
+    contentsTextView.becomeFirstResponder()
   }
   
   deinit {
@@ -273,12 +284,10 @@ extension PopupViewController: FSPagerViewDelegate {
 // MARK: - PopupFoodmojiPagerCellDelegate 구현
 
 extension PopupViewController: PopupFoodmojiPagerCellDelegate {
-  func popupFoodmojiPagerCell(
-    _ popupFoodmojiPagerCell: PopupFoodmojiPagerCell,
-    didTapFoodmojiButton button: UIButton,
-    in pagerCellIndex: Int,
-    at buttonIndex: Int
-  ) {
+  func popupFoodmojiPagerCell(_ popupFoodmojiPagerCell: PopupFoodmojiPagerCell,
+                              didTapFoodmojiButton button: UIButton,
+                              at buttonIndex: Int,
+                              in pagerCellIndex: Int) {
     selectedIndexOfPagerView = pagerCellIndex
     selectedIndexInPagerCell = buttonIndex
     pagerView.reloadData()

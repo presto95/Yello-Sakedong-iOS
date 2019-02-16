@@ -45,6 +45,7 @@ final class ResultViewController: UIViewController {
     super.viewDidLoad()
     hero.isEnabled = true
     attachAddTasteButtonToNavigationBar()
+    navigationController?.interactivePopGestureRecognizer?.delegate = nil
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -64,14 +65,12 @@ extension ResultViewController: UITableViewDataSource {
   func tableView(
     _ tableView: UITableView,
     cellForRowAt indexPath: IndexPath
-  ) -> UITableViewCell {
+    ) -> UITableViewCell {
     let section = indexPath.section
     if section == 0 {
       // 0번 섹션: 정보 셀
-      let cell = tableView.dequeueReusableCell(
-        withIdentifier: CellIdentifier.infoCell,
-        for: indexPath
-      )
+      let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.infoCell,
+                                               for: indexPath)
       cell.hero.modifiers = [.fade, .scale(0.9), .translate(.init(x: 0, y: 32))]
       if let infoCell = cell as? ResultInfoCell {
         infoCell.delegate = self
@@ -79,39 +78,31 @@ extension ResultViewController: UITableViewDataSource {
       }
       return cell
     } else {
-      let cell = tableView.dequeueReusableCell(
-        withIdentifier: CellIdentifier.translationCell,
-        for: indexPath
-      )
+      let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.translationCell,
+                                               for: indexPath)
       cell.hero.modifiers = [.fade, .scale(0.9), .translate(.init(x: 0, y: 32))]
       if let translationCell = cell as? ResultTranslationCell {
         translationCell.delegate = self
         if section == 1 {
           // 1번 섹션: 내가 등록한 것을 표시하는 셀
           // 삭제 버튼 나타내고, 컬러칩 숨기고, 순위권에 있지 않음
-          translationCell.setState(
-            isDeleteButtonHidden: false,
-            isColorChipHidden: true,
-            isRanked: false
-          )
+          translationCell.setState(isDeleteButtonHidden: false,
+                                   isColorChipHidden: true,
+                                   isRanked: false)
           translationCell.backgroundColor = .myBackgroundColor
         } else if section == 2 {
           // 2번 섹션: 다른 사람이 등록한 것 중 순위권에 있는 것을 표시하는 셀
           // 삭제 버튼 숨기고, 컬러칩 나타내고, 순위권에 있음
-          translationCell.setState(
-            isDeleteButtonHidden: true,
-            isColorChipHidden: false,
-            isRanked: true
-          )
+          translationCell.setState(isDeleteButtonHidden: true,
+                                   isColorChipHidden: false,
+                                   isRanked: true)
           translationCell.backgroundColor = .rankedBackgroundColor
         } else {
           // 3번 섹션: 다른 사람이 등록한 것 중 순위권에 없는 것을 표시하는 셀
           // 삭제 버튼 숨기고, 컬러칩 숨기고, 순위권에 있지 않음
-          translationCell.setState(
-            isDeleteButtonHidden: true,
-            isColorChipHidden: true,
-            isRanked: false
-          )
+          translationCell.setState(isDeleteButtonHidden: true,
+                                   isColorChipHidden: true,
+                                   isRanked: false)
           translationCell.backgroundColor = .white
         }
       }
@@ -144,6 +135,7 @@ extension ResultViewController: UITableViewDataSource {
 // MARK: - ResultInfoCellDelegate 구현
 
 extension ResultViewController: ResultInfoCellDelegate {
+  
   func resultInfoCell(_ resultInfoCell: ResultInfoCell, didTapAddButton button: UIButton) {
     if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
       let imagePicker = UIImagePickerController()
@@ -158,17 +150,14 @@ extension ResultViewController: ResultInfoCellDelegate {
 // MARK: - ResultTranslationCellDelegate 구현
 
 extension ResultViewController: ResultTranslationCellDelegate {
-  func resultTranslationCell(
-    _ resultTranslationCell: ResultTranslationCell,
-    didTapLikeButton button: UIButton
-  ) {
+  
+  func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
+                             didTapLikeButton button: UIButton) {
     resultTranslationCell.adjustLikeCount()
   }
   
-  func resultTranslationCell(
-    _ resultTranslationCell: ResultTranslationCell,
-    didTapDeleteButton button: UIButton
-  ) {
+  func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
+                             didTapDeleteButton button: UIButton) {
     UIAlertController
       .alert(title: "", message: "삭제할까요?")
       .action(title: "네", style: .destructive) { _, _ in
@@ -182,22 +171,34 @@ extension ResultViewController: ResultTranslationCellDelegate {
 // MARK: - AddTasteButtonProtocol 구현
 
 extension ResultViewController: AddTasteButtonProtocol {
+  
   var addTasteButtonAction: Selector? {
     return #selector(addTasteButtonDidTap(_:))
   }
   
   @objc func addTasteButtonDidTap(_ sender: UIBarButtonItem) {
-    presentPopupViewController()
+    presentPopupViewController(foodName: foodName)
+  }
+}
+
+// MARK: - PopupViewDelegate 구현
+
+extension ResultViewController: PopupViewDelegate {
+  
+  var foodName: String? {
+    // 서버에서 온 푸드네임 정보를 여기에 할당하기
+    return ""
   }
 }
 
 // MARK: - UIImagePickerDelegate 구현
 
 extension ResultViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  
   func imagePickerController(
     _ picker: UIImagePickerController,
     didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
-  ) {
+    ) {
     if let image = info[.editedImage] as? UIImage,
       let infoCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ResultInfoCell {
       infoCell.setFoodImage(image)

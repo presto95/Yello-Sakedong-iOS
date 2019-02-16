@@ -8,8 +8,10 @@
 
 import Foundation
 
+/// 푸드모지 정의.
 enum Foodmoji: CaseIterable {
   
+  /// 큰 크기 푸드모지.
   enum Large: CaseIterable {
     
     case first
@@ -32,6 +34,7 @@ enum Foodmoji: CaseIterable {
     
     case tenth
     
+    /// 큰 크기 푸드모지 각 케이스에 해당하는 이미지.
     var image: AssetImageTypeAlias? {
       switch self {
       case .first:
@@ -57,15 +60,20 @@ enum Foodmoji: CaseIterable {
       }
     }
     
+    /// 큰 크기 푸드모지 개수.
     static var count: Int {
       return Foodmoji.Large.allCases.count
     }
     
+    /// 큰 크기 푸드모지의 특정 인덱스 이미지 가져오기.
     static func image(at index: Int) -> AssetImageTypeAlias? {
+      assert(index >= 0 && index < count,
+             "Index must be greater than or equal to 0 and less than 10.")
       return Foodmoji.Large.allCases[index].image
     }
   }
   
+  /// 중간 크기 푸드모지.
   enum Medium: CaseIterable {
     
     case first
@@ -88,6 +96,7 @@ enum Foodmoji: CaseIterable {
     
     case tenth
     
+    /// 중간 크기 푸드모지 각 케이스에 해당하는 이미지.
     var image: AssetImageTypeAlias? {
       switch self {
       case .first:
@@ -113,18 +122,24 @@ enum Foodmoji: CaseIterable {
       }
     }
     
+    /// 중간 크기 푸드모지 개수.
     static var count: Int {
       return Foodmoji.Medium.allCases.count
     }
     
+    /// 중간 크기 푸드모지의 특정 인덱스 이미지 가져오기.
     static func image(at index: Int) -> AssetImageTypeAlias? {
+      assert(index >= 0 && index < count,
+             "Index must be greater than or equal to 0 and less than 10.")
       return Foodmoji.Medium.allCases[index].image
 
     }
   }
   
+  /// 작은 크기 푸드모지.
   enum Small: CaseIterable {
     
+    /// 작은 크기 색깔 입혀진 푸드모지.
     enum Colored: CaseIterable {
       
       case first
@@ -147,6 +162,7 @@ enum Foodmoji: CaseIterable {
       
       case tenth
       
+      /// 작은 색 있는 푸드모지 각 케이스에 해당하는 이미지.
       var image: AssetImageTypeAlias? {
         switch self {
         case .first:
@@ -172,15 +188,20 @@ enum Foodmoji: CaseIterable {
         }
       }
       
+      /// 작은 색 있는 푸드모지 개수.
       static var count: Int {
         return Foodmoji.Small.Colored.allCases.count
       }
       
+      /// 작은 색 있는 푸드모지의 특정 인덱스 이미지 가져오기.
       static func image(at index: Int) -> AssetImageTypeAlias? {
+        assert(index >= 0 && index < count,
+               "Index must be greater than or equal to 0 and less than 10.")
         return Foodmoji.Small.Colored.allCases[index].image
       }
     }
     
+    /// 작은 크기 색깔 없는 푸드모지.
     enum Uncolored: CaseIterable {
       
       case first
@@ -203,6 +224,7 @@ enum Foodmoji: CaseIterable {
       
       case tenth
       
+      /// 작은 색 없는 푸드모지 각 케이스에 해당하는 이미지.
       var image: AssetImageTypeAlias? {
         switch self {
         case .first:
@@ -228,11 +250,15 @@ enum Foodmoji: CaseIterable {
         }
       }
       
+      /// 작은 색 없는 푸드모지 개수.
       static var count: Int {
         return Foodmoji.Small.Uncolored.allCases.count
       }
       
+      /// 작은 색 없는 푸드모지의 특정 인덱스 이미지 가져오기.
       static func image(at index: Int) -> AssetImageTypeAlias? {
+        assert(index >= 0 && index < count,
+               "Index must be greater than or equal to 0 and less than 10.")
         return Foodmoji.Small.Uncolored.allCases[index].image
       }
     }

@@ -9,6 +9,7 @@
 import UIKit
 
 import Hero
+import Then
 
 /// 첫 화면 뷰 컨트롤러.
 final class MainViewController: UIViewController {
@@ -84,7 +85,11 @@ final class MainViewController: UIViewController {
   
   /// 텍스트 필드 입력이 바뀌었을 때의 동작.
   @objc private func foodTextFieldTextDidChange(_ textField: UITextField) {
-    
+    if let isEmpty = textField.text?.isEmpty, !isEmpty {
+      foodmojiButton.isEnabled = true
+    } else {
+      foodmojiButton.isEnabled = false
+    }
   }
   
   /// 푸드모지 버튼 클릭시 동작.
@@ -98,19 +103,19 @@ final class MainViewController: UIViewController {
   
   /// 푸드모지 버튼 초기화.
   private func initializeFoodmojiButton() {
-    foodmojiButton = UIButton(type: .system)
-    foodmojiButton.alpha = 0
-    foodmojiButton.setImage(Foodmoji.Large.tenth.image, for: [])
-    foodmojiButton.imageView?.contentMode = .scaleAspectFit
-    foodmojiButton.sizeToFit()
-    foodmojiButton.transform = .init(scaleX: 0.1, y: 0.1)
-    let center = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height)
-    foodmojiButton.center = center
-    foodmojiButton.addTarget(
-      self,
-      action: #selector(foodmojiButtonDidTap(_:)),
-      for: .touchUpInside
-    )
+    let keyboardCenter: CGPoint = .init(x: UIScreen.main.bounds.width / 2,
+                                        y: UIScreen.main.bounds.height)
+    foodmojiButton = UIButton(type: .system).then {
+      $0.isEnabled = false
+      $0.alpha = 0
+      $0.setImage(Foodmoji.Large.tenth.image, for: [])
+      $0.imageView?.contentMode = .scaleAspectFit
+      $0.sizeToFit()
+      $0.transform = .init(scaleX: 0.1, y: 0.1)
+      $0.center = keyboardCenter
+      $0.addTarget(self, action: #selector(foodmojiButtonDidTap(_:)), for: .touchUpInside)
+      
+    }
   }
   
   /// 푸드모지 버튼 드러내기.
@@ -236,12 +241,22 @@ extension MainViewController: KeyboardSubscriberProtocol {
 // MARK: - AddTasteButtonProtocol 구현
 
 extension MainViewController: AddTasteButtonProtocol {
+  
   var addTasteButtonAction: Selector? {
     return #selector(addTasteButtonDidTap(_:))
   }
   
   @objc func addTasteButtonDidTap(_ sender: UIBarButtonItem) {
-    presentPopupViewController()
+    presentPopupViewController(foodName: foodName)
+  }
+}
+
+// MARK: - PopupViewDelegate 구현
+
+extension MainViewController: PopupViewDelegate {
+  
+  var foodName: String? {
+    return nil
   }
 }
 

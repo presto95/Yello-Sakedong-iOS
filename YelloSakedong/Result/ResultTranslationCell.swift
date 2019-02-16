@@ -8,22 +8,16 @@
 
 import UIKit
 
-import EFCountingLabel
-
 /// ResultTranslationCell의 델리게이트 프로토콜.
 protocol ResultTranslationCellDelegate: class {
   
   /// 좋아요 버튼을 탭했을 때의 동작.
-  func resultTranslationCell(
-    _ resultTranslationCell: ResultTranslationCell,
-    didTapLikeButton button: UIButton
-  )
+  func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
+                             didTapLikeButton button: UIButton)
   
   /// 삭제 버튼을 탭했을 때의 동작.
-  func resultTranslationCell(
-    _ resultTranslationCell: ResultTranslationCell,
-    didTapDeleteButton button: UIButton
-  )
+  func resultTranslationCell(_ resultTranslationCell: ResultTranslationCell,
+                             didTapDeleteButton button: UIButton)
 }
 
 /// 맛번역 테이블뷰 셀.
@@ -133,10 +127,12 @@ final class ResultTranslationCell: UITableViewCell {
   /// 설명 레이블.
   @IBOutlet private weak var descriptionLabel: UILabel!
 
+  /// 좋아요 버튼 탭할 때의 동작.
   @objc private func likeButtonDidTap(_ sender: UIButton) {
     delegate?.resultTranslationCell(self, didTapLikeButton: sender)
   }
   
+  /// 삭제 버튼 탭할 때의 동작.
   @objc private func deleteButtonDidTap(_ sender: UIButton) {
     delegate?.resultTranslationCell(self, didTapDeleteButton: sender)
   }
@@ -152,11 +148,7 @@ final class ResultTranslationCell: UITableViewCell {
   }
   
   /// 상태값에 따라 뷰 상태 설정.
-  func setState(
-    isDeleteButtonHidden: Bool,
-    isColorChipHidden: Bool,
-    isRanked: Bool
-  ) {
+  func setState(isDeleteButtonHidden: Bool, isColorChipHidden: Bool, isRanked: Bool) {
     self.isDeleteButtonHidden = isDeleteButtonHidden
     self.isColorChipHidden = isColorChipHidden
     self.isRanked = isRanked

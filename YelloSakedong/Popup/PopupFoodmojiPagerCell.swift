@@ -14,12 +14,10 @@ import FSPagerView
 protocol PopupFoodmojiPagerCellDelegate: class {
   
   /// 특정 셀 내의 특정 버튼을 탭할 때의 동작.
-  func popupFoodmojiPagerCell(
-    _ popupFoodmojiPagerCell: PopupFoodmojiPagerCell,
-    didTapFoodmojiButton button: UIButton,
-    in pagerCellIndex: Int,
-    at buttonIndex: Int
-  )
+  func popupFoodmojiPagerCell(_ popupFoodmojiPagerCell: PopupFoodmojiPagerCell,
+                              didTapFoodmojiButton button: UIButton,
+                              at buttonIndex: Int,
+                              in pagerCellIndex: Int)
 }
 
 /// 팝업 뷰 컨트롤러의 푸드모지 페이저 셀.
@@ -55,12 +53,10 @@ final class PopupFoodmojiPagerCell: FSPagerViewCell {
   
   /// 푸드모지 버튼이 탭되었을 때의 동작.
   @objc private func foodmojiButtonDidTap(_ sender: UIButton) {
-    delegate?.popupFoodmojiPagerCell(
-      self,
-      didTapFoodmojiButton: sender,
-      in: cellIndex,
-      at: foodmojiButtons.firstIndex(of: sender) ?? 0
-    )
+    delegate?.popupFoodmojiPagerCell(self,
+                                     didTapFoodmojiButton: sender,
+                                     at: foodmojiButtons.firstIndex(of: sender) ?? 0,
+                                     in: cellIndex)
   }
   
   /// 푸드모지 버튼 설정.
