@@ -27,6 +27,11 @@ protocol NetworkManagerType: class {
                parameters: [String: Any],
                headers: [String: String],
                completion: @escaping (JSON?, StatusCode?, Error?) -> Void)
+  
+  func upload(_ urlString: String,
+              parameters: [String: Any],
+              headers: [String: String],
+              completion: @escaping (JSON?, StatusCode?, Error?) -> Void)
 }
 
 /// 네트워크 매니저.
@@ -52,5 +57,42 @@ final class NetworkManager: NetworkManagerType {
         let error = response.error
         completion(json, statusCode, error)
     }
+  }
+  
+  func upload(_ urlString: String,
+              parameters: [String: Any],
+              headers: [String: String],
+              completion: @escaping (JSON?, StatusCode?, Error?) -> Void) {
+    Alamofire
+      .upload(
+        multipartFormData: { multipartFormData in
+          for (key, value) in parameters {
+            if let imageData = value as? Data {
+              multipartFormData.append(imageData, withName: key)
+            } else {
+              guard let value = "\(value)".data(using: .utf8) else {
+                completion(nil, nil, NSError(domain: "", code: 0, userInfo: nil))
+                return
+              }
+              multipartFormData.append(value, withName: key)
+            }
+          }
+      },
+        to: urlString,
+        encodingCompletion: { result in
+          switch result {
+          case let .success(request, _, _):
+            request.responseJSON { response in
+              let json = JSON(response)
+              let statusCode
+                = StatusCode(rawValue: response.response?.statusCode ?? 9999) ?? .default
+              let error = response.error
+              completion(json, statusCode, error)
+            }
+          case let .failure(error):
+            completion(nil, nil, error)
+          }
+      }
+    )
   }
 }

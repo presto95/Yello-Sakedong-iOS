@@ -7,6 +7,7 @@ excluded:
 - Pods/
 - YelloSakedong/Extension/
 - YelloSakedong/Supporting Files/
+- YelloSakedongTests/
 
 line_length:
   warning: 99

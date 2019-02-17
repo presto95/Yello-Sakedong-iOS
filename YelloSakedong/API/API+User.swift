@@ -57,7 +57,7 @@ final class APIUser: APIUserType {
           case .internalServerError:
             completion(nil, HTTPError.internalServerError)
           default:
-            break
+            completion(nil, HTTPError.default)
           }
     }
   }

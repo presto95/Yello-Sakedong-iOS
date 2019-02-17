@@ -46,12 +46,19 @@
 		195B99A921E0E8A300367456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 195B99A721E0E8A300367456 /* Main.storyboard */; };
 		195B99AB21E0E8A400367456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 195B99AA21E0E8A400367456 /* Assets.xcassets */; };
 		195B99AE21E0E8A400367456 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 195B99AC21E0E8A400367456 /* LaunchScreen.storyboard */; };
+		195E58612219478100214E52 /* PopupInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195E58602219478100214E52 /* PopupInput.swift */; };
+		195E586322194CE400214E52 /* DummyAPIFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195E586222194CE400214E52 /* DummyAPIFood.swift */; };
 		19800EF022049AD1005D5EEA /* FoodmojiWithLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19800EEF22049AD1005D5EEA /* FoodmojiWithLabelView.xib */; };
 		19800EF42204A18F005D5EEA /* NotFoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EF32204A18F005D5EEA /* NotFoundViewController.swift */; };
 		19800EF72204AD44005D5EEA /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 19800EF62204AD43005D5EEA /* swiftgen.yml */; };
 		19800EF92204AE28005D5EEA /* NSLayoutConstraint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EF82204AE28005D5EEA /* NSLayoutConstraint+.swift */; };
 		19800EFB2204B033005D5EEA /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EFA2204B033005D5EEA /* ProgressViewController.swift */; };
 		19800EFD2204B236005D5EEA /* Foodmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19800EFC2204B236005D5EEA /* Foodmoji.swift */; };
+		1981549F22187AB500ACA860 /* API+Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1981549E22187AB500ACA860 /* API+Food.swift */; };
+		198154A122187BDC00ACA860 /* TestAPIUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198154A022187BDC00ACA860 /* TestAPIUser.swift */; };
+		198154A422187BED00ACA860 /* TestAPIFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198154A322187BED00ACA860 /* TestAPIFood.swift */; };
+		198154A722187BF900ACA860 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198154A622187BF900ACA860 /* MockNetworkManager.swift */; };
+		198154AA22187D0100ACA860 /* DummyAPIUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198154A922187D0100ACA860 /* DummyAPIUser.swift */; };
 		1995740622056B0A005903EF /* ColorChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995740522056B0A005903EF /* ColorChip.swift */; };
 		19A976BF2206F42600534088 /* Notification+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A976BE2206F42600534088 /* Notification+.swift */; };
 		1CFD3690796BE10BB46569BE /* Pods_YelloSakedongTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58FBBB5C13A12DE8636948F /* Pods_YelloSakedongTests.framework */; };
@@ -110,6 +117,8 @@
 		195B99AA21E0E8A400367456 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		195B99AD21E0E8A400367456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		195B99AF21E0E8A400367456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		195E58602219478100214E52 /* PopupInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupInput.swift; sourceTree = "<group>"; };
+		195E586222194CE400214E52 /* DummyAPIFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAPIFood.swift; sourceTree = "<group>"; };
 		19800EDF22049110005D5EEA /* YelloSakedongTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YelloSakedongTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19800EE322049111005D5EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19800EEF22049AD1005D5EEA /* FoodmojiWithLabelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodmojiWithLabelView.xib; sourceTree = "<group>"; };
@@ -118,6 +127,11 @@
 		19800EF82204AE28005D5EEA /* NSLayoutConstraint+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+.swift"; sourceTree = "<group>"; };
 		19800EFA2204B033005D5EEA /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		19800EFC2204B236005D5EEA /* Foodmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foodmoji.swift; sourceTree = "<group>"; };
+		1981549E22187AB500ACA860 /* API+Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Food.swift"; sourceTree = "<group>"; };
+		198154A022187BDC00ACA860 /* TestAPIUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIUser.swift; sourceTree = "<group>"; };
+		198154A322187BED00ACA860 /* TestAPIFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIFood.swift; sourceTree = "<group>"; };
+		198154A622187BF900ACA860 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		198154A922187D0100ACA860 /* DummyAPIUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAPIUser.swift; sourceTree = "<group>"; };
 		1995740522056B0A005903EF /* ColorChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChip.swift; sourceTree = "<group>"; };
 		19A976BE2206F42600534088 /* Notification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+.swift"; sourceTree = "<group>"; };
 		267E803D9EA0B54E264BBABD /* Pods-YelloSakedongTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelloSakedongTests.debug.xcconfig"; path = "Target Support Files/Pods-YelloSakedongTests/Pods-YelloSakedongTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -214,15 +228,9 @@
 				1919DAB82209863000F6D2D2 /* PopupFoodmojiPagerCell.xib */,
 				191C1EF521F23D9400F31ED8 /* PopupFoodmojiPagerCell.swift */,
 				192973C321EE38EC0021B05E /* PopupViewController.swift */,
+				195E58602219478100214E52 /* PopupInput.swift */,
 			);
 			path = Popup;
-			sourceTree = "<group>";
-		};
-		192973C521EE393E0021B05E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		192973D621EECA170021B05E /* Result */ = {
@@ -238,18 +246,12 @@
 			path = Result;
 			sourceTree = "<group>";
 		};
-		194480E72217E434005E45D7 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		194480EA2217F13F005E45D7 /* API */ = {
 			isa = PBXGroup;
 			children = (
 				194480EC2217F17D005E45D7 /* API+Base.swift */,
 				194480EE2217F1E7005E45D7 /* API+User.swift */,
+				1981549E22187AB500ACA860 /* API+Food.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -262,13 +264,6 @@
 				194480F52217F6FC005E45D7 /* HTTPError.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		194480F02217F4AC005E45D7 /* Object Mapper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Object Mapper";
 			sourceTree = "<group>";
 		};
 		195B999721E0E8A300367456 = {
@@ -296,12 +291,9 @@
 		195B99A221E0E8A300367456 /* YelloSakedong */ = {
 			isa = PBXGroup;
 			children = (
-				194480F02217F4AC005E45D7 /* Object Mapper */,
 				194480EB2217F14B005E45D7 /* Network */,
 				194480EA2217F13F005E45D7 /* API */,
 				19800EF52204A4EC005D5EEA /* Protocol */,
-				194480E72217E434005E45D7 /* Service */,
-				192973C521EE393E0021B05E /* Model */,
 				190DA1F121EF163E00B8CF97 /* Common */,
 				192973A721EE2F780021B05E /* Splash */,
 				192973A821EE2F810021B05E /* Main */,
@@ -329,7 +321,9 @@
 			isa = PBXGroup;
 			children = (
 				19800EE322049111005D5EEA /* Info.plist */,
-				1990A2AD2217D92B0024591E /* Test */,
+				198154A822187CF400ACA860 /* Dummy */,
+				198154A522187BF000ACA860 /* Mock */,
+				198154A222187BE200ACA860 /* Test */,
 			);
 			path = YelloSakedongTests;
 			sourceTree = "<group>";
@@ -344,11 +338,30 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		1990A2AD2217D92B0024591E /* Test */ = {
+		198154A222187BE200ACA860 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				198154A022187BDC00ACA860 /* TestAPIUser.swift */,
+				198154A322187BED00ACA860 /* TestAPIFood.swift */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		198154A522187BF000ACA860 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				198154A622187BF900ACA860 /* MockNetworkManager.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		198154A822187CF400ACA860 /* Dummy */ = {
+			isa = PBXGroup;
+			children = (
+				198154A922187D0100ACA860 /* DummyAPIUser.swift */,
+				195E586222194CE400214E52 /* DummyAPIFood.swift */,
+			);
+			path = Dummy;
 			sourceTree = "<group>";
 		};
 		2663133AF42B78C275C89D4E /* Frameworks */ = {
@@ -428,6 +441,7 @@
 					};
 					19800EDE22049110005D5EEA = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 195B999F21E0E8A300367456;
 					};
 				};
@@ -587,6 +601,7 @@
 				194480F62217F6FC005E45D7 /* HTTPError.swift in Sources */,
 				192973E321EECBA90021B05E /* ResultTranslationCell.swift in Sources */,
 				195B99A421E0E8A300367456 /* AppDelegate.swift in Sources */,
+				195E58612219478100214E52 /* PopupInput.swift in Sources */,
 				1919DAAD22097FEF00F6D2D2 /* Notification.Name+.swift in Sources */,
 				1995740622056B0A005903EF /* ColorChip.swift in Sources */,
 				19A976BF2206F42600534088 /* Notification+.swift in Sources */,
@@ -601,6 +616,7 @@
 				1919DAAF2209809000F6D2D2 /* KeyboardSubscriberProtocol.swift in Sources */,
 				19800EF42204A18F005D5EEA /* NotFoundViewController.swift in Sources */,
 				194480E92217E444005E45D7 /* NetworkManager.swift in Sources */,
+				1981549F22187AB500ACA860 /* API+Food.swift in Sources */,
 				194480EF2217F1E7005E45D7 /* API+User.swift in Sources */,
 				192973CE21EEC8BF0021B05E /* UIColor+.swift in Sources */,
 				192973B921EE33F10021B05E /* MainViewController.swift in Sources */,
@@ -625,6 +641,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				195E586322194CE400214E52 /* DummyAPIFood.swift in Sources */,
+				198154A722187BF900ACA860 /* MockNetworkManager.swift in Sources */,
+				198154A422187BED00ACA860 /* TestAPIFood.swift in Sources */,
+				198154AA22187D0100ACA860 /* DummyAPIUser.swift in Sources */,
+				198154A122187BDC00ACA860 /* TestAPIUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,6 +840,7 @@
 			baseConfigurationReference = 267E803D9EA0B54E264BBABD /* Pods-YelloSakedongTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H79MF628K3;
 				INFOPLIST_FILE = YelloSakedongTests/Info.plist;
@@ -830,6 +852,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.nexters.YelloSakedongTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YelloSakedong.app/YelloSakedong";
@@ -841,6 +864,7 @@
 			baseConfigurationReference = 3354FD5F95DCF8EB3CF062B1 /* Pods-YelloSakedongTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H79MF628K3;
 				INFOPLIST_FILE = YelloSakedongTests/Info.plist;
